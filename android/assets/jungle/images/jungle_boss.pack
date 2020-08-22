@@ -1,0 +1,892 @@
+
+jungle_boss.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+venom
+  rotate: false
+  xy: 1, 935
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 1
+venom
+  rotate: false
+  xy: 260, 935
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 2
+venom
+  rotate: false
+  xy: 519, 935
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 3
+venom
+  rotate: false
+  xy: 1, 882
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 4
+venom
+  rotate: false
+  xy: 260, 882
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 5
+venom
+  rotate: false
+  xy: 519, 882
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 6
+venom
+  rotate: false
+  xy: 1, 829
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 7
+venom
+  rotate: false
+  xy: 260, 829
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 8
+venom
+  rotate: false
+  xy: 519, 829
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 9
+venom
+  rotate: false
+  xy: 1, 776
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 10
+venom
+  rotate: false
+  xy: 260, 776
+  size: 257, 51
+  orig: 257, 51
+  offset: 0, 0
+  index: 11
+snake_boss_snake_loop
+  rotate: false
+  xy: 519, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 0
+snake_boss_snake_loop
+  rotate: false
+  xy: 519, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 12
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 500
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 1
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 500
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 13
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 2
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 10
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 14
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 22
+snake_boss_snake_loop
+  rotate: false
+  xy: 651, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 3
+snake_boss_snake_loop
+  rotate: false
+  xy: 651, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 9
+snake_boss_snake_loop
+  rotate: false
+  xy: 651, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 15
+snake_boss_snake_loop
+  rotate: false
+  xy: 651, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 21
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 224
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 4
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 224
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 8
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 224
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 16
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 224
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 20
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 5
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 7
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 17
+snake_boss_snake_loop
+  rotate: false
+  xy: 326, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 19
+snake_boss_snake_loop
+  rotate: false
+  xy: 651, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 6
+snake_boss_snake_loop
+  rotate: false
+  xy: 651, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 18
+
+jungle_boss2.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 11
+snake_boss_snake_loop
+  rotate: false
+  xy: 1, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 23
+snake_inside
+  rotate: false
+  xy: 326, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: -1
+snake_in
+  rotate: false
+  xy: 326, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 5
+snake_out
+  rotate: false
+  xy: 326, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 1
+snake_in
+  rotate: false
+  xy: 651, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 1
+snake_spit
+  rotate: false
+  xy: 651, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 1
+snake_spit
+  rotate: false
+  xy: 651, 553
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 12
+snake_in
+  rotate: false
+  xy: 1, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 2
+snake_in
+  rotate: false
+  xy: 326, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 3
+snake_in
+  rotate: false
+  xy: 651, 277
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 4
+snake_out
+  rotate: false
+  xy: 1, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 2
+snake_out
+  rotate: false
+  xy: 326, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 3
+snake_out
+  rotate: false
+  xy: 651, 1
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 4
+
+jungle_boss3.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_spit
+  rotate: false
+  xy: 1, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 2
+snake_spit
+  rotate: false
+  xy: 326, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 3
+snake_spit
+  rotate: false
+  xy: 651, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 4
+snake_spit
+  rotate: false
+  xy: 651, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 5
+snake_spit
+  rotate: false
+  xy: 651, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 6
+snake_spit
+  rotate: false
+  xy: 651, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 7
+snake_spit
+  rotate: false
+  xy: 651, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 8
+snake_spit
+  rotate: false
+  xy: 651, 664
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 9
+snake_spit
+  rotate: false
+  xy: 1, 388
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 10
+snake_spit
+  rotate: false
+  xy: 326, 388
+  size: 323, 274
+  orig: 323, 274
+  offset: 0, 0
+  index: 11
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 1
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 2
+
+jungle_boss4.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 3
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 4
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 5
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 6
+
+jungle_boss5.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 7
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 8
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 9
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 10
+
+jungle_boss6.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 11
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 12
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 13
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 14
+
+jungle_boss7.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 15
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 16
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 17
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 18
+
+jungle_boss8.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 19
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 20
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 21
+snake_boss_basket_loop
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 22
+
+jungle_boss9.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 23
+snake_boss_basket_loop
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 24
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 0
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 1
+
+jungle_boss10.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 2
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 3
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 4
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 5
+
+jungle_boss11.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 6
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 7
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 8
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 9
+
+jungle_boss12.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 10
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 11
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 12
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 13
+
+jungle_boss13.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 14
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 15
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 16
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 17
+
+jungle_boss14.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 18
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 19
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 20
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 21
+
+jungle_boss15.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 22
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 23
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 388
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 24
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 25
+
+jungle_boss16.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+snake_boss_snake_dying
+  rotate: false
+  xy: 1, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 26
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 27
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 28
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 29
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 30
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 31
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 32
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 33
+snake_boss_snake_dying
+  rotate: false
+  xy: 394, 1
+  size: 391, 385
+  orig: 391, 385
+  offset: 0, 0
+  index: 34

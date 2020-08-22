@@ -1,0 +1,894 @@
+{
+     "speed": 7,
+     "seconds": 45,
+     "openBack": "true",
+     "chiliRandomTime": 0,
+     "music": "batmine/music/dracoo.mp3",
+     "enemies": [{
+          "ctime":2.6054464567984854,
+          "name":"small_bat_flying",
+          "y":6.426250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.328660742512771,
+          "name":"small_bat_flying",
+          "y":11.238750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":1.4983035996556282,
+          "name":"small_bat_flying",
+          "y":3.223125036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":1.752767885369914,
+          "name":"small_bat_flying",
+          "y":5.613750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.018392885369914,
+          "name":"small_bat_flying",
+          "y":7.676250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.250535742512771,
+          "name":"small_bat_flying",
+          "y":9.270000036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.5741964567984854,
+          "name":"small_bat_flying",
+          "y":10.738750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.9447321710842,
+          "name":"small_bat_flying",
+          "y":8.707500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.3554464567984854,
+          "name":"small_bat_flying",
+          "y":6.035625036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.685803599655628,
+          "name":"small_bat_flying",
+          "y":3.957500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":4.054107171084199,
+          "name":"small_bat_flying",
+          "y":1.8012500368058681,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":4.455892885369914,
+          "name":"small_bat_flying",
+          "y":1.2075000368058681,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":8.4603571710842,
+          "name":"small_bat_flying",
+          "y":7.832500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":4.993839313941343,
+          "name":"small_bat_flying",
+          "y":1.3950000368058681,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":5.511696456798485,
+          "name":"small_bat_flying",
+          "y":2.129375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.013928599655628,
+          "name":"small_bat_flying",
+          "y":4.551250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.232678599655628,
+          "name":"small_bat_flying",
+          "y":7.973125036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.694732171084199,
+          "name":"small_bat_flying",
+          "y":7.410625036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":7.288482171084199,
+          "name":"small_bat_flying",
+          "y":7.551250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":8.1009821710842,
+          "name":"small_bat_flying",
+          "y":7.738750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":7.717053599655628,
+          "name":"small_bat_flying",
+          "y":10.207500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":7.703660742512771,
+          "name":"small_bat_flying",
+          "y":7.754375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":7.719285742512771,
+          "name":"small_bat_flying",
+          "y":4.816875036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":7.730446456798485,
+          "name":"small_bat_flying",
+          "y":1.8950000368058681,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":8.95098216326109,
+          "name":"plant_flying",
+          "y":7.217968670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":9.808125020403947,
+          "name":"plant_flying",
+          "y":6.014843670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":10.553660734689661,
+          "name":"plant_flying",
+          "y":1.7648436706513166,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":11.339375020403947,
+          "name":"plant_flying",
+          "y":3.5148436706513166,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":11.74785716326109,
+          "name":"plant_flying",
+          "y":8.061718670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":12.631785734689661,
+          "name":"plant_flying",
+          "y":6.936718670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":13.129553591832519,
+          "name":"plant_flying",
+          "y":10.014843670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":13.959910734689661,
+          "name":"plant_flying",
+          "y":6.030468670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":15.109464306118232,
+          "name":"plant_flying",
+          "y":5.311718670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":16.174196448975376,
+          "name":"plant_flying",
+          "y":8.249218670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":17.714375020403942,
+          "name":"plant_flying",
+          "y":3.5460936706513166,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":19.09830359183252,
+          "name":"plant_flying",
+          "y":8.061718670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":20.933125020403946,
+          "name":"plant_flying",
+          "y":5.124218670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":22.321517877546803,
+          "name":"plant_flying",
+          "y":10.467968670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":23.500089306118234,
+          "name":"plant_flying",
+          "y":1.8585936706513166,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":16.967053599655628,
+          "name":"small_bat_flying",
+          "y":5.957500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":18.348750028227055,
+          "name":"small_bat_flying",
+          "y":5.895000036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":20.036250028227055,
+          "name":"small_bat_flying",
+          "y":6.363750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":22.3822321710842,
+          "name":"small_bat_flying",
+          "y":7.629375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":22.4291071710842,
+          "name":"small_bat_flying",
+          "y":4.004375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":24.089843725253427,
+          "name":"big_bat_flying",
+          "y":3.4921874552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":24.770647296682,
+          "name":"big_bat_flying",
+          "y":5.039062455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":25.576450868110573,
+          "name":"big_bat_flying",
+          "y":6.148437455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":26.092075868110573,
+          "name":"big_bat_flying",
+          "y":8.398437455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":26.601004439539143,
+          "name":"big_bat_flying",
+          "y":10.757812455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":27.163504439539143,
+          "name":"big_bat_flying",
+          "y":7.335937455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":27.674665153824858,
+          "name":"big_bat_flying",
+          "y":3.4921874552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":28.304129439539143,
+          "name":"big_bat_flying",
+          "y":0.8046874552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.295178599655628,
+          "name":"small_bat_flying",
+          "y":10.191875036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":13.221071448975376,
+          "name":"plant_flying",
+          "y":3.4679686706513166,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":26.61616073468966,
+          "name":"plant_flying",
+          "y":4.530468670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":28.438058010967715,
+          "name":"big_bat_flying",
+          "y":6.960937455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":29.192522296682,
+          "name":"big_bat_flying",
+          "y":1.5234374552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":30.214843725253427,
+          "name":"big_bat_flying",
+          "y":6.414062455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":31.871093725253427,
+          "name":"big_bat_flying",
+          "y":9.570312455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":33.30412943953915,
+          "name":"big_bat_flying",
+          "y":2.0234374552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":34.71037943953915,
+          "name":"big_bat_flying",
+          "y":7.070312455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":36.353236582396285,
+          "name":"big_bat_flying",
+          "y":10.789062455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":37.473772296682,
+          "name":"big_bat_flying",
+          "y":1.8515624552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":38.674665153824854,
+          "name":"big_bat_flying",
+          "y":7.632812455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.239397296682,
+          "name":"big_bat_flying",
+          "y":10.726562455296516,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":41.813058010967715,
+          "name":"big_bat_flying",
+          "y":2.1484374552965164,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":34.203214306118234,
+          "name":"plant_flying",
+          "y":3.2648436706513166,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":35.70767859183252,
+          "name":"plant_flying",
+          "y":7.921093670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":30.31303574251277,
+          "name":"small_bat_flying",
+          "y":3.129375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":30.21928574251277,
+          "name":"small_bat_flying",
+          "y":9.035625036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":31.967053599655628,
+          "name":"small_bat_flying",
+          "y":6.441875036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":31.911250028227055,
+          "name":"small_bat_flying",
+          "y":3.660625036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":33.40678574251278,
+          "name":"small_bat_flying",
+          "y":4.504375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":33.3978571710842,
+          "name":"small_bat_flying",
+          "y":8.332500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":35.1947321710842,
+          "name":"small_bat_flying",
+          "y":7.004375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":36.11214288536991,
+          "name":"small_bat_flying",
+          "y":9.004375036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":36.63892859965563,
+          "name":"small_bat_flying",
+          "y":8.707500036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":36.90455359965563,
+          "name":"small_bat_flying",
+          "y":6.801250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":37.203660742512774,
+          "name":"small_bat_flying",
+          "y":4.145000036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":37.90455359965563,
+          "name":"small_bat_flying",
+          "y":3.051250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":38.27508931394134,
+          "name":"small_bat_flying",
+          "y":4.988750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":38.69919645679848,
+          "name":"small_bat_flying",
+          "y":10.488750036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":38.71482145679848,
+          "name":"small_bat_flying",
+          "y":4.723125036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":39.3978571710842,
+          "name":"small_bat_flying",
+          "y":7.676250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":39.90232145679848,
+          "name":"small_bat_flying",
+          "y":9.176250036805868,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.82375002040395,
+          "name":"plant_flying",
+          "y":7.342968670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":41.27910716326109,
+          "name":"plant_flying",
+          "y":4.561718670651317,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     }],
+     "obstacles": [
+          {"ctime":42.09938611808632, "y": -0.10390665614977479, "name":"nextlevel"}
+     ],
+     "powerups": [
+          {"ctime":0.199799102598003, "x":25, "y": 10.090781286358833},
+          {"ctime":0.25337053116943153, "x":25, "y": 7.418906286358833},
+          {"ctime":4.643995531169431, "x":25, "y": 9.231406286358833},
+          {"ctime":4.693102674026575, "x":25, "y": 5.965781286358833},
+          {"ctime":10.512299102598003, "x":25, "y": 5.184531286358833},
+          {"ctime":17.61274553116943, "x":25, "y": 6.278281286358833},
+          {"ctime":28.89845981688372, "x":25, "y": 9.747031286358833},
+          {"ctime":36.18194195974086, "x":25, "y": 0.5126562863588333}
+     ],
+     "breaks": [
+
+     ]
+}

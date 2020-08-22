@@ -1,0 +1,641 @@
+{
+     "speed": 5,
+     "seconds": 45,
+     "openBack": "true",
+     "chiliRandomTime": 0,
+     "music": "batmine/music/reach.mp3",
+     "enemies": [{
+          "ctime":13.182531256973743,
+          "name":"Bat2",
+          "y":8.095156215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.6669062569737436,
+          "name":"Bat2",
+          "y":8.173281215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.8887812569737434,
+          "name":"Bat2",
+          "y":8.517031215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.0981562569737435,
+          "name":"Bat2",
+          "y":8.954531215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.3169062569737435,
+          "name":"Bat2",
+          "y":9.360781215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.6950312569737433,
+          "name":"Bat2",
+          "y":6.392031215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.9481562569737436,
+          "name":"Bat2",
+          "y":5.923281215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.4700312569737433,
+          "name":"Bat2",
+          "y":5.063906215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":3.2137812569737436,
+          "name":"Bat2",
+          "y":5.485781215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":12.907531256973744,
+          "name":"Bat2",
+          "y":10.313906215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":5.848156256973743,
+          "name":"Bat2",
+          "y":9.017031215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.045031256973743,
+          "name":"Bat2",
+          "y":9.438906215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.254406256973743,
+          "name":"Bat2",
+          "y":9.907656215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":5.845031256973743,
+          "name":"Bat2",
+          "y":7.079531215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.076281256973743,
+          "name":"Bat2",
+          "y":6.532656215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":6.323156256973744,
+          "name":"Bat2",
+          "y":5.985781215131283,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":13.160656256973743,
+          "name":"Bat2",
+          "y":9.860781215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":8.638781256973743,
+          "name":"Bat2",
+          "y":8.673281215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1,
+          "motionPeculiarity": 3,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":8.904406256973743,
+          "name":"Bat2",
+          "y":8.751406215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1,
+          "motionPeculiarity": 3,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":9.191906256973743,
+          "name":"Bat2",
+          "y":8.813906215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1,
+          "motionPeculiarity": 3,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":12.932531256973743,
+          "name":"Bat2",
+          "y":7.501406215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":11.057531256973743,
+          "name":"Bat2",
+          "y":4.126406215131283,
+          "ySpeed": 0,
+          "xSpeed": 10,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":11.363781256973743,
+          "name":"Bat2",
+          "y":4.157656215131283,
+          "ySpeed": 0,
+          "xSpeed": 10,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":11.641906256973744,
+          "name":"Bat2",
+          "y":4.204531215131283,
+          "ySpeed": 0,
+          "xSpeed": 10,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":10.739257814735174,
+          "name":"Bat1",
+          "y":4.387695273384452,
+          "ySpeed": 0,
+          "xSpeed": 10,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":8.298632814735175,
+          "name":"Bat1",
+          "y":9.012695273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1,
+          "motionPeculiarity": 3,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":5.595507814735174,
+          "name":"Bat1",
+          "y":8.137695273384452,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":2.398632814735174,
+          "name":"Bat1",
+          "y":7.356445273384452,
+          "ySpeed": 0,
+          "xSpeed": 9,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":13.373632814735174,
+          "name":"Bat1",
+          "y":8.981445273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":18.023156256973742,
+          "name":"Bat2",
+          "y":10.735781215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":18.191906256973745,
+          "name":"Bat2",
+          "y":10.751406215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":18.351281256973742,
+          "name":"Bat2",
+          "y":10.751406215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":17.786132814735176,
+          "name":"Bat1",
+          "y":10.950195273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":19.029882814735174,
+          "name":"Bat1",
+          "y":2.700195273384452,
+          "ySpeed": 0,
+          "xSpeed": 7,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":25.698632814735173,
+          "name":"Bat1",
+          "y":6.465820273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":27.711132814735173,
+          "name":"Bat1",
+          "y":9.684570273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":27.945507814735173,
+          "name":"Bat1",
+          "y":8.934570273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":28.123632814735174,
+          "name":"Bat1",
+          "y":8.122070273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":28.139257814735174,
+          "name":"Bat1",
+          "y":5.950195273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":27.970507814735175,
+          "name":"Bat1",
+          "y":4.903320273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":27.767382814735175,
+          "name":"Bat1",
+          "y":3.887695273384452,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":28.391906256973744,
+          "name":"Bat2",
+          "y":6.938906215131283,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.08925781473518,
+          "name":"Bat1",
+          "y":8.012695273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.498632814735174,
+          "name":"Bat1",
+          "y":6.247070273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.958007814735176,
+          "name":"Bat1",
+          "y":3.872070273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.373632814735174,
+          "name":"Bat1",
+          "y":8.028320273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.82363281473518,
+          "name":"Bat1",
+          "y":6.200195273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":41.27363281473517,
+          "name":"Bat1",
+          "y":3.887695273384452,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":40.63253125697374,
+          "name":"Bat2",
+          "y":7.782656215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":41.113781256973745,
+          "name":"Bat2",
+          "y":6.126406215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":41.56378125697374,
+          "name":"Bat2",
+          "y":3.626406215131283,
+          "ySpeed": 0,
+          "xSpeed": 13,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 0,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":19.410656256973745,
+          "name":"Bat2",
+          "y":2.563906215131283,
+          "ySpeed": 0,
+          "xSpeed": 7,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":19.713781256973743,
+          "name":"Bat2",
+          "y":2.501406215131283,
+          "ySpeed": 0,
+          "xSpeed": 7,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":20.023156256973742,
+          "name":"Bat2",
+          "y":2.532656215131283,
+          "ySpeed": 0,
+          "xSpeed": 7,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":20.310656256973743,
+          "name":"Bat2",
+          "y":2.517031215131283,
+          "ySpeed": 0,
+          "xSpeed": 7,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":25.941906256973745,
+          "name":"Bat2",
+          "y":6.173281215131283,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":26.116906256973742,
+          "name":"Bat2",
+          "y":6.251406215131283,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":26.298156256973744,
+          "name":"Bat2",
+          "y":6.282656215131283,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     },{
+          "ctime":26.463781256973743,
+          "name":"Bat2",
+          "y":6.282656215131283,
+          "ySpeed": 0,
+          "xSpeed": 12,
+          "motionDuration": 1.5,
+          "motionPeculiarity": 1,
+          "motionEquation": "linear.inout",
+          "motionInfinite": true
+     }],
+     "obstacles": [
+          {"ctime":13.088789068721235, "y": 0.030664031393826008, "name":"block_full"},
+          {"ctime":13.079414068721235, "y": 2.796289031393826, "name":"block_full"},
+          {"ctime":14.825878828484566, "y": -0.18261742079630494, "name":"column_b"},
+          {"ctime":15.189765640255064, "y": 8.840429545845836, "name":"longflat"},
+          {"ctime":19.169189453125, "y": 6.08056640625, "name":"stone_string"},
+          {"ctime":23.61578114256263, "y": 0.7573429979383945, "name":"long_bottom_second"},
+          {"ctime":21.625624991953373, "y": 0.8968747854232788, "name":"long_bottom_first"},
+          {"ctime":22.883124922215938, "y": 14.146874248981476, "name":"long_top_second"},
+          {"ctime":30.16329676024616, "y": 10.51296885125339, "name":"flat"},
+          {"ctime":29.77267176024616, "y": 7.02859385125339, "name":"flat"},
+          {"ctime":31.107046760246156, "y": 5.27859385125339, "name":"flat"},
+          {"ctime":30.110171760246157, "y": 2.6848438512533903, "name":"flat"},
+          {"ctime":31.578921760246157, "y": 9.45046885125339, "name":"flat"},
+          {"ctime":31.922671760246157, "y": 1.7629688512533903, "name":"flat"},
+          {"ctime":32.559814453125, "y": 7.45556640625, "name":"stone_string"},
+          {"ctime":34.25918569117785, "y": 0.197443223092705, "name":"needle_up"},
+          {"ctime":35.7, "y": 12.391571998596191, "name":"needle_down"},
+          {"ctime":36.90159798795357, "y": 9.06711646541953, "name":"square"},
+          {"ctime":36.90784798795357, "y": 7.426491465419531, "name":"square"},
+          {"ctime":36.91722298795357, "y": 5.817116465419531, "name":"square"},
+          {"ctime":36.92659798795357, "y": 4.192116465419531, "name":"square"},
+          {"ctime":37.20472298795357, "y": 9.06711646541953, "name":"square"},
+          {"ctime":38.326597987953576, "y": 11.22336646541953, "name":"square"},
+          {"ctime":38.373472987953576, "y": 1.2858664654195309, "name":"square"},
+          {"ctime":37.23597298795357, "y": 4.223366465419531, "name":"square"},
+          {"ctime":38.73878906872123, "y": 10.108789031393826, "name":"block_full"},
+          {"ctime":38.78566406872123, "y": 0.233789031393826, "name":"block_full"},
+          {"ctime":41.74574220739305, "y": 0.10781216016039252, "name":"nextlevel"},
+          {"ctime":6.250331445597112, "y": 0.11150602326961234, "name":"stalacmite_b"},
+          {"ctime":3.1681818056851627, "y": -0.2531960608030204, "name":"stalacmite_a"},
+          {"ctime":3.0356640687212346, "y": 10.874414031393826, "name":"block_full"},
+          {"ctime":6.220039068721235, "y": 11.405664031393826, "name":"block_full"}
+     ],
+     "powerups": [
+          {"ctime":0.12034374363720417, "x":25, "y": 6.043906286358833},
+          {"ctime":0.31096874363720417, "x":25, "y": 6.012656286358833},
+          {"ctime":21.779718743637204, "x":25, "y": 11.184531286358833},
+          {"ctime":32.739093743637206, "x":25, "y": 8.715781286358833}
+     ],
+     "breaks": [
+
+     ]
+}

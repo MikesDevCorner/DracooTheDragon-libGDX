@@ -1,0 +1,1227 @@
+
+bossbat_objects.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 2, 1512
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10001
+big_bat_dying
+  rotate: false
+  xy: 2, 997
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10002
+big_bat_dying
+  rotate: false
+  xy: 677, 1512
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10003
+big_bat_dying
+  rotate: false
+  xy: 2, 482
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10004
+big_bat_dying
+  rotate: false
+  xy: 677, 997
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10005
+big_bat_dying
+  rotate: false
+  xy: 1352, 1512
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10006
+big_bat_dying
+  rotate: false
+  xy: 677, 482
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10007
+big_bat_dying
+  rotate: false
+  xy: 1352, 997
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10008
+big_bat_dying
+  rotate: false
+  xy: 1352, 482
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10009
+fatbat_flying
+  rotate: false
+  xy: 2, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 1
+fatbat_flying
+  rotate: false
+  xy: 2, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 34
+fatbat_flying
+  rotate: false
+  xy: 411, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 2
+fatbat_flying
+  rotate: false
+  xy: 411, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 35
+fatbat_flying
+  rotate: false
+  xy: 820, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 3
+fatbat_flying
+  rotate: false
+  xy: 820, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 36
+fatbat_flying
+  rotate: false
+  xy: 1229, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 4
+fatbat_flying
+  rotate: false
+  xy: 1229, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 37
+fatbat_flying
+  rotate: false
+  xy: 1638, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 5
+fatbat_flying
+  rotate: false
+  xy: 1638, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 38
+bone
+  rotate: false
+  xy: 2, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 0
+bone
+  rotate: false
+  xy: 2, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 1
+bone
+  rotate: false
+  xy: 74, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 2
+bone
+  rotate: false
+  xy: 74, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 3
+bone
+  rotate: false
+  xy: 146, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 4
+bone
+  rotate: false
+  xy: 146, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 5
+bone
+  rotate: false
+  xy: 218, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 6
+bone
+  rotate: false
+  xy: 218, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 7
+bone
+  rotate: false
+  xy: 290, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 8
+bone
+  rotate: false
+  xy: 290, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 9
+bone
+  rotate: false
+  xy: 362, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 10
+bone
+  rotate: false
+  xy: 362, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 11
+bone
+  rotate: false
+  xy: 434, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 12
+bone
+  rotate: false
+  xy: 434, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 13
+bone
+  rotate: false
+  xy: 506, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 14
+bone
+  rotate: false
+  xy: 506, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 15
+bone
+  rotate: false
+  xy: 578, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 16
+bone
+  rotate: false
+  xy: 578, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 17
+bone
+  rotate: false
+  xy: 650, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 18
+bone
+  rotate: false
+  xy: 650, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 19
+bone
+  rotate: false
+  xy: 722, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 20
+bone
+  rotate: false
+  xy: 722, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 21
+bone
+  rotate: false
+  xy: 794, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 22
+bone
+  rotate: false
+  xy: 794, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 23
+bone
+  rotate: false
+  xy: 866, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 24
+bone
+  rotate: false
+  xy: 866, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 25
+bone
+  rotate: false
+  xy: 938, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 26
+bone
+  rotate: false
+  xy: 938, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 27
+bone
+  rotate: false
+  xy: 1010, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 28
+bone
+  rotate: false
+  xy: 1010, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 29
+bone
+  rotate: false
+  xy: 1082, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 30
+bone
+  rotate: false
+  xy: 1082, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 31
+bone
+  rotate: false
+  xy: 1154, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 32
+bone
+  rotate: false
+  xy: 1154, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 33
+bone
+  rotate: false
+  xy: 1226, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 34
+bone
+  rotate: false
+  xy: 1226, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 35
+skull
+  rotate: false
+  xy: 1298, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 0
+skull
+  rotate: false
+  xy: 1298, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 1
+skull
+  rotate: false
+  xy: 1370, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 2
+skull
+  rotate: false
+  xy: 1370, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 3
+skull
+  rotate: false
+  xy: 1442, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 4
+skull
+  rotate: false
+  xy: 1442, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 5
+skull
+  rotate: false
+  xy: 1514, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 6
+skull
+  rotate: false
+  xy: 1514, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 7
+skull
+  rotate: false
+  xy: 1586, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 8
+skull
+  rotate: false
+  xy: 1586, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 9
+skull
+  rotate: false
+  xy: 1658, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 10
+skull
+  rotate: false
+  xy: 1658, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 11
+skull
+  rotate: false
+  xy: 1730, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 12
+skull
+  rotate: false
+  xy: 1730, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 13
+skull
+  rotate: false
+  xy: 1802, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 14
+skull
+  rotate: false
+  xy: 1802, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 15
+skull
+  rotate: false
+  xy: 1874, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 16
+skull
+  rotate: false
+  xy: 1874, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 17
+skull
+  rotate: false
+  xy: 1946, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 18
+skull
+  rotate: false
+  xy: 1946, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 19
+
+bossbat_objects2.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 2, 1512
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10010
+big_bat_dying
+  rotate: false
+  xy: 2, 997
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10011
+big_bat_dying
+  rotate: false
+  xy: 677, 1512
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10012
+big_bat_dying
+  rotate: false
+  xy: 2, 482
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10013
+big_bat_dying
+  rotate: false
+  xy: 677, 997
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10014
+big_bat_dying
+  rotate: false
+  xy: 1352, 1512
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10015
+big_bat_dying
+  rotate: false
+  xy: 677, 482
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10016
+big_bat_dying
+  rotate: false
+  xy: 1352, 997
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10017
+big_bat_dying
+  rotate: false
+  xy: 1352, 482
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10018
+fatbat_flying
+  rotate: false
+  xy: 2, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 6
+fatbat_flying
+  rotate: false
+  xy: 2, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 39
+fatbat_flying
+  rotate: false
+  xy: 411, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 7
+fatbat_flying
+  rotate: false
+  xy: 411, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 40
+fatbat_flying
+  rotate: false
+  xy: 820, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 8
+fatbat_flying
+  rotate: false
+  xy: 820, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 41
+fatbat_flying
+  rotate: false
+  xy: 1229, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 9
+fatbat_flying
+  rotate: false
+  xy: 1229, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 42
+fatbat_flying
+  rotate: false
+  xy: 1638, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 10
+fatbat_flying
+  rotate: false
+  xy: 1638, 146
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 43
+skull
+  rotate: false
+  xy: 2, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 20
+skull
+  rotate: false
+  xy: 2, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 21
+skull
+  rotate: false
+  xy: 74, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 22
+skull
+  rotate: false
+  xy: 74, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 23
+skull
+  rotate: false
+  xy: 146, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 24
+skull
+  rotate: false
+  xy: 146, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 25
+skull
+  rotate: false
+  xy: 218, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 26
+skull
+  rotate: false
+  xy: 218, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 27
+skull
+  rotate: false
+  xy: 290, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 28
+skull
+  rotate: false
+  xy: 290, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 29
+skull
+  rotate: false
+  xy: 362, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 30
+skull
+  rotate: false
+  xy: 362, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 31
+skull
+  rotate: false
+  xy: 434, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 32
+skull
+  rotate: false
+  xy: 434, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 33
+skull
+  rotate: false
+  xy: 506, 74
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 34
+skull
+  rotate: false
+  xy: 506, 2
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: 35
+
+bossbat_objects3.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 2, 1368
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10019
+big_bat_dying
+  rotate: false
+  xy: 2, 853
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10020
+big_bat_dying
+  rotate: false
+  xy: 677, 1368
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10021
+big_bat_dying
+  rotate: false
+  xy: 2, 338
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10022
+big_bat_dying
+  rotate: false
+  xy: 677, 853
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10023
+big_bat_dying
+  rotate: false
+  xy: 1352, 1368
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10024
+big_bat_dying
+  rotate: false
+  xy: 677, 338
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10025
+big_bat_dying
+  rotate: false
+  xy: 1352, 853
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10026
+big_bat_dying
+  rotate: false
+  xy: 1352, 338
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10027
+fatbat_flying
+  rotate: false
+  xy: 2, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 11
+fatbat_flying
+  rotate: false
+  xy: 2, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 44
+fatbat_flying
+  rotate: false
+  xy: 411, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 12
+fatbat_flying
+  rotate: false
+  xy: 411, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 45
+fatbat_flying
+  rotate: false
+  xy: 820, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 13
+fatbat_flying
+  rotate: false
+  xy: 820, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 46
+fatbat_flying
+  rotate: false
+  xy: 1229, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 14
+fatbat_flying
+  rotate: false
+  xy: 1229, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 47
+fatbat_flying
+  rotate: false
+  xy: 1638, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 15
+fatbat_flying
+  rotate: false
+  xy: 1638, 2
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 48
+
+bossbat_objects4.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+fatbat_flying
+  rotate: false
+  xy: 2, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 16
+fatbat_flying
+  rotate: false
+  xy: 2, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 49
+fatbat_flying
+  rotate: false
+  xy: 411, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 17
+fatbat_flying
+  rotate: false
+  xy: 411, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 50
+fatbat_flying
+  rotate: false
+  xy: 820, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 18
+fatbat_flying
+  rotate: false
+  xy: 1229, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 19
+fatbat_flying
+  rotate: false
+  xy: 1638, 1704
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 20
+fatbat_flying
+  rotate: false
+  xy: 2, 1368
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 21
+fatbat_flying
+  rotate: false
+  xy: 411, 1368
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 22
+fatbat_flying
+  rotate: false
+  xy: 820, 1368
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 23
+fatbat_flying
+  rotate: false
+  xy: 1229, 1368
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 24
+fatbat_flying
+  rotate: false
+  xy: 1638, 1368
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 25
+fatbat_flying
+  rotate: false
+  xy: 2, 1032
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 26
+fatbat_flying
+  rotate: false
+  xy: 411, 1032
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 27
+fatbat_flying
+  rotate: false
+  xy: 820, 1032
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 28
+fatbat_flying
+  rotate: false
+  xy: 1229, 1032
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 29
+fatbat_flying
+  rotate: false
+  xy: 1638, 1032
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 30
+fatbat_flying
+  rotate: false
+  xy: 2, 696
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 31
+fatbat_flying
+  rotate: false
+  xy: 411, 696
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 32
+fatbat_flying
+  rotate: false
+  xy: 820, 696
+  size: 407, 334
+  orig: 407, 334
+  offset: 0, 0
+  index: 33
+big_bat_dying
+  rotate: false
+  xy: 1229, 517
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10028
+big_bat_dying
+  rotate: false
+  xy: 2, 181
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10029
+big_bat_dying
+  rotate: false
+  xy: 677, 2
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10030
+big_bat_dying
+  rotate: false
+  xy: 1352, 2
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10031
+
+bossbat_objects5.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 2, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10032
+big_bat_dying
+  rotate: false
+  xy: 2, 517
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10033
+big_bat_dying
+  rotate: false
+  xy: 677, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10034
+big_bat_dying
+  rotate: false
+  xy: 2, 2
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10035
+big_bat_dying
+  rotate: false
+  xy: 677, 517
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10036
+big_bat_dying
+  rotate: false
+  xy: 1352, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10037
+big_bat_dying
+  rotate: false
+  xy: 677, 2
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10038
+big_bat_dying
+  rotate: false
+  xy: 1352, 517
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10039
+big_bat_dying
+  rotate: false
+  xy: 1352, 2
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10040
+
+bossbat_objects6.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 2, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10041
+big_bat_dying
+  rotate: false
+  xy: 2, 517
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10042
+big_bat_dying
+  rotate: false
+  xy: 677, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10043
+big_bat_dying
+  rotate: false
+  xy: 2, 2
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10044
+big_bat_dying
+  rotate: false
+  xy: 677, 517
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10045
+big_bat_dying
+  rotate: false
+  xy: 1352, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10048
+big_bat_dying
+  rotate: false
+  xy: 1352, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10049
+big_bat_dying
+  rotate: false
+  xy: 1352, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10050
+big_bat_dying
+  rotate: false
+  xy: 1352, 1032
+  size: 673, 513
+  orig: 673, 513
+  offset: 0, 0
+  index: 10051

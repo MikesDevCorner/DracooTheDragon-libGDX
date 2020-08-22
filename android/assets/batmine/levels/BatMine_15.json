@@ -1,0 +1,19 @@
+{
+	"speed": 2,
+	"seconds": 86400,
+	"openBack":"false",
+	"chiliRandomTime":24,
+	"music": "batmine/music/reach.mp3",
+	"enemies": [
+		{"ctime":2, "name":"Bossbat", "y":7.5, "ySpeed": 0, "xSpeed": 8, "motionDuration": 1.2, "motionPeculiarity": 6, "motionEquation": "quint.inout", "motionInfinite": true}
+	],
+	"obstacles": [
+		
+	],
+	"powerups": [
+		{"ctime":3, "y":2, "x":24}
+	],
+	"breaks": [
+
+	]
+}

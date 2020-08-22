@@ -1,0 +1,55 @@
+<levelpacks>
+	<pack name="BatMine">
+		<level number="1" status="noeggs"/>
+		<level number="2" status="locked"/>
+		<level number="3" status="locked"/>
+		<level number="4" status="locked"/>
+		<level number="5" status="locked"/>
+		<level number="6" status="locked"/>
+		<level number="7" status="locked"/>
+		<level number="8" status="locked"/>
+		<level number="9" status="locked"/>
+		<level number="10" status="locked"/>
+		<level number="11" status="locked"/>
+		<level number="12" status="locked"/>
+		<level number="13" status="locked"/>
+		<level number="14" status="locked"/>
+		<level number="15" status="locked"/>
+	</pack>
+	
+	<pack name="Jungle">
+		<level number="1" status="noeggs"/>
+		<level number="2" status="locked"/>
+		<level number="3" status="locked"/>
+		<level number="4" status="locked"/>
+		<level number="5" status="locked"/>
+		<level number="6" status="locked"/>
+		<level number="7" status="locked"/>
+		<level number="8" status="locked"/>
+		<level number="9" status="locked"/>
+		<level number="10" status="locked"/>
+		<level number="11" status="locked"/>
+		<level number="12" status="locked"/>
+		<level number="13" status="locked"/>
+		<level number="14" status="locked"/>
+		<level number="15" status="locked"/>
+	</pack>
+
+	<pack name="Retro">
+		<level number="1" status="noeggs"/>
+		<level number="2" status="locked"/>
+		<level number="3" status="locked"/>
+		<level number="4" status="locked"/>
+		<level number="5" status="locked"/>
+		<level number="6" status="locked"/>
+		<level number="7" status="locked"/>
+		<level number="8" status="locked"/>
+		<level number="9" status="locked"/>
+		<level number="10" status="locked"/>
+		<level number="11" status="locked"/>
+		<level number="12" status="locked"/>
+		<level number="13" status="locked"/>
+		<level number="14" status="locked"/>
+		<level number="15" status="locked"/>
+	</pack>
+</levelpacks>

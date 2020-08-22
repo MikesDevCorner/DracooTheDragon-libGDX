@@ -1,0 +1,19 @@
+{
+	"speed": 6,
+	"seconds": 86400,
+	"openBack":"false",
+	"chiliRandomTime":18,
+	"music": "batmine/music/dracoo.mp3",
+	"enemies": [
+		{"ctime":2, "name":"BossSnake", "y":6, "ySpeed": 0, "xSpeed": 8, "motionDuration": 2, "motionPeculiarity": 2.85, "motionEquation": "quint.inout", "motionInfinite": true}
+	],
+	"obstacles": [
+		
+	],
+	"powerups": [
+		{"ctime":3, "y":2, "x":24}
+	],
+	"breaks": [
+
+	]
+}
