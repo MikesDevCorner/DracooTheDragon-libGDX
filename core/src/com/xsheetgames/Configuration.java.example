@@ -39,7 +39,7 @@ public class Configuration {
 	public static String adPartner = "chartboost";  //chartboost, samsung
 	public static String store = "play"; //play, amazon, samsung
 
-	public static String GoogleAnalyticsTracker = "UA-31094209-6";
+	public static String GoogleAnalyticsTracker = "";
 
 	/*************************************************************/
 
@@ -55,11 +55,11 @@ public class Configuration {
 	public static boolean useIntroScreen = false;
 	public static boolean useOutroScreen = true;
 
-	public static String chartboostAppKeyPlay = "5194ed6617ba474e38000001";
-	public static String chartboostAppSigneturePlay = "751ca5e0eb970bcbcc074d09353562c83570715f";
+	public static String chartboostAppKeyPlay = "";
+	public static String chartboostAppSigneturePlay = "";
 
-	public static String chartboostAppKeyAmazon = "51981bec17ba47d870000002";
-	public static String chartboostAppSignetureAmazon = "b016dcbb181f5dd70856a7de49799c482558c8f6";
+	public static String chartboostAppKeyAmazon = "";
+	public static String chartboostAppSignetureAmazon = "";
 
 	public static boolean poolingInfos, contactInfos, spawnInfos, itemsQueryCallbackInfos;
 	public static int debugLevel;
