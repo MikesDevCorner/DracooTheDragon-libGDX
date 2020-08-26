@@ -36,8 +36,8 @@ public class DracooMainActivity extends AndroidApplication implements iNativeFun
 	DracooGdxGame theGame;
 	RelativeLayout layout;
 	boolean doInterstitial = false;
-	String appId = "YOUR_APP_ID";
-	String appSignature = "YOUR_APP_SIGNATURE";
+	String appId = "";
+	String appSignature = "";
 	
 	
 	/**ACTIVITY LIFECYCLE METHODEN***************************************************************************************/
@@ -55,9 +55,6 @@ public class DracooMainActivity extends AndroidApplication implements iNativeFun
     @Override
     public void onStop() {
     	super.onStop();
-    	if(Configuration.adPartner.equals("chartboost")) {
-    		//Chartboost.onStop(this);
-		}
     }
     
     @Override
@@ -192,9 +189,7 @@ public class DracooMainActivity extends AndroidApplication implements iNativeFun
 		        appSignature = Configuration.chartboostAppSignetureAmazon;
 	        }
 	        Chartboost.addDataUseConsent(this.getContext(), new GDPR(GDPR.GDPR_CONSENT.NON_BEHAVIORAL));
-
 	        Chartboost.setDelegate(delegate);
-	        //Chartboost .onCreate(this);
         }
         /* END Chartboost Stuff */
         
@@ -216,7 +211,7 @@ public class DracooMainActivity extends AndroidApplication implements iNativeFun
 		Intent browserIntent = new Intent(
 	    "android.intent.action.VIEW", 
 	    Uri.parse(url));
-		startActivity(browserIntent);		
+		startActivity(browserIntent);
 	}
 
 	public void share(String subject, String text) {
