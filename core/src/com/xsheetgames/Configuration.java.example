@@ -1,4 +1,4 @@
-package com.xsheetgames;
+/*package com.xsheetgames;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -28,7 +28,7 @@ public class Configuration {
 	public static final Calendar promotionDateEnd = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
 
 
-	/***********CONFIG FOR FULL VERSION / DEMO********************/
+	//***********CONFIG FOR FULL VERSION / DEMO*******************
 
 	public static boolean fullVersion = true;
 	public static boolean useAds = true;
@@ -41,14 +41,14 @@ public class Configuration {
 
 	public static String GoogleAnalyticsTracker = "";
 
-	/*************************************************************/
+	//************************************************************
 
 
 
-	/************INTERN VERSION INFO*****************************/
+	//************INTERN VERSION INFO****************************
 	public static final String VERSION = "1.9";
 	public static final String VERSION_DATE = "23.08.2020";
-	/************************************************************/
+	//***********************************************************
 
 
 	public static boolean waitForAd = false;
@@ -73,17 +73,17 @@ public class Configuration {
 
 	public static void load() {
 
-		/*****INITIAL SETTINGS CONFIGURATION****************/
+		//*****INITIAL SETTINGS CONFIGURATION***************
 		soundEnabled = true;
 		musicEnabled = true;
 		vibrateEnabled = true;
 		inputType = 1;
 		autoFire = false;
 		altAutoFire = true;
-		/***************************************************/
+		//**************************************************
 
 
-		/*****DEBUG CONFIGURATION****************************/
+		//*****DEBUG CONFIGURATION***************************
 		debugLevel = Application.LOG_ERROR;
 		//debugLevel = Application.LOG_DEBUG;
 		//debugLevel = Application.LOG_NONE;
@@ -92,7 +92,7 @@ public class Configuration {
 		contactInfos = false;
 		spawnInfos = false;
 		itemsQueryCallbackInfos = false;
-		/***************************************************/
+		//**************************************************
 
 
 		VIEWPORT_HEIGHT = 12.5f;
@@ -135,4 +135,4 @@ public class Configuration {
 			Gdx.app.setLogLevel(Configuration.debugLevel);
 		}
 	}
-}
+}*/
