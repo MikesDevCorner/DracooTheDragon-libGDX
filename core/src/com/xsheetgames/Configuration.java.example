@@ -1,4 +1,4 @@
-package com.xsheetgames;
+/*package com.xsheetgames;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -28,7 +28,7 @@ public class Configuration {
 	public static final Calendar promotionDateEnd = new GregorianCalendar(TimeZone.getTimeZone("UTC"));
 
 
-	/***********CONFIG FOR FULL VERSION / DEMO********************/
+	//***********CONFIG FOR FULL VERSION / DEMO*******************
 
 	public static boolean fullVersion = true;
 	public static boolean useAds = true;
@@ -39,27 +39,27 @@ public class Configuration {
 	public static String adPartner = "chartboost";  //chartboost, samsung
 	public static String store = "play"; //play, amazon, samsung
 
-	public static String GoogleAnalyticsTracker = "UA-31094209-6";
+	public static String GoogleAnalyticsTracker = "";
 
-	/*************************************************************/
+	//************************************************************
 
 
 
-	/************INTERN VERSION INFO*****************************/
+	//************INTERN VERSION INFO****************************
 	public static final String VERSION = "1.9";
 	public static final String VERSION_DATE = "23.08.2020";
-	/************************************************************/
+	//***********************************************************
 
 
 	public static boolean waitForAd = false;
 	public static boolean useIntroScreen = false;
 	public static boolean useOutroScreen = true;
 
-	public static String chartboostAppKeyPlay = "5194ed6617ba474e38000001";
-	public static String chartboostAppSigneturePlay = "751ca5e0eb970bcbcc074d09353562c83570715f";
+	public static String chartboostAppKeyPlay = "";
+	public static String chartboostAppSigneturePlay = "";
 
-	public static String chartboostAppKeyAmazon = "51981bec17ba47d870000002";
-	public static String chartboostAppSignetureAmazon = "b016dcbb181f5dd70856a7de49799c482558c8f6";
+	public static String chartboostAppKeyAmazon = "";
+	public static String chartboostAppSignetureAmazon = "";
 
 	public static boolean poolingInfos, contactInfos, spawnInfos, itemsQueryCallbackInfos;
 	public static int debugLevel;
@@ -73,17 +73,17 @@ public class Configuration {
 
 	public static void load() {
 
-		/*****INITIAL SETTINGS CONFIGURATION****************/
+		//*****INITIAL SETTINGS CONFIGURATION***************
 		soundEnabled = true;
 		musicEnabled = true;
 		vibrateEnabled = true;
 		inputType = 1;
 		autoFire = false;
 		altAutoFire = true;
-		/***************************************************/
+		//**************************************************
 
 
-		/*****DEBUG CONFIGURATION****************************/
+		//*****DEBUG CONFIGURATION***************************
 		debugLevel = Application.LOG_ERROR;
 		//debugLevel = Application.LOG_DEBUG;
 		//debugLevel = Application.LOG_NONE;
@@ -92,7 +92,7 @@ public class Configuration {
 		contactInfos = false;
 		spawnInfos = false;
 		itemsQueryCallbackInfos = false;
-		/***************************************************/
+		//**************************************************
 
 
 		VIEWPORT_HEIGHT = 12.5f;
@@ -135,4 +135,4 @@ public class Configuration {
 			Gdx.app.setLogLevel(Configuration.debugLevel);
 		}
 	}
-}
+}*/
