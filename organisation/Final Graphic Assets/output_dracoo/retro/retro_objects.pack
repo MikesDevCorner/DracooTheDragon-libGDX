@@ -1,0 +1,75 @@
+
+retro_objects.png
+format: RGBA4444
+filter: MipMapLinearNearest,Linear
+repeat: none
+rock_01_down
+  rotate: false
+  xy: 1, 519
+  size: 427, 500
+  orig: 427, 500
+  offset: 0, 0
+  index: -1
+rock_02_up
+  rotate: false
+  xy: 430, 619
+  size: 470, 400
+  orig: 470, 400
+  offset: 0, 0
+  index: -1
+rock_03_up
+  rotate: false
+  xy: 1, 82
+  size: 305, 435
+  orig: 305, 435
+  offset: 0, 0
+  index: -1
+rock_03_down
+  rotate: false
+  xy: 308, 82
+  size: 280, 435
+  orig: 280, 435
+  offset: 0, 0
+  index: -1
+rock_02_down
+  rotate: false
+  xy: 590, 337
+  size: 292, 280
+  orig: 292, 280
+  offset: 0, 0
+  index: -1
+rock_01_up
+  rotate: false
+  xy: 590, 100
+  size: 255, 235
+  orig: 255, 235
+  offset: 0, 0
+  index: -1
+bat2
+  rotate: false
+  xy: 902, 940
+  size: 115, 79
+  orig: 115, 79
+  offset: 0, 0
+  index: -1
+bat2_dead
+  rotate: false
+  xy: 1, 1
+  size: 115, 79
+  orig: 115, 79
+  offset: 0, 0
+  index: -1
+bat1
+  rotate: false
+  xy: 847, 215
+  size: 140, 120
+  orig: 140, 120
+  offset: 0, 0
+  index: -1
+bat1_dead
+  rotate: false
+  xy: 847, 93
+  size: 140, 120
+  orig: 140, 120
+  offset: 0, 0
+  index: -1
