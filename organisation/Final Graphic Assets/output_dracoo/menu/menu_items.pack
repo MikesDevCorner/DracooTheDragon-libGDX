@@ -1,0 +1,277 @@
+menu_items.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+backbtn
+  rotate: false
+  xy: 869, 2
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+batmine_packpic
+  rotate: false
+  xy: 2, 2
+  size: 416, 274
+  orig: 416, 274
+  offset: 0, 0
+  index: -1
+blackLayer
+  rotate: false
+  xy: 409, 798
+  size: 33, 25
+  orig: 33, 25
+  offset: 0, 0
+  index: -1
+btn_autofire
+  rotate: false
+  xy: 409, 693
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_autofire_off
+  rotate: false
+  xy: 511, 819
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_credits
+  rotate: false
+  xy: 642, 819
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_left
+  rotate: false
+  xy: 420, 98
+  size: 180, 181
+  orig: 180, 181
+  offset: 0, 0
+  index: -1
+btn_music
+  rotate: false
+  xy: 752, 291
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_music_off
+  rotate: false
+  xy: 752, 396
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_right
+  rotate: false
+  xy: 2, 782
+  size: 175, 178
+  orig: 175, 178
+  offset: 0, 0
+  index: -1
+btn_sound
+  rotate: false
+  xy: 752, 501
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_sound_off
+  rotate: false
+  xy: 735, 606
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_vibrate
+  rotate: false
+  xy: 706, 711
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+btn_vibrate_off
+  rotate: false
+  xy: 883, 227
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+controls11btn
+  rotate: false
+  xy: 883, 332
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+controls1btn
+  rotate: false
+  xy: 883, 437
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+controls2btn
+  rotate: false
+  xy: 883, 542
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+controls3btn
+  rotate: false
+  xy: 837, 717
+  size: 129, 103
+  orig: 129, 103
+  offset: 0, 0
+  index: -1
+highlight
+  rotate: false
+  xy: 420, 281
+  size: 164, 138
+  orig: 164, 140
+  offset: 0, 2
+  index: -1
+jungle_packpic
+  rotate: false
+  xy: 2, 278
+  size: 416, 274
+  orig: 416, 274
+  offset: 0, 0
+  index: -1
+level_buttons_all
+  rotate: false
+  xy: 420, 421
+  size: 164, 134
+  orig: 164, 140
+  offset: 0, 6
+  index: -1
+level_buttons_boss_2lock
+  rotate: false
+  xy: 243, 705
+  size: 164, 118
+  orig: 164, 140
+  offset: 0, 22
+  index: -1
+level_buttons_boss_all
+  rotate: false
+  xy: 403, 557
+  size: 164, 134
+  orig: 164, 140
+  offset: 0, 6
+  index: -1
+level_buttons_boss_lock
+  rotate: false
+  xy: 845, 107
+  size: 164, 118
+  orig: 164, 140
+  offset: 0, 22
+  index: -1
+level_buttons_boss_noegg
+  rotate: false
+  xy: 586, 291
+  size: 164, 134
+  orig: 164, 140
+  offset: 0, 6
+  index: -1
+level_buttons_locked
+  rotate: false
+  xy: 540, 699
+  size: 164, 118
+  orig: 164, 140
+  offset: 0, 22
+  index: -1
+level_buttons_noegg
+  rotate: false
+  xy: 586, 427
+  size: 164, 134
+  orig: 164, 140
+  offset: 0, 6
+  index: -1
+level_buttons_not_available
+  rotate: false
+  xy: 345, 825
+  size: 164, 118
+  orig: 164, 140
+  offset: 0, 22
+  index: -1
+level_buttons_one
+  rotate: false
+  xy: 569, 563
+  size: 164, 134
+  orig: 164, 140
+  offset: 0, 6
+  index: -1
+level_buttons_two
+  rotate: false
+  xy: 179, 825
+  size: 164, 134
+  orig: 164, 140
+  offset: 0, 6
+  index: -1
+lite
+  rotate: false
+  xy: 866, 647
+  size: 141, 68
+  orig: 141, 68
+  offset: 0, 0
+  index: -1
+menu
+  rotate: false
+  xy: 602, 98
+  size: 241, 66
+  orig: 241, 80
+  offset: 0, 6
+  index: -1
+more
+  rotate: false
+  xy: 602, 166
+  size: 241, 64
+  orig: 241, 64
+  offset: 0, 0
+  index: -1
+playbtn
+  rotate: false
+  xy: 2, 554
+  size: 239, 226
+  orig: 239, 226
+  offset: 0, 0
+  index: -1
+purchase_button
+  rotate: false
+  xy: 420, 2
+  size: 447, 94
+  orig: 447, 98
+  offset: 0, 0
+  index: -1
+rate
+  rotate: false
+  xy: 602, 232
+  size: 211, 57
+  orig: 211, 57
+  offset: 0, 0
+  index: -1
+settings
+  rotate: false
+  xy: 243, 554
+  size: 158, 149
+  orig: 158, 149
+  offset: 0, 0
+  index: -1
+share
+  rotate: false
+  xy: 2, 962
+  size: 211, 57
+  orig: 211, 57
+  offset: 0, 0
+  index: -1
+whiteLayer
+  rotate: false
+  xy: 444, 798
+  size: 33, 25
+  orig: 33, 25
+  offset: 0, 0
+  index: -1

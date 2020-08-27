@@ -1,0 +1,1076 @@
+
+batmine_objects0.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 246, 596
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 1
+big_bat_flying
+  rotate: false
+  xy: 867, 851
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 1
+boner_up
+  rotate: false
+  xy: 2, 450
+  size: 242, 567
+  orig: 242, 567
+  offset: 0, 0
+  index: -1
+flat
+  rotate: false
+  xy: 246, 450
+  size: 151, 107
+  orig: 151, 107
+  offset: 0, 0
+  index: -1
+lava_enemy
+  rotate: false
+  xy: 246, 985
+  size: 116, 30
+  orig: 116, 30
+  offset: 0, 0
+  index: -1
+long_bottom_second
+  rotate: false
+  xy: 2, 2
+  size: 721, 446
+  orig: 721, 446
+  offset: 0, 0
+  index: -1
+needle_up
+  rotate: false
+  xy: 725, 2
+  size: 260, 592
+  orig: 260, 592
+  offset: 0, 0
+  index: -1
+small_bat_dying
+  rotate: false
+  xy: 649, 851
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 1
+small_bat_dying
+  rotate: false
+  xy: 649, 851
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 2
+small_bat_dying
+  rotate: false
+  xy: 649, 851
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 3
+small_bat_dying
+  rotate: false
+  xy: 649, 851
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 4
+small_bat_dying
+  rotate: false
+  xy: 758, 851
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 5
+stalacmite_a
+  rotate: false
+  xy: 401, 744
+  size: 246, 270
+  orig: 246, 270
+  offset: 0, 0
+  index: -1
+stalacmite_b
+  rotate: false
+  xy: 401, 450
+  size: 314, 292
+  orig: 314, 292
+  offset: 0, 0
+  index: -1
+stalacmite_c
+  rotate: false
+  xy: 717, 596
+  size: 304, 253
+  orig: 304, 253
+  offset: 0, 0
+  index: -1
+
+ batmine_objects1.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 869, 594
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 2
+big_bat_dying
+  rotate: false
+  xy: 869, 594
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 3
+big_bat_dying
+  rotate: false
+  xy: 869, 594
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 4
+big_bat_flying
+  rotate: false
+  xy: 109, 898
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 2
+big_bat_flying
+  rotate: false
+  xy: 261, 898
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 3
+big_bat_flying
+  rotate: false
+  xy: 413, 898
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 4
+big_bat_flying
+  rotate: false
+  xy: 565, 898
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 5
+big_bat_flying
+  rotate: false
+  xy: 717, 898
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 6
+long_bottom_first
+  rotate: false
+  xy: 2, 450
+  size: 720, 446
+  orig: 720, 446
+  offset: 0, 0
+  index: -1
+long_top_second
+  rotate: false
+  xy: 2, 2
+  size: 721, 446
+  orig: 721, 446
+  offset: 0, 0
+  index: -1
+needle_down
+  rotate: false
+  xy: 725, 2
+  size: 256, 590
+  orig: 256, 590
+  offset: 0, 0
+  index: -1
+sign2wh
+  rotate: false
+  xy: 724, 594
+  size: 126, 82
+  orig: 126, 82
+  offset: 0, 0
+  index: -1
+sign2woh
+  rotate: false
+  xy: 724, 678
+  size: 126, 81
+  orig: 126, 81
+  offset: 0, 0
+  index: -1
+small_bat_flying
+  rotate: false
+  xy: 724, 761
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 1
+square
+  rotate: false
+  xy: 2, 898
+  size: 105, 111
+  orig: 105, 111
+  offset: 0, 0
+  index: -1
+
+ batmine_objects2.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+column
+  rotate: false
+  xy: 724, 283
+  size: 167, 693
+  orig: 167, 693
+  offset: 0, 0
+  index: -1
+lava
+  rotate: false
+  xy: 893, 283
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 1
+long_top_first
+  rotate: false
+  xy: 2, 2
+  size: 720, 446
+  orig: 720, 446
+  offset: 0, 0
+  index: -1
+longflat
+  rotate: false
+  xy: 2, 956
+  size: 585, 64
+  orig: 585, 64
+  offset: 0, 0
+  index: -1
+pyramid_down
+  rotate: false
+  xy: 2, 450
+  size: 492, 504
+  orig: 492, 504
+  offset: 0, 0
+  index: -1
+small_bat_dying
+  rotate: false
+  xy: 893, 771
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 6
+small_bat_flying
+  rotate: false
+  xy: 893, 933
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 2
+stone_string
+  rotate: false
+  xy: 496, 450
+  size: 149, 502
+  orig: 149, 502
+  offset: 0, 0
+  index: -1
+volcano
+  rotate: false
+  xy: 724, 2
+  size: 247, 279
+  orig: 247, 279
+  offset: 0, 0
+  index: -1
+
+batmine_objects3.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+block_full
+  rotate: false
+  xy: 762, 675
+  size: 167, 186
+  orig: 167, 186
+  offset: 0, 0
+  index: -1
+block_half
+  rotate: false
+  xy: 762, 863
+  size: 165, 132
+  orig: 165, 132
+  offset: 0, 0
+  index: -1
+boner_down
+  rotate: false
+  xy: 449, 394
+  size: 311, 575
+  orig: 311, 575
+  offset: 0, 0
+  index: -1
+nextlevel
+  rotate: false
+  xy: 2, 2
+  size: 445, 632
+  orig: 445, 632
+  offset: 0, 0
+  index: -1
+small_bat_dying
+  rotate: false
+  xy: 228, 846
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 7
+small_bat_dying
+  rotate: false
+  xy: 337, 846
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 8
+stalactite_a
+  rotate: false
+  xy: 228, 636
+  size: 188, 208
+  orig: 188, 208
+  offset: 0, 0
+  index: -1
+stalactite_b
+  rotate: false
+  xy: 2, 636
+  size: 224, 379
+  orig: 224, 379
+  offset: 0, 0
+  index: -1
+tilted_l
+  rotate: false
+  xy: 449, 2
+  size: 572, 194
+  orig: 572, 194
+  offset: 0, 0
+  index: -1
+tilted_r
+  rotate: false
+  xy: 449, 198
+  size: 572, 194
+  orig: 572, 194
+  offset: 0, 0
+  index: -1
+volcano_rev
+  rotate: false
+  xy: 762, 394
+  size: 247, 279
+  orig: 247, 279
+  offset: 0, 0
+  index: -1
+
+batmine_objects4.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 828, 560
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 5
+lava
+  rotate: false
+  xy: 2, 505
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 2
+lava
+  rotate: false
+  xy: 120, 505
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 3
+lava
+  rotate: false
+  xy: 238, 505
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 4
+lava
+  rotate: false
+  xy: 356, 505
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 5
+lava
+  rotate: false
+  xy: 474, 505
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 6
+lava
+  rotate: false
+  xy: 494, 2
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 7
+lava
+  rotate: false
+  xy: 592, 490
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 8
+lava
+  rotate: false
+  xy: 612, 2
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 9
+lava_rev
+  rotate: false
+  xy: 710, 490
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 1
+lava_rev
+  rotate: false
+  xy: 730, 2
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 2
+pyramid_up
+  rotate: false
+  xy: 2, 2
+  size: 490, 501
+  orig: 490, 501
+  offset: 0, 0
+  index: -1
+sign1wh
+  rotate: false
+  xy: 848, 2
+  size: 163, 94
+  orig: 163, 94
+  offset: 0, 0
+  index: -1
+sign1woh
+  rotate: false
+  xy: 848, 287
+  size: 163, 89
+  orig: 163, 89
+  offset: 0, 0
+  index: -1
+sign3wh
+  rotate: false
+  xy: 848, 98
+  size: 163, 93
+  orig: 163, 93
+  offset: 0, 0
+  index: -1
+sign3woh
+  rotate: false
+  xy: 848, 378
+  size: 163, 89
+  orig: 163, 89
+  offset: 0, 0
+  index: -1
+sign4wh
+  rotate: false
+  xy: 848, 193
+  size: 163, 92
+  orig: 163, 92
+  offset: 0, 0
+  index: -1
+sign4woh
+  rotate: false
+  xy: 848, 469
+  size: 163, 89
+  orig: 163, 89
+  offset: 0, 0
+  index: -1
+
+batmine_objects5.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 356, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 6
+big_bat_dying
+  rotate: false
+  xy: 474, 391
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 7
+big_bat_dying
+  rotate: false
+  xy: 511, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 8
+big_bat_dying
+  rotate: false
+  xy: 629, 391
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 9
+big_bat_dying
+  rotate: false
+  xy: 666, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 10
+big_bat_dying
+  rotate: false
+  xy: 784, 391
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 11
+big_bat_dying
+  rotate: false
+  xy: 821, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 12
+big_bat_flying
+  rotate: false
+  xy: 356, 879
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 7
+big_bat_flying
+  rotate: false
+  xy: 508, 866
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 8
+big_bat_flying
+  rotate: false
+  xy: 660, 866
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 9
+lava_rev
+  rotate: false
+  xy: 2, 2
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 3
+lava_rev
+  rotate: false
+  xy: 2, 490
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 4
+lava_rev
+  rotate: false
+  xy: 120, 2
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 5
+lava_rev
+  rotate: false
+  xy: 120, 490
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 6
+lava_rev
+  rotate: false
+  xy: 238, 2
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 7
+lava_rev
+  rotate: false
+  xy: 238, 490
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 8
+lava_rev
+  rotate: false
+  xy: 356, 391
+  size: 116, 486
+  orig: 116, 486
+  offset: 0, 0
+  index: 9
+small_bat_dying
+  rotate: false
+  xy: 898, 780
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 9
+small_bat_flying
+  rotate: false
+  xy: 474, 780
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 3
+small_bat_flying
+  rotate: false
+  xy: 580, 780
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 4
+small_bat_flying
+  rotate: false
+  xy: 686, 780
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 5
+small_bat_flying
+  rotate: false
+  xy: 792, 780
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 6
+
+batmine_objects6.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+big_bat_dying
+  rotate: false
+  xy: 2, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 13
+big_bat_dying
+  rotate: false
+  xy: 2, 391
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 14
+big_bat_dying
+  rotate: false
+  xy: 157, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 15
+big_bat_dying
+  rotate: false
+  xy: 157, 391
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 16
+big_bat_dying
+  rotate: false
+  xy: 312, 2
+  size: 153, 387
+  orig: 153, 387
+  offset: 0, 0
+  index: 17
+big_bat_flying
+  rotate: false
+  xy: 312, 391
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 10
+big_bat_flying
+  rotate: false
+  xy: 312, 503
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 11
+big_bat_flying
+  rotate: false
+  xy: 312, 615
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 12
+big_bat_flying
+  rotate: false
+  xy: 329, 727
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 13
+big_bat_flying
+  rotate: false
+  xy: 329, 839
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 14
+big_bat_flying
+  rotate: false
+  xy: 464, 391
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 15
+big_bat_flying
+  rotate: false
+  xy: 464, 503
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 16
+big_bat_flying
+  rotate: false
+  xy: 464, 615
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 17
+big_bat_flying
+  rotate: false
+  xy: 481, 727
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 18
+big_bat_flying
+  rotate: false
+  xy: 481, 839
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 19
+big_bat_flying
+  rotate: false
+  xy: 633, 2
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 20
+big_bat_flying
+  rotate: false
+  xy: 467, 2
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 21
+big_bat_flying
+  rotate: false
+  xy: 785, 2
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 22
+big_bat_flying
+  rotate: false
+  xy: 467, 114
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 23
+big_bat_flying
+  rotate: false
+  xy: 467, 226
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 24
+big_bat_flying
+  rotate: false
+  xy: 633, 114
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 25
+big_bat_flying
+  rotate: false
+  xy: 785, 114
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 26
+big_bat_flying
+  rotate: false
+  xy: 633, 226
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 27
+big_bat_flying
+  rotate: false
+  xy: 785, 226
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 28
+big_bat_flying
+  rotate: false
+  xy: 633, 338
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 29
+big_bat_flying
+  rotate: false
+  xy: 785, 338
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 30
+big_bat_flying
+  rotate: false
+  xy: 616, 450
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 31
+big_bat_flying
+  rotate: false
+  xy: 616, 562
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 32
+big_bat_flying
+  rotate: false
+  xy: 768, 450
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 33
+big_bat_flying
+  rotate: false
+  xy: 768, 562
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 34
+big_bat_flying
+  rotate: false
+  xy: 633, 674
+  size: 150, 110
+  orig: 150, 110
+  offset: 0, 0
+  index: 35
+small_bat_dying
+  rotate: false
+  xy: 2, 780
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 10
+small_bat_dying
+  rotate: false
+  xy: 111, 780
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 11
+small_bat_dying
+  rotate: false
+  xy: 220, 780
+  size: 107, 160
+  orig: 107, 160
+  offset: 0, 0
+  index: 12
+small_bat_flying
+  rotate: false
+  xy: 785, 674
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 7
+small_bat_flying
+  rotate: false
+  xy: 891, 674
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 8
+small_bat_flying
+  rotate: false
+  xy: 785, 760
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 9
+small_bat_flying
+  rotate: false
+  xy: 891, 760
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 10
+small_bat_flying
+  rotate: false
+  xy: 633, 786
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 11
+small_bat_flying
+  rotate: false
+  xy: 633, 872
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 12
+small_bat_flying
+  rotate: false
+  xy: 739, 846
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 13
+small_bat_flying
+  rotate: false
+  xy: 739, 932
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 14
+small_bat_flying
+  rotate: false
+  xy: 845, 846
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 15
+small_bat_flying
+  rotate: false
+  xy: 845, 932
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 16
+
+batmine_objects7.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+small_bat_flying
+  rotate: false
+  xy: 2, 2
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 17
+small_bat_flying
+  rotate: false
+  xy: 108, 2
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 18
+small_bat_flying
+  rotate: false
+  xy: 214, 2
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 19
+small_bat_flying
+  rotate: false
+  xy: 320, 2
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 20
+small_bat_flying
+  rotate: false
+  xy: 2, 88
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 21
+small_bat_flying
+  rotate: false
+  xy: 2, 174
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 22
+small_bat_flying
+  rotate: false
+  xy: 2, 260
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 23
+small_bat_flying
+  rotate: false
+  xy: 2, 346
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 24
+small_bat_flying
+  rotate: false
+  xy: 108, 88
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 25
+small_bat_flying
+  rotate: false
+  xy: 214, 88
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 26
+small_bat_flying
+  rotate: false
+  xy: 320, 88
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 27
+small_bat_flying
+  rotate: false
+  xy: 108, 174
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 28
+small_bat_flying
+  rotate: false
+  xy: 108, 260
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 29
+small_bat_flying
+  rotate: false
+  xy: 108, 346
+  size: 104, 84
+  orig: 104, 84
+  offset: 0, 0
+  index: 30
