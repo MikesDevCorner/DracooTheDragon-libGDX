@@ -24,19 +24,15 @@ public class JungleLevelPack extends AbstractLevelpack {
 	public JungleLevelPack() {
 		this.bossAssetsLoaded = false;
 		this.packName = "Jungle";
-		this.purchased = Configuration.fullJungle;
-		this.playStoreItemName = Configuration.jungleSku;
-		this.amountLevels = Configuration.fullJungle?15:3;
-		
+		this.purchased = true;
+		this.playStoreItemName = "";
+		this.amountLevels = 15;
+
 		//this.musicLocation = "jungle/music/";
 		this.musicLocation = ""; //the location will be added in the level itself since version 0.92L
-		
+
 		if(Configuration.useIntroScreen) this.startComic = "jungle/images/jungle_intro_comic.jpg";
-		this.endComic = "game/images/outro_comic";
-		if(this.purchased == false) {
-			this.endComic += "_demo";
-		}
-		this.endComic +=".jpg";
+		this.endComic = "game/images/outro_comic.jpg";
 	}	
 		
 	
@@ -93,7 +89,7 @@ public class JungleLevelPack extends AbstractLevelpack {
 	
 	@Override
 	public void loadBossAssets() {
-		if(Configuration.fullJungle) {
+		{
 			GameAssets.manager.load("jungle/sounds/boss.mp3", Sound.class);
 			GameAssets.manager.load("jungle/sounds/bosswounded.mp3", Sound.class);		
 			GameAssets.manager.load("jungle/sounds/venomspit.mp3", Sound.class);
@@ -105,7 +101,7 @@ public class JungleLevelPack extends AbstractLevelpack {
 
 	@Override
 	public void unloadBossAssets() {
-		if(Configuration.fullJungle) {
+		{
 			try { GameAssets.manager.unload("jungle/sounds/boss.mp3");  } catch(Exception e) {}
 			try { GameAssets.manager.unload("jungle/sounds/bosswounded.mp3");  } catch(Exception e) {}
 			try { GameAssets.manager.unload("jungle/sounds/venomspit.mp3");  } catch(Exception e) {}

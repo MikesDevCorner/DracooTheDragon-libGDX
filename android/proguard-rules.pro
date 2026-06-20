@@ -50,17 +50,8 @@
 -keep public class * extends android.app.backup.BackupAgentHelper
 -keep public class * extends android.preference.Preference
 -keep public class * extends com.badlogic.gdx.backends.android.AndroidApplication
--keep public class * extends com.badlogic.gdx.controllers
--keep public class com.android.vending.licensing.ILicensingService
 -keep class com.badlogic.gdx.controllers.android.AndroidControllers
 -keep class com.badlogic.** { *; }
--keep class com.chartboost.** { *; }
--keep class com.bda.** { *; }
-
-
--keep class com.apperhand.** { *; }
--keep class com.google.mygson.** { *; }
--keep public class com.google.** {*;}
 
 -keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile, LineNumberTable, *Annotation*, EnclosingMethod
 -dontwarn android.webkit.JavascriptInterface
@@ -93,14 +84,6 @@
 
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
-}
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
 }
 
 -keepnames class * implements android.os.Parcelable {

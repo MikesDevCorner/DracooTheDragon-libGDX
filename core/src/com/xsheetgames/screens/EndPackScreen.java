@@ -49,7 +49,6 @@ public class EndPackScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		
-		GameAssets.nativ.trackPageView("/EndPack");
 		
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();		
@@ -102,7 +101,6 @@ public class EndPackScreen extends AbstractScreen {
 	
 	
 	public void purchaseButtonPressed() {		
-		GameAssets.nativ.sendEvent("SocialAction", "Purchase Button", "pressed", 1);
 		//GameAssets.nativ.purchaseItem(this.gs.getLevelpack().playStoreItemName);
 	}
 

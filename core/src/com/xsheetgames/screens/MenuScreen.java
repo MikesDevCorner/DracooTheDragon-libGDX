@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 
-public class MenuScreen extends AbstractScreen implements iAdAble {
+public class MenuScreen extends AbstractScreen {
 
 	private SpriteBatch batch;
 	private Sprite screenBackground, playButton, rate, share, settings, lite, more;
@@ -49,28 +49,7 @@ public class MenuScreen extends AbstractScreen implements iAdAble {
 				
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-				
-				
-				
-				this.batch.end();
+this.batch.end();
 			}
 		}
 		
@@ -84,7 +63,7 @@ public class MenuScreen extends AbstractScreen implements iAdAble {
 
 	@Override
 	public void show() {
-		lastConnectedState = GameAssets.nativ.isControllerConnected();
+		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		if(MenuScreen.adShowed == false) {
 			MenuScreen.adShowed = true;
@@ -93,11 +72,9 @@ public class MenuScreen extends AbstractScreen implements iAdAble {
 		
 		if(MenuScreen.adShowed == true) {
 			if(this.endApp == true) {
-				GameAssets.nativ.trackPageView("/Exit");
 				Gdx.app.exit();
 			}
 			
-			GameAssets.nativ.trackPageView("/MenuScreen");
 			
 			this.batch = new SpriteBatch();
 			this.assetsLoaded = false;
@@ -150,12 +127,6 @@ public class MenuScreen extends AbstractScreen implements iAdAble {
 			this.playButton.setPosition(965f,290f);
 		}
 		
-		if(Configuration.fullVersion == false && this.lite == null) {
-			this.lite = new Sprite(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("lite"));
-			this.lite.setSize(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("lite").getRegionWidth(), GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("lite").getRegionHeight());
-			this.lite.setPosition(440f,505f);
-		}
-		
 		if(this.settings == null) {
 			this.settings = new Sprite(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("settings"));
 			this.settings.setSize(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("settings").getRegionWidth(), GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("settings").getRegionHeight());
@@ -193,17 +164,14 @@ public class MenuScreen extends AbstractScreen implements iAdAble {
 	
 	
 	public void shareButtonPressed() {		
-		GameAssets.nativ.sendEvent("SocialAction", "Share Button", "pressed", 1);
 		GameAssets.nativ.share("Dracoo","I am currently playing <a href=http://facebook.com/dracoo>Dracoo</a> for Android. Love this game! Cannot stop playing it.");
 	}
 	
 	public void rateButtonPressed() {
-		GameAssets.nativ.sendEvent("SocialAction", "Rate Button", "pressed", 1);
 		GameAssets.nativ.rate();
 	}
 	
 	public void moreButtonPressed() {
-		GameAssets.nativ.sendEvent("SocialAction", "More Button", "pressed", 1);
 		GameAssets.nativ.more();
 	}
 
@@ -239,17 +207,12 @@ public class MenuScreen extends AbstractScreen implements iAdAble {
 
 
 
-	@Override
-	public void setAdShowed(boolean adShowed) {
-		MenuScreen.adShowed = adShowed;		
-	}
 
 
 	@Override
 	public void stepBack(String source) {
 		if(GameAssets.buttonTimer <= 0f) {
 			this.endApp = true;			
-			GameAssets.nativ.trackPageView("/Exit");
 			Gdx.app.exit();
 			GameAssets.buttonTimer = 0.35f;
 		}

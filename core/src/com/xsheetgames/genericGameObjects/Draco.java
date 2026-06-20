@@ -492,18 +492,18 @@ public class Draco extends GameObject{
 			
 			if(Configuration.inputType == 1) {
 				
-				if(GameAssets.nativ.isControllerConnected() || Gdx.app.getType() == ApplicationType.Desktop || Gdx.app.getType() == ApplicationType.WebGL)
+				if(GameAssets.input.isControllerConnected() || Gdx.app.getType() == ApplicationType.Desktop || Gdx.app.getType() == ApplicationType.WebGL)
 				{
-					this.leftPressed = GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_LEFT);
-					this.rightPressed = GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_RIGHT);
-					this.upPressed = GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_UP);
-					this.downPressed = GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_DOWN);
-					this.firePressed = GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY);
+					this.leftPressed = GameAssets.input.pollButton(GameAssets.KEY_LEFT);
+					this.rightPressed = GameAssets.input.pollButton(GameAssets.KEY_RIGHT);
+					this.upPressed = GameAssets.input.pollButton(GameAssets.KEY_UP);
+					this.downPressed = GameAssets.input.pollButton(GameAssets.KEY_DOWN);
+					this.firePressed = GameAssets.input.pollButton(GameAssets.KEY_PRIMARY);
 					
-					if(this.leftPressed == false) this.leftPressed = GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_X) < -0.20f;
-					if(this.rightPressed == false) this.rightPressed = GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_X) > 0.20f;
-					if(this.downPressed == false) this.downPressed = GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_Y) > 0.20f;
-					if(this.upPressed == false) this.upPressed = GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_Y) < -0.20f;
+					if(this.leftPressed == false) this.leftPressed = GameAssets.input.pollAxis(GameAssets.AXIS_X) < -0.20f;
+					if(this.rightPressed == false) this.rightPressed = GameAssets.input.pollAxis(GameAssets.AXIS_X) > 0.20f;
+					if(this.downPressed == false) this.downPressed = GameAssets.input.pollAxis(GameAssets.AXIS_Y) > 0.20f;
+					if(this.upPressed == false) this.upPressed = GameAssets.input.pollAxis(GameAssets.AXIS_Y) < -0.20f;
 				}				
 			}
 			if(Configuration.autoFire == true) {

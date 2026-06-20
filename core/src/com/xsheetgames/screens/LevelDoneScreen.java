@@ -141,24 +141,6 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 					
 					//Emulate Events
 					if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-					if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-						if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-							this.startPress();
-						}
-						if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-							this.primaryPress();
-						}
-						if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-							this.stepBack("moga");
-						}
-						if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-							GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-						}
-						if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-							GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-						}
-					}
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
 				}
 			}
 		}
@@ -172,12 +154,10 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 		@Override
 		public void show() {			
 				
-			lastConnectedState = GameAssets.nativ.isControllerConnected();
+			lastConnectedState = GameAssets.input.isControllerConnected();
 			
 			howMuchEggsReached = 0;
 			this.keepScreen = false;
-			GameAssets.nativ.trackPageView("/LevelDone");
-			GameAssets.nativ.sendEvent("Player-State", "LevelDone", this.gameScreen.getLevelpack().packName+ " Level "+this.level, this.gameScreen.getActualDraco().getEnemiesKilled());
 			
 			this.batch = new SpriteBatch();
 			this.screenBackground = new Sprite(GameAssets.fetchTexture("game/images/background.jpg"));

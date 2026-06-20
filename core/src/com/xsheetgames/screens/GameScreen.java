@@ -32,7 +32,7 @@ import com.xsheetgames.genericGameObjects.GameObject;
 import com.xsheetgames.genericGameObjects.GameObjectCollection;
 import com.xsheetgames.genericGameObjects.GameObjectPool;
 
-public class GameScreen extends AbstractScreen implements iAdAble {
+public class GameScreen extends AbstractScreen {
 	
 	private short chilisCount = 1;
 	
@@ -175,7 +175,7 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 					frontLayer.draw(batch);
 				}
 				if(buttons != null) {
-					if(!GameAssets.nativ.isControllerConnected() && Gdx.app.getType() != ApplicationType.Desktop && Gdx.app.getType() != ApplicationType.WebGL) buttons.drawAllButtons(batch);
+					if(!GameAssets.input.isControllerConnected() && Gdx.app.getType() != ApplicationType.Desktop && Gdx.app.getType() != ApplicationType.WebGL) buttons.drawAllButtons(batch);
 				}
 							
 				batch.end();
@@ -234,29 +234,7 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 				
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameScreen.paused = true;
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameScreen.paused = true;
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-				
-				
-				/***************** LEAVING *********************/
+/***************** LEAVING *********************/
 				
 				//check if leaving szenario is given:
 				if(this.doDisposing == true) {
@@ -356,9 +334,8 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 			this.resumeEnemies = false;
 			this.startLevelMusic = false;
 			
-			lastConnectedState = GameAssets.nativ.isControllerConnected();
+			lastConnectedState = GameAssets.input.isControllerConnected();
 			
-			GameAssets.nativ.trackPageView("/GameScreen");
 			
 			if(this.actualPack.getActualLevelNumber() == 15 && this.actualPack.bossAssetsLoaded == false) {
 				this.actualPack.loadBossAssets();
@@ -414,14 +391,12 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 		if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "Hide aufgerufen");
 	    if(this.enemies != null) this.enemies.pause();
 	    if(this.keepScreen == false) this.dispose();
-	    GameAssets.nativ.TriggerStandingInterstitials();
 	}
 
 	@Override
 	public void pause() {
 		if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "Pause aufgerufen");
 		GameScreen.paused = true;
-		GameAssets.nativ.showBannerAd();
 		if(this.actualPack != null) {
 			if(this.actualPack.getActualLevel().getLevelMusic() != null) {
 				GameAssets.pauseMusic(this.actualPack.getActualLevel().getLevelMusic());
@@ -447,7 +422,6 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 	
 	public void endPause() {
 		if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "End Pause aufgerufen");
-		GameAssets.nativ.closeBannerAd();
 		GameScreen.paused = false;
 		
 		this.pauseMessage = this.pauseMessageOriginal.split("\n");
@@ -775,11 +749,6 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 
 
 
-	@Override
-	public void setAdShowed(boolean adShowed) {
-		this.adShowed = adShowed;
-		
-	}
 
 
 
@@ -868,14 +837,12 @@ public class GameScreen extends AbstractScreen implements iAdAble {
 						this.endPause();
 					}
 					if(this.more != null && this.more.getBoundingRectangle().contains(touchPoint2.x, touchPoint2.y)) {
-						GameAssets.nativ.sendEvent("SocialAction", "More Button", "pressed", 1);
 						GameAssets.nativ.more();
 					}
 					if(this.menu != null && this.menu.getBoundingRectangle().contains(touchPoint2.x, touchPoint2.y)) {
 						this.doDisposing = true;
 					}
 					if(this.rate != null && this.rate.getBoundingRectangle().contains(touchPoint2.x, touchPoint2.y)) {
-						GameAssets.nativ.sendEvent("SocialAction", "Rate Button", "pressed", 1);
 						GameAssets.nativ.rate();
 					}
 					

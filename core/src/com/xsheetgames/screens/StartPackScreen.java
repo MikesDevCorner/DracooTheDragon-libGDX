@@ -51,7 +51,6 @@ public class StartPackScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		
-		GameAssets.nativ.trackPageView("/StartPackScreen");
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
 	}

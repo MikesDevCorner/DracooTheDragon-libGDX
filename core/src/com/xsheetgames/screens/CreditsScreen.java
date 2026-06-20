@@ -47,25 +47,7 @@ public class CreditsScreen extends AbstractScreen {
 				
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-			}
+}
 		}
 	}
 
@@ -78,11 +60,10 @@ public class CreditsScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		
-		GameAssets.nativ.trackPageView("/Credits");
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
 		
-		lastConnectedState = GameAssets.nativ.isControllerConnected();
+		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		this.screenBackground = new Sprite(GameAssets.fetchTexture("menu/images/credits_back.jpg"));
 		screenBackground.setSize(GameAssets.fetchTexture("menu/images/credits_back.jpg").getWidth(), GameAssets.fetchTexture("menu/images/credits_back.jpg").getHeight());

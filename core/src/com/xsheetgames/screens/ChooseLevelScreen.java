@@ -13,7 +13,7 @@ import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
 
-public class ChooseLevelScreen extends AbstractScreen implements iAdAble{
+public class ChooseLevelScreen extends AbstractScreen {
 
 	private SpriteBatch batch;
 	private Sprite screenBackground;
@@ -37,11 +37,6 @@ public class ChooseLevelScreen extends AbstractScreen implements iAdAble{
 		this.resetToMainScreen = false;
 		this.adShowed = false;
 		this.levelPackIndex = levelPackIndex;
-	}
-	
-	@Override
-	public void setAdShowed(boolean adShowed) {
-		this.adShowed = adShowed;
 	}
 	
 	public void setLevelPack(AbstractLevelpack pack) {
@@ -99,38 +94,7 @@ public class ChooseLevelScreen extends AbstractScreen implements iAdAble{
 					//Emulate Events
 					if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
 					if(this.axisCount > 0f) this.axisCount-=delta;
-					if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-						if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-							this.startPress();
-						}
-						if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-							this.primaryPress();
-						}
-						if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-							this.stepBack("moga");
-						}
-						if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-							GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-						}
-						if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-							GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-						}
-						if(GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_X) > 0.06) {
-							this.steerXAxis(1f);
-						}
-						if(GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_X) < -0.06) {
-							this.steerXAxis(-1f);
-						}
-						if(GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_Y) > 0.06) {
-							this.steerYAxis(1f);
-						}
-						if(GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_Y) < -0.06) {
-							this.steerYAxis(-1f);
-						}
-						lastConnectedState = GameAssets.nativ.isControllerConnected();
-					}
-					
-				}
+}
 			}
 		}
 	}
@@ -143,20 +107,14 @@ public class ChooseLevelScreen extends AbstractScreen implements iAdAble{
 	@Override
 	public void show() {
 		
-		if(this.adShowed == false) {
-			if(Configuration.useAds) {
-				if(Configuration.adPartner.equals("chartboost")) this.game.setScreen(new AdScreen(this.game,this,true,false,"default"));
-				else this.adShowed = true;
-			} else this.adShowed = true;
-		}
-		
-		lastConnectedState = GameAssets.nativ.isControllerConnected();
-		highlighted = (GameAssets.nativ.getInputDevice().equals("keyboard")) ? 0 : 1;
+		this.adShowed = true;
+
+		lastConnectedState = GameAssets.input.isControllerConnected();
+		highlighted = GameAssets.input.isControllerConnected() ? 1 : 0;
 			
 		if(this.adShowed == true) {
 			
 			this.countEggs = 0;
-			GameAssets.nativ.trackPageView("/ChooseLevelScreen");
 			
 			this.levelPackHeading = this.levelPack.packName + "-Levels";
 			

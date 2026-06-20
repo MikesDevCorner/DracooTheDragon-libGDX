@@ -59,25 +59,7 @@ public class PreBossScreen extends AbstractScreen {
 				
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}					
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-			}
+}
 		}
 	}
 
@@ -90,9 +72,8 @@ public class PreBossScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		
-		GameAssets.nativ.trackPageView("/PreBossScreen");
 		
-		lastConnectedState = GameAssets.nativ.isControllerConnected();
+		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		this.batch = new SpriteBatch();
 		this.readyForBoss = false;
