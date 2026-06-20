@@ -9,7 +9,7 @@ import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
 
-public class DeadScreen extends AbstractScreen implements iAdAble {
+public class DeadScreen extends AbstractScreen {
 
 	private SpriteBatch batch;
 	private boolean keepGameScreen = false;
@@ -30,12 +30,6 @@ public class DeadScreen extends AbstractScreen implements iAdAble {
 	public DeadScreen(Game game, GameScreen gameScreen) {
 		this.game = game;
 		this.gameScreen = gameScreen;
-	}
-	
-	
-	@Override
-	public void setAdShowed(boolean adShowed) {
-		this.adShowed = adShowed;
 	}
 	
 	
@@ -73,25 +67,7 @@ public class DeadScreen extends AbstractScreen implements iAdAble {
 				
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-			}
+}
 		}
 	}
 
@@ -105,18 +81,12 @@ public class DeadScreen extends AbstractScreen implements iAdAble {
 	public void show() {
 		
 		
-		if(this.adShowed == false) {
-			if(Configuration.useAds) { 
-				this.game.setScreen(new AdScreen(this.game,this,false,false,"default"));
-			} else this.adShowed = true;
-		}
-		
+		this.adShowed = true;
+
 		if(this.adShowed == true) {
 			
-			lastConnectedState = GameAssets.nativ.isControllerConnected();
+			lastConnectedState = GameAssets.input.isControllerConnected();
 		
-			GameAssets.nativ.trackPageView("/Dead");
-			GameAssets.nativ.sendEvent("Player-State", "Dead", this.gameScreen.getLevelpack().packName + " Level "+this.gameScreen.getLevelpack().getActualLevelNumber(), 1);
 			DeadScreen.DeadScreenCounter++;
 			
 			this.batch = new SpriteBatch();

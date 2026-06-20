@@ -51,32 +51,7 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 				//Emulate Events
 				if(this.xAxisCount > 0f) this.xAxisCount-=delta;
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_X) > 0.06) {
-						this.steerXAxis(1f);
-					}
-					if(GameAssets.nativ.pollControllerAxis(GameAssets.AXIS_X) < -0.06) {
-						this.steerXAxis(-1f);
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-				
-			}
+}
 		}
 	}
 
@@ -88,9 +63,8 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 	@Override
 	public void show() {
 		
-		GameAssets.nativ.trackPageView("/ChooseLevelpackScreen");
 		
-		lastConnectedState = GameAssets.nativ.isControllerConnected();
+		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();

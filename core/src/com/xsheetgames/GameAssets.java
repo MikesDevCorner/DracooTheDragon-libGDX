@@ -23,7 +23,8 @@ public class GameAssets {
 	public static AssetManager manager, loadingManager;
 	public static Vector2 emptyVector2 = new Vector2();
 	public static Animation<TextureRegion> loadingAnimation;
-	public static iNativeFunctions nativ; 
+	public static iNativeFunctions nativ;
+	public static InputManager input;
 	public static FileHandle LogFileHandle;
 	public static FileHandle ProgressFileHandle;
 	public static FileHandle settingsFileHandle;
@@ -167,7 +168,7 @@ public class GameAssets {
 		if(firstTime) {
 			initStaticFiles();
 			loadMenuAssets();
-			if(GameAssets.nativ.isControllerConnected()) {
+			if(GameAssets.input != null && GameAssets.input.isControllerConnected()) {
 				Configuration.autoFire = false;
 			}
 		}

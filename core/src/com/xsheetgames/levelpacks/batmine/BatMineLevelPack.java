@@ -24,20 +24,16 @@ public class BatMineLevelPack extends AbstractLevelpack {
 	public BatMineLevelPack() {
 		this.bossAssetsLoaded = false;
 		this.packName = "BatMine";
-		this.purchased = Configuration.fullBatmine;
-		this.playStoreItemName = Configuration.batmineSku;
-		this.amountLevels = Configuration.fullBatmine?15:3;
-		
-		
+		this.purchased = true;
+		this.playStoreItemName = "";
+		this.amountLevels = 15;
+
+
 		//this.musicLocation = "batmine/music/";
 		this.musicLocation = ""; //the location will be added in the level itself since version 0.92L
-		
+
 		if(Configuration.useIntroScreen) this.startComic ="batmine/images/batmine_intro_comic.jpg";
-		this.endComic = "game/images/outro_comic";
-		if(this.purchased == false) {
-			this.endComic += "_demo";
-		}
-		this.endComic +=".jpg";
+		this.endComic = "game/images/outro_comic.jpg";
 	}
 		
 	
@@ -91,7 +87,7 @@ public class BatMineLevelPack extends AbstractLevelpack {
 	
 	@Override
 	public void loadBossAssets() {
-		if(Configuration.fullBatmine) {
+		{
 			GameAssets.manager.load("batmine/sounds/boss.mp3", Sound.class);
 			GameAssets.manager.load("batmine/sounds/bosswounded.mp3", Sound.class);		
 			GameAssets.manager.load("batmine/sounds/bone.mp3", Sound.class);		
@@ -104,7 +100,7 @@ public class BatMineLevelPack extends AbstractLevelpack {
 	
 	@Override
 	public void unloadBossAssets() {
-		if(Configuration.fullBatmine) {
+		{
 			BossBat.SpinningBonePool.clear();
 			try { GameAssets.manager.unload("batmine/sounds/bone.mp3");  } catch(Exception e) {}	
 			try { GameAssets.manager.unload("batmine/sounds/bosschair.mp3"); } catch(Exception e) {}

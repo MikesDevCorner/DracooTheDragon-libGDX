@@ -28,13 +28,11 @@ public class DracooGdxGame extends Game {
 	public void create() {
 		new World(new Vector2(0f,0f), false);
 		Configuration.load();
+		GameAssets.input = new InputManager(this);
+		GameAssets.input.setup();
 		GameAssets.load();
 		Gdx.app.setLogLevel(Configuration.debugLevel);
 		Tween.registerAccessor(GameObject.class, new GameObjectAccessor());
-		IControllerUtils utils = GameAssets.nativ.GetControllerUtils();
-		if(utils != null) {
-			utils.initializeControllers(GameAssets.nativ.getMyApplicationContext());
-		}
 		setScreen(new MenuScreen(this));
     }
 	   
@@ -47,19 +45,6 @@ public class DracooGdxGame extends Game {
 	   		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 	   		super.render();
 	   } catch(Exception e) {
-		   try {
-			   	GameAssets.nativ.trackPageView("/Exception");
-			   	String myException = "";
-			   	String ExceptionName = "";
-			   	for(StackTraceElement ste : e.getStackTrace()) {
-			   		myException += ste.toString() + "\r\n";
-			   	}
-			   	if(e.getMessage() == null || e.getMessage() == "" || e.getMessage() == "null") ExceptionName = e.getClass().getName();
-			   	else ExceptionName = e.getMessage();
-		   		GameAssets.nativ.sendException(ExceptionName + "\r\n" + myException, true);
-		   } catch( Exception ex) {
-			   
-		   }
 		   try {
 			   if(Gdx.files.isExternalStorageAvailable()) {
 				   Date n = new Date();

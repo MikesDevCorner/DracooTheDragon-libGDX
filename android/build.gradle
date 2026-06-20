@@ -1,47 +1,66 @@
+// Release-Signing-Daten kommen aus local.properties (nicht eingecheckt):
+//   RELEASE_STORE_FILE=keystore         (optional, Standard: ../keystore)
+//   RELEASE_STORE_PASSWORD=...
+//   RELEASE_KEY_ALIAS=...
+//   RELEASE_KEY_PASSWORD=...
+def signingProps = new Properties()
+def localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { signingProps.load(it) }
+}
+def hasReleaseSigning = signingProps.getProperty("RELEASE_STORE_PASSWORD") != null
+
 android {
-    buildToolsVersion "30.0.2"
-    compileSdkVersion 30
+    namespace "com.xsheetgames"
+    compileSdk 35
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    signingConfigs {
+        release {
+            if (hasReleaseSigning) {
+                storeFile rootProject.file(signingProps.getProperty("RELEASE_STORE_FILE", "keystore"))
+                storePassword signingProps.getProperty("RELEASE_STORE_PASSWORD")
+                keyAlias signingProps.getProperty("RELEASE_KEY_ALIAS")
+                keyPassword signingProps.getProperty("RELEASE_KEY_PASSWORD")
+            }
+        }
     }
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
         }
-
-    }
-    packagingOptions {
-        exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
         applicationId "com.xsheetgames"
-        minSdkVersion 16
-        targetSdkVersion 30
-        versionCode 24
-        versionName "24.0"
+        minSdk 24
+        targetSdk 35
+        versionCode 26
+        versionName "26.0"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (hasReleaseSigning) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }
 
-
-// called every time gradle gets executed, takes the native dependencies of
-// the natives configuration, and extracts them to the proper libs/ folders
-// so they get packed with the APK.
+// Takes the native dependencies of the 'natives' configuration and extracts the
+// .so files into the proper libs/<abi> folders so they get packed with the APK/AAB.
 task copyAndroidNatives {
     doFirst {
-        file("libs/armeabi/").mkdirs()
         file("libs/armeabi-v7a/").mkdirs()
         file("libs/arm64-v8a/").mkdirs()
         file("libs/x86_64/").mkdirs()
@@ -51,10 +70,9 @@ task copyAndroidNatives {
             def outputDir = null
             if (jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
             if (jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
-            if(jar.name.endsWith("natives-armeabi.jar")) outputDir = file("libs/armeabi")
-            if(jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
-            if(jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
-            if(outputDir != null) {
+            if (jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
+            if (jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
+            if (outputDir != null) {
                 copy {
                     from zipTree(jar)
                     into outputDir
@@ -65,10 +83,8 @@ task copyAndroidNatives {
     }
 }
 
-tasks.whenTaskAdded { packageTask ->
-    if (packageTask.name.contains("package")) {
-        packageTask.dependsOn 'copyAndroidNatives'
-    }
+project.afterEvaluate {
+    tasks.named('preBuild') { dependsOn 'copyAndroidNatives' }
 }
 
 task run(type: Exec) {
@@ -90,7 +106,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.xsheetgames/com.xsheetgames.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.xsheetgames/com.xsheetgames.dracoo.DracooMainActivity'
 }
 
 eclipse.project.name = appName + "-android"

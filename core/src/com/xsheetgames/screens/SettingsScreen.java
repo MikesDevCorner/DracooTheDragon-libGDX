@@ -109,26 +109,7 @@ public class SettingsScreen extends AbstractScreen {
 				
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
-				if(GameAssets.nativ.getInputDevice().toLowerCase().contains("moga")) {
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_START) == true) {
-						this.startPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_PRIMARY) == true) {
-						this.primaryPress();
-					}
-					if(GameAssets.nativ.pollControllerButtonState(GameAssets.KEY_BACK) == true) {
-						this.stepBack("moga");
-					}
-					if(GameAssets.nativ.isControllerConnected() == true && this.lastConnectedState == false) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller connected");
-					}
-					if(GameAssets.nativ.isControllerConnected() == false && this.lastConnectedState == true) {
-						GameAssets.nativ.showMessage("Controller", "Moga Controller disconnected");
-					}
-					
-					lastConnectedState = GameAssets.nativ.isControllerConnected();
-				}
-			}
+}
 		}	
 	}
 
@@ -141,10 +122,8 @@ public class SettingsScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		
-		GameAssets.nativ.trackPageView("/SettingsScreen");
-		GameAssets.nativ.closeBannerAd();
 		
-		lastConnectedState = GameAssets.nativ.isControllerConnected();
+		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
@@ -157,7 +136,6 @@ public class SettingsScreen extends AbstractScreen {
 
 	@Override
 	public void hide() {
-		GameAssets.nativ.showBannerAd();
 		
 	}
 
@@ -277,10 +255,8 @@ public class SettingsScreen extends AbstractScreen {
 				Configuration.musicEnabled = !Configuration.musicEnabled;
 				if(Configuration.musicEnabled == true) {
 					GameAssets.playMusic(GameAssets.fetchMusic("menu/music/tribute.mp3"), true, 0.5f);
-					GameAssets.nativ.sendEvent("Settings", "Music-Changed", "on", 1);
 				} else {
 					GameAssets.pauseMusic(GameAssets.fetchMusic("menu/music/tribute.mp3"));
-					GameAssets.nativ.sendEvent("Settings", "Music-Changed", "off", 1);
 				}
 			}
 			this.saveSettingState();
@@ -293,8 +269,6 @@ public class SettingsScreen extends AbstractScreen {
 				Configuration.soundEnabled = !Configuration.soundEnabled;
 				GameAssets.playSound(GameAssets.fetchSound("menu/sounds/click.mp3"));
 				
-				if(Configuration.soundEnabled == true) GameAssets.nativ.sendEvent("Settings", "Sound-Changed", "on", 1);
-				else GameAssets.nativ.sendEvent("Settings", "Sound-Changed", "off", 1);
 			}
 			this.saveSettingState();
 		}
@@ -307,8 +281,6 @@ public class SettingsScreen extends AbstractScreen {
 				GameAssets.playSound(GameAssets.fetchSound("menu/sounds/click.mp3"));
 				Configuration.vibrateEnabled = !Configuration.vibrateEnabled;
 				
-				if(Configuration.vibrateEnabled == true) GameAssets.nativ.sendEvent("Settings", "Vibrate-Changed", "on", 1);
-				else GameAssets.nativ.sendEvent("Settings", "Vibrate-Changed", "off", 1);
 			}
 			this.saveSettingState();
 		}
@@ -322,8 +294,6 @@ public class SettingsScreen extends AbstractScreen {
 				Configuration.autoFire = !Configuration.autoFire;
 				Configuration.altAutoFire = Configuration.autoFire;
 				
-				if(Configuration.autoFire == true) GameAssets.nativ.sendEvent("Settings", "AutoFire-Changed", "on", 1);
-				else GameAssets.nativ.sendEvent("Settings", "AutoFire-Changed", "off", 1);
 			}
 			this.saveSettingState();
 		}
@@ -336,7 +306,6 @@ public class SettingsScreen extends AbstractScreen {
 				this.dispose();
 				this.game.setScreen(new CreditsScreen(this.game));
 				
-				GameAssets.nativ.sendEvent("Settings", "Credits", "viewed", 1);
 			}
 		}
 		
@@ -348,7 +317,6 @@ public class SettingsScreen extends AbstractScreen {
 				this.dispose();
 				this.game.setScreen(new InputScreen(this.game));
 				
-				GameAssets.nativ.sendEvent("Settings", "Credits", "viewed", 1);
 			}
 		}
 		
