@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
+import com.xsheetgames.genericElements.CoverLayout;
 
 public class SettingsScreen extends AbstractScreen {
 
@@ -49,12 +50,19 @@ public class SettingsScreen extends AbstractScreen {
 			if(GameAssets.assetsLoaded(batch)) {			
 			
 				if(assetsLoaded == false) this.doAssetProcessing();
-				
-				this.batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
+
+				this.beginScreenPass(batch);
+				CoverLayout.apply(screenBackground, screenBackground.getRegionWidth(), screenBackground.getRegionHeight(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+				this.blackLayer.setSize(Gdx.graphics.getWidth()+10f, Gdx.graphics.getHeight()+10f);
+				this.blackLayer.setPosition(-5f, -5f);
 				batch.begin();
 				screenBackground.draw(batch);
 				blackLayer.draw(batch);
-	
+				batch.end();
+
+				this.beginUiPass(batch);
+				batch.begin();
+
 				if(Configuration.musicEnabled == true) {
 					this.music.draw(batch);
 					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.audioOnString, 328f, 650f+110f);
@@ -106,7 +114,8 @@ public class SettingsScreen extends AbstractScreen {
 				
 				backBtn.draw(batch);
 				batch.end();
-				
+				this.endScreenRender();
+
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
 }
@@ -115,23 +124,20 @@ public class SettingsScreen extends AbstractScreen {
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-		
+		this.updateUiViewport(width, height);
 	}
 
 	@Override
 	public void show() {
-		
-		
+
+
 		lastConnectedState = GameAssets.input.isControllerConnected();
-		
+
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
+		this.setupUiViewport();
 		this.screenBackground = new Sprite(GameAssets.fetchTexture("menu/images/credits_back.jpg"));
-		screenBackground.setSize(GameAssets.fetchTexture("menu/images/credits_back.jpg").getWidth(), GameAssets.fetchTexture("menu/images/credits_back.jpg").getHeight());
 		this.blackLayer = new Sprite(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("blackLayer"));
-		this.blackLayer.setSize(1280f+10f,800f+10f);
-		this.blackLayer.setPosition(-5f, -5f);
 	}
 
 	@Override
@@ -375,8 +381,7 @@ public class SettingsScreen extends AbstractScreen {
 
 	@Override
 	public boolean screenTouched(int x, int y, int pointer) {
-		Vector2 touchPoint = new Vector2((float)x*Configuration.TARGET_WIDTH/Gdx.graphics.getWidth(), Configuration.TARGET_HEIGHT - ((float)y*Configuration.TARGET_HEIGHT/Gdx.graphics.getHeight()));
-		this.touchedEvent(touchPoint);
+		this.touchedEvent(this.unprojectUi(x, y));
 		return true;
 	}
 

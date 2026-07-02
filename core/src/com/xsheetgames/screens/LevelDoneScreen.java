@@ -10,6 +10,7 @@ import com.badlogic.gdx.utils.XmlReader;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
+import com.xsheetgames.genericElements.CoverLayout;
 
 	public class LevelDoneScreen extends AbstractScreen {
 
@@ -59,11 +60,16 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 						if(howMuchEggsReached == 3) GameAssets.playSound(GameAssets.fetchSound("game/sounds/win3.mp3"),2f);
 						soundPlayed = true;
 					}
-					this.batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
+					this.beginScreenPass(batch);
+					CoverLayout.apply(screenBackground, screenBackground.getRegionWidth(), screenBackground.getRegionHeight(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 					batch.begin();
 					batch.disableBlending();
 					screenBackground.draw(batch);
 					batch.enableBlending();
+					batch.end();
+
+					this.beginUiPass(batch);
+					batch.begin();
 					//blackLayer.draw(batch);
 					this.next.draw(batch);
 					this.menu.draw(batch);
@@ -138,7 +144,8 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 						GameAssets.fetchFont("fonts/memory.fnt").draw(batch, (((int)this.reachedPoints) * 150) + " of "+(int)(this.gameScreen.getActualEnemies().getEnemyCounter() * 150f)+" Pts", Configuration.TARGET_WIDTH/2 - GameAssets.glyphLayout.width/2, 280);
 					}
 					batch.end();
-					
+					this.endScreenRender();
+
 					//Emulate Events
 					if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
 				}
@@ -147,8 +154,7 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 
 		@Override
 		public void resize(int width, int height) {
-			// TODO Auto-generated method stub
-			
+			this.updateUiViewport(width, height);
 		}
 
 		@Override
@@ -160,9 +166,9 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 			this.keepScreen = false;
 			
 			this.batch = new SpriteBatch();
+			this.setupUiViewport();
 			this.screenBackground = new Sprite(GameAssets.fetchTexture("game/images/background.jpg"));
-			screenBackground.setSize(GameAssets.fetchTexture("game/images/background.jpg").getWidth(), GameAssets.fetchTexture("game/images/background.jpg").getHeight());
-			
+
 			this.next = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("advance"));
 			this.next.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("advance").getRegionWidth(), GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("advance").getRegionHeight());
 			this.next.setPosition(Configuration.TARGET_WIDTH/2 + next.getWidth()*0.7f, 55f);
@@ -361,7 +367,7 @@ import com.xsheetgames.genericElements.AbstractLevelpack;
 		@Override
 		public boolean screenTouched(int x, int y, int pointer) {
 			try {
-				Vector2 touchPoint = new Vector2((float)x*Configuration.TARGET_WIDTH/Gdx.graphics.getWidth(), Configuration.TARGET_HEIGHT - ((float)y*Configuration.TARGET_HEIGHT/Gdx.graphics.getHeight()));
+				Vector2 touchPoint = this.unprojectUi(x, y);
 				if(next.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
 					this.keepGameScreen = true;
 					this.dispose();

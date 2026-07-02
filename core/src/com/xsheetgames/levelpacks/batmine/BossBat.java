@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
+import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
 import com.xsheetgames.genericGameObjects.Enemy;
@@ -230,7 +231,7 @@ public class BossBat extends Enemy {
 				this.body.setLinearVelocity(vel.x+2f, vel.y);
 			}
 			
-			if(pos.x >= 16.6f && vel.x > 0f) {
+			if(pos.x >= Configuration.GAME_WORLD_WIDTH - 3.4f && vel.x > 0f) {
 				this.body.setLinearVelocity(vel.x-2f, vel.y);
 			}
 			

@@ -29,13 +29,16 @@ public class InputButtonCollection {
 		InputButton fireButton = null;
 		
 		if(Configuration.inputType == 1) {
+			// Right-side buttons are anchored to the actual (aspect-dependent)
+			// right edge so they stay reachable on every screen width. Offsets
+			// are kept identical to the original 20m-wide design layout.
 			upButton = new InputButton(0.65f,3.2f,"keydown");
 			downButton = new InputButton(0.65f,0.2f,"keydown");
-			leftButton = new InputButton(13.5f,0.45f,"keydown");		
-			rightButton = new InputButton(16.5f,0.45f,"keydown");
-			if(Configuration.autoFire == true) fireButton = new InputButton(25f, 5f, "keyfire");
-			else fireButton = new InputButton(16.6f, 3.5f, "keyfire");
-		}	
+			leftButton = new InputButton(Configuration.GAME_WORLD_WIDTH - 6.5f,0.45f,"keydown");
+			rightButton = new InputButton(Configuration.GAME_WORLD_WIDTH - 3.5f,0.45f,"keydown");
+			if(Configuration.autoFire == true) fireButton = new InputButton(Configuration.GAME_WORLD_WIDTH + 5f, 5f, "keyfire");
+			else fireButton = new InputButton(Configuration.GAME_WORLD_WIDTH - 3.4f, 3.5f, "keyfire");
+		}
 		else { //inputType == 3
 			upButton = new InputButton(25f,10f,"keydown_a");
 			downButton = new InputButton(25f,10f,"keydown_a");		

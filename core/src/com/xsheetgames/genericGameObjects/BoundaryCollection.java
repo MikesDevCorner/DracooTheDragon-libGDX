@@ -11,9 +11,9 @@ public class BoundaryCollection {
 	
 	public BoundaryCollection(World world, boolean openBack) {
 		boundaries = new Array<Boundary>(4);		
-		boundaries.add(new Boundary(world, 0f, -0.2f, Configuration.VIEWPORT_WIDTH, 0.2f, "bottom"));
-		boundaries.add(new Boundary(world, 0f, Configuration.VIEWPORT_HEIGHT, Configuration.VIEWPORT_WIDTH, 0.2f, "top"));
-		boundaries.add(new Boundary(world, Configuration.VIEWPORT_WIDTH, 0f, 0.2f, Configuration.VIEWPORT_HEIGHT, "right"));
+		boundaries.add(new Boundary(world, 0f, -0.2f, Configuration.GAME_WORLD_WIDTH, 0.2f, "bottom"));
+		boundaries.add(new Boundary(world, 0f, Configuration.VIEWPORT_HEIGHT, Configuration.GAME_WORLD_WIDTH, 0.2f, "top"));
+		boundaries.add(new Boundary(world, Configuration.GAME_WORLD_WIDTH, 0f, 0.2f, Configuration.VIEWPORT_HEIGHT, "right"));
 		boundaries.add(new Boundary(world, -0.2f, 0f, 0.2f, Configuration.VIEWPORT_HEIGHT, "left"));
 		this.setBackWall(openBack);
 	}

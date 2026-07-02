@@ -10,6 +10,7 @@ import com.badlogic.gdx.utils.Array;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
+import com.xsheetgames.genericElements.CoverLayout;
 import com.xsheetgames.levelpacks.batmine.BatMineLevelPack;
 import com.xsheetgames.levelpacks.jungle.JungleLevelPack;
 
@@ -35,11 +36,18 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 	@Override
 	public void render(float delta) {if(GameAssets.assetsLoaded(batch)) {
 		if(this.disposed == false) {
-			this.batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
 			if(assetsLoaded == false) this.doAssetProcessing();
+				this.beginScreenPass(batch);
+				CoverLayout.apply(screenBackground, screenBackground.getRegionWidth(), screenBackground.getRegionHeight(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+				this.blackLayer.setSize(Gdx.graphics.getWidth()+10f, Gdx.graphics.getHeight()+10f);
+				this.blackLayer.setPosition(-5f, -5f);
 				batch.begin();
 				screenBackground.draw(batch);
 				blackLayer.draw(batch);
+				batch.end();
+
+				this.beginUiPass(batch);
+				batch.begin();
 				backBtn.draw(batch);
 				levelPackBtn.draw(batch);
 				if(this.levelPackIndex > 0) leftButton.draw(batch);
@@ -47,7 +55,8 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 				GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), levelPackHeading);
 				GameAssets.fetchFont("fonts/memory.fnt").draw(batch,levelPackHeading, Configuration.TARGET_WIDTH/2 - GameAssets.glyphLayout.width/2, 680f);
 				batch.end();
-				
+				this.endScreenRender();
+
 				//Emulate Events
 				if(this.xAxisCount > 0f) this.xAxisCount-=delta;
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
@@ -57,23 +66,21 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
+		this.updateUiViewport(width, height);
 	}
 
 	@Override
 	public void show() {
-		
-		
+
+
 		lastConnectedState = GameAssets.input.isControllerConnected();
-		
+
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
-		
+		this.setupUiViewport();
+
 		this.screenBackground = new Sprite(GameAssets.fetchTexture("menu/images/credits_back.jpg"));
-		screenBackground.setSize(GameAssets.fetchTexture("menu/images/credits_back.jpg").getWidth(), GameAssets.fetchTexture("menu/images/credits_back.jpg").getHeight());
 		this.blackLayer = new Sprite(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("blackLayer"));
-		this.blackLayer.setSize(1280f+10f,800f+10f);
-		this.blackLayer.setPosition(-5f, -5f);
 	}
 
 	@Override
@@ -179,7 +186,7 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 	@Override
 	public boolean screenTouched(int x, int y, int pointer) {
 		try {
-			Vector2 touchPoint = new Vector2((float)x*Configuration.TARGET_WIDTH/Gdx.graphics.getWidth(), Configuration.TARGET_HEIGHT - ((float)y*Configuration.TARGET_HEIGHT/Gdx.graphics.getHeight()));
+			Vector2 touchPoint = this.unprojectUi(x, y);
 			if(backBtn != null && backBtn.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
 				GameAssets.playSound(GameAssets.fetchSound("menu/sounds/click.mp3"));
 				this.dispose();

@@ -496,7 +496,7 @@ public class BossSnake extends Enemy {
 				this.body.setLinearVelocity(5f, vel.y);
 			}
 			
-			if(pos.x >= 13.5f && vel.x > 0f) {
+			if(pos.x >= Configuration.GAME_WORLD_WIDTH - 6.5f && vel.x > 0f) {
 				this.body.setLinearVelocity(0f, vel.y);
 			}
 			

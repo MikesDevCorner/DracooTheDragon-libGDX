@@ -177,7 +177,7 @@ public class GameAssets {
 	
 	
 	public static void loadMenuAssets() {
-		manager.load("menu/images/menuScreen.jpg", Texture.class);
+		manager.load("menu/images/menuScreen2.jpg", Texture.class);
 		manager.load("menu/images/credits_back.jpg", Texture.class);
 		
 		manager.load("menu/images/moga_pocket.png", Texture.class);
@@ -192,7 +192,7 @@ public class GameAssets {
 	}
 	
 	public static void unloadMenuAssets() {
-		try { manager.unload("menu/images/menuScreen.jpg"); } catch(Exception e) {}
+		try { manager.unload("menu/images/menuScreen2.jpg"); } catch(Exception e) {}
 		try { manager.unload("menu/images/credits_back.jpg"); } catch(Exception e) {}
 		
 		try { manager.unload("menu/images/moga_pocket.png"); } catch(Exception e) {}
@@ -350,9 +350,11 @@ public class GameAssets {
 	public static boolean assetsLoaded(SpriteBatch batch) {
 		if(manager != null && batch != null) {
 			boolean val = manager.update();
-			
+
 			if(val == false) {
-				batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
+				// In echten Fensterpixeln zeichnen, damit nichts verzerrt wird.
+				Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+				batch.getProjectionMatrix().setToOrtho2D(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 				drawLoadingScreen(batch);
 			}
 			return val;
@@ -375,9 +377,25 @@ public class GameAssets {
 	}
 	
 	public static void drawLoadingScreen(SpriteBatch batch) {
+		float screenW = Gdx.graphics.getWidth();
+		float screenH = Gdx.graphics.getHeight();
+
 		batch.begin();
-		batch.draw(loadingManager.get("loading/loading_back.jpg", Texture.class), 0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
-		batch.draw(loadingAnimation.getKeyFrame(getLoadingProcess()),270,225);		
+
+		// Hintergrund als object-fit:cover (uniform skaliert, Ueberstand abgeschnitten).
+		Texture back = loadingManager.get("loading/loading_back.jpg", Texture.class);
+		float coverScale = Math.max(screenW / back.getWidth(), screenH / back.getHeight());
+		float coverW = back.getWidth() * coverScale;
+		float coverH = back.getHeight() * coverScale;
+		batch.draw(back, (screenW - coverW) / 2f, (screenH - coverH) / 2f, coverW, coverH);
+
+		// Ladebalken fit-skaliert im 1280x800 Design-Raster zentriert.
+		float fit = Math.min(screenW / Configuration.TARGET_WIDTH, screenH / Configuration.TARGET_HEIGHT);
+		float offsetX = (screenW - Configuration.TARGET_WIDTH * fit) / 2f;
+		float offsetY = (screenH - Configuration.TARGET_HEIGHT * fit) / 2f;
+		TextureRegion bar = loadingAnimation.getKeyFrame(getLoadingProcess());
+		batch.draw(bar, offsetX + 270f * fit, offsetY + 225f * fit, bar.getRegionWidth() * fit, bar.getRegionHeight() * fit);
+
 		batch.end();
 	}
 	

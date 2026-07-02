@@ -1,11 +1,12 @@
 package com.xsheetgames.screens;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
+import com.xsheetgames.genericElements.CoverLayout;
 
 public class EndPackScreen extends AbstractScreen {
 
@@ -30,12 +31,18 @@ public class EndPackScreen extends AbstractScreen {
 	public void render(float delta) {
 		if(this.disposed == false) {
 			if(GameAssets.assetsLoaded(batch)) {
-				this.batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
 				if(assetsLoaded == false) this.doAssetProcessing();
+				this.beginScreenPass(batch);
+				CoverLayout.apply(screenBackground, screenBackground.getRegionWidth(), screenBackground.getRegionHeight(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 				batch.begin();
 				screenBackground.draw(batch);
+				batch.end();
+
+				this.beginUiPass(batch);
+				batch.begin();
 				this.menu.draw(batch);
 				batch.end();
+				this.endScreenRender();
 			}
 		}
 	}
@@ -43,16 +50,17 @@ public class EndPackScreen extends AbstractScreen {
 	
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub		
+		this.updateUiViewport(width, height);
 	}
 
 	@Override
 	public void show() {
-		
-		
+
+
 		this.assetsLoaded = false;
-		this.batch = new SpriteBatch();		
-		
+		this.batch = new SpriteBatch();
+		this.setupUiViewport();
+
 	}
 
 	@Override
@@ -83,11 +91,10 @@ public class EndPackScreen extends AbstractScreen {
 	}
 	
 	
-	private void doAssetProcessing() {			
+	private void doAssetProcessing() {
 		this.assetsLoaded = true;
 		this.screenBackground = new Sprite(GameAssets.fetchTexture(this.comic));
-		screenBackground.setSize(GameAssets.fetchTexture(this.comic).getWidth(), GameAssets.fetchTexture(this.comic).getHeight());
-		
+
 		if(this.purchase == null)
 		{			
 			TextureAtlas atlas = GameAssets.fetchTextureAtlas("game/images/game_objects.pack");

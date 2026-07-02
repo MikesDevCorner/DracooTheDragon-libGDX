@@ -2,6 +2,7 @@ package com.xsheetgames.genericElements;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericGameObjects.Hurtable;
 
@@ -18,15 +19,15 @@ public class BossEnergyMeter {
 		this.disposed = false;
 		this.track = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemy"));
 		this.track.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemy").getRegionWidth(), GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemy").getRegionHeight());
-		this.track.setPosition(920f,756f);
-		
+		this.track.setPosition(Configuration.GAME_PIXEL_WIDTH - 360f,756f);
+
 		this.fullWidth = GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemies_status").getRegionWidth();
 		this.fullHeight = GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemies_status").getRegionHeight();
 		this.display = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemies_status"));
 		this.display.setSize(this.fullWidth, this.fullHeight);
-		this.display.setPosition(936f,761f);
+		this.display.setPosition(Configuration.GAME_PIXEL_WIDTH - 344f,761f);
 	}
-	
+
 	public void registerHurtable(Hurtable h) {
 		this.myHurtable = h;
 	}
@@ -51,13 +52,13 @@ public class BossEnergyMeter {
 	public void resetGraphics() {
 		this.track = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemy"));
 		this.track.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemy").getRegionWidth(), GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemy").getRegionHeight());
-		this.track.setPosition(920f,756f);
-		
+		this.track.setPosition(Configuration.GAME_PIXEL_WIDTH - 360f,756f);
+
 		this.fullWidth = GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemies_status").getRegionWidth();
 		this.fullHeight = GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemies_status").getRegionHeight();
 		this.display = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("life_bar_enemies_status"));
 		this.display.setSize(this.fullWidth, this.fullHeight);
-		this.display.setPosition(936f,761f);
+		this.display.setPosition(Configuration.GAME_PIXEL_WIDTH - 344f,761f);
 	}
 	
 	public void dispose() {

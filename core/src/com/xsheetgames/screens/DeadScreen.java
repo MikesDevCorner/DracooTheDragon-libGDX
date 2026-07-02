@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
+import com.xsheetgames.genericElements.CoverLayout;
 
 public class DeadScreen extends AbstractScreen {
 
@@ -54,17 +55,25 @@ public class DeadScreen extends AbstractScreen {
 					}
 					this.sound2Played = true;				
 				}
-				this.batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
+				this.beginScreenPass(batch);
+				CoverLayout.apply(screenBackground, screenBackground.getRegionWidth(), screenBackground.getRegionHeight(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+				this.blackLayer.setSize(Gdx.graphics.getWidth()+10f, Gdx.graphics.getHeight()+10f);
+				this.blackLayer.setPosition(-5f, -5f);
 				batch.begin();
 				batch.disableBlending();
 				screenBackground.draw(batch);
 				batch.enableBlending();
 				blackLayer.draw(batch);
+				batch.end();
+
+				this.beginUiPass(batch);
+				batch.begin();
 				yes.draw(batch);
 				no.draw(batch);
 				deadText.draw(batch);
 				batch.end();
-				
+				this.endScreenRender();
+
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
 }
@@ -73,8 +82,7 @@ public class DeadScreen extends AbstractScreen {
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-		
+		this.updateUiViewport(width, height);
 	}
 
 	@Override
@@ -90,9 +98,9 @@ public class DeadScreen extends AbstractScreen {
 			DeadScreen.DeadScreenCounter++;
 			
 			this.batch = new SpriteBatch();
+			this.setupUiViewport();
 			this.screenBackground = new Sprite(GameAssets.fetchTexture("game/images/background.jpg"));
-			screenBackground.setSize(GameAssets.fetchTexture("game/images/background.jpg").getWidth(), GameAssets.fetchTexture("game/images/background.jpg").getHeight());
-			
+
 			this.yes = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("retry"));
 			this.yes.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("retry").getRegionWidth(), GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("retry").getRegionHeight());
 			this.yes.setPosition(Configuration.TARGET_WIDTH/2+10f, 250f);
@@ -106,8 +114,6 @@ public class DeadScreen extends AbstractScreen {
 			this.deadText.setPosition(Configuration.TARGET_WIDTH/2 - this.deadText.getWidth()/2 , 400f);
 			
 			this.blackLayer = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("blackLayer"));
-			this.blackLayer.setSize(1280f+10f,800f+10f);
-			this.blackLayer.setPosition(-5f, -5f);
 		}
 	}
 
@@ -210,8 +216,8 @@ public class DeadScreen extends AbstractScreen {
 	@Override
 	public boolean screenTouched(int x, int y, int pointer) {
 		try {
-			Vector2 touchPoint = new Vector2((float)x*Configuration.TARGET_WIDTH/Gdx.graphics.getWidth(), Configuration.TARGET_HEIGHT - ((float)y*Configuration.TARGET_HEIGHT/Gdx.graphics.getHeight()));
-			
+			Vector2 touchPoint = this.unprojectUi(x, y);
+
 			if(this.yes.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
 				this.keepGameScreen = true;
 				this.dispose();

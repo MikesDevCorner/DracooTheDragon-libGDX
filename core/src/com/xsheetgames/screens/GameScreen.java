@@ -107,9 +107,19 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void render(float delta) {
 	    if(this.disposed == false) {
-			if(GameAssets.assetsLoaded(batch)) {		   
+			if(GameAssets.assetsLoaded(batch)) {
 				if(assetsLoaded == false) this.doAssetProcessing();
-			   
+
+				//Levelstart: den sichtbaren Bereich mit den Elementen der ersten
+				//Sekunden vorbefuellen (passiert noch hinter dem Start-Pause-Layer)
+				if(actualPack.getActualLevel().isPrefilled() == false && actualPack.actualLevelDone() == false) {
+					actualPack.getActualLevel().prefillLevelStart(this);
+					//Sprites einmal mit den box2d-Bodies syncen - draw() zeichnet
+					//erst nach firstTimeSmoothened, und das Smoothing laeuft sonst
+					//erstmals nach dem Aufheben der Start-Pause
+					this.resetSmoothStates();
+				}
+
 				/***************** LOGIC OPERATIONS AND SIMULATIONS *********************/
 				
 				if(this.showCounter <= 2f) this.showCounter += delta;
@@ -181,23 +191,24 @@ public class GameScreen extends AbstractScreen {
 				batch.end();
 				if(Configuration.debugLevel >= Application.LOG_DEBUG) debugRenderer.render(this.world, camera.combined);
 				
-			    //DRAW THINGS DEPENDING ON TARGET_WIDTH SIZES IN PIXEL (HUD)
-				batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
+			    //DRAW THINGS DEPENDING ON PIXEL SIZES (HUD) - width follows the device aspect ratio
+				batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.GAME_PIXEL_WIDTH, Configuration.TARGET_HEIGHT);
 				batch.begin();
 
 				GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), "World "+this.actualPack.getActualLevelNumber());
-				GameAssets.fetchFont("fonts/memory.fnt").draw(batch, "World "+this.actualPack.getActualLevelNumber(), Configuration.TARGET_WIDTH/2-GameAssets.glyphLayout.width/2, Configuration.TARGET_HEIGHT+27f);
-				
+				GameAssets.fetchFont("fonts/memory.fnt").draw(batch, "World "+this.actualPack.getActualLevelNumber(), Configuration.GAME_PIXEL_WIDTH/2-GameAssets.glyphLayout.width/2, Configuration.TARGET_HEIGHT+27f);
+
 				if(actualPack.getRemainingLevelSeconds() <= 400f) {
-					batch.draw(this.hud_track,920f,756f,this.hud_track.getRegionWidth(), this.hud_track.getRegionHeight());
-					batch.draw(this.hud_sign,918f + 272f*actualPack.getActualLevel().getPercentage() - 12f,747f,this.hud_sign.getRegionWidth(), this.hud_sign.getRegionHeight());
+					float trackX = Configuration.GAME_PIXEL_WIDTH - 360f;
+					batch.draw(this.hud_track,trackX,756f,this.hud_track.getRegionWidth(), this.hud_track.getRegionHeight());
+					batch.draw(this.hud_sign,trackX - 14f + 272f*actualPack.getActualLevel().getPercentage(),747f,this.hud_sign.getRegionWidth(), this.hud_sign.getRegionHeight());
 				} else {
 					if(GameScreen.bossEnergyMeter != null) GameScreen.bossEnergyMeter.draw(batch);
 				}
 				
 				if(Configuration.debugLevel >= Application.LOG_INFO) {
 					GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), Configuration.VERSION + " - " + Configuration.VERSION_DATE + "  -  FPS: "+ Gdx.graphics.getFramesPerSecond());
-					GameAssets.fetchFont("fonts/memory.fnt").draw(batch, Configuration.VERSION + " - " + Configuration.VERSION_DATE + "  -  FPS: "+ Gdx.graphics.getFramesPerSecond(), Configuration.TARGET_WIDTH/2-GameAssets.glyphLayout.width/2, GameAssets.fetchFont("fonts/memory.fnt").getLineHeight()*1.5f);
+					GameAssets.fetchFont("fonts/memory.fnt").draw(batch, Configuration.VERSION + " - " + Configuration.VERSION_DATE + "  -  FPS: "+ Gdx.graphics.getFramesPerSecond(), Configuration.GAME_PIXEL_WIDTH/2-GameAssets.glyphLayout.width/2, GameAssets.fetchFont("fonts/memory.fnt").getLineHeight()*1.5f);
 				}
 				
 				batch.draw(draco.getLiveTexture(), 75f,Configuration.TARGET_HEIGHT-draco.getLiveTexture().getRegionHeight() - 10);
@@ -219,12 +230,12 @@ public class GameScreen extends AbstractScreen {
 					if(allHeight < 780f) {
 						for(int i = 0; i < this.pauseMessage.length; i++) {
 							GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), this.pauseMessage[i]);
-							GameAssets.fetchFont("fonts/memory.fnt").draw(batch, this.pauseMessage[i], Configuration.TARGET_WIDTH/2-GameAssets.glyphLayout.width/2, startHeight+lineHeight+10f);
+							GameAssets.fetchFont("fonts/memory.fnt").draw(batch, this.pauseMessage[i], Configuration.GAME_PIXEL_WIDTH/2-GameAssets.glyphLayout.width/2, startHeight+lineHeight+10f);
 							startHeight -= (linePadding + lineHeight);
 						}						
 					} else {
 						GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), this.pauseMessage[0]);
-						GameAssets.fetchFont("fonts/memory.fnt").draw(batch, "Paused - message hast too much lines...", Configuration.TARGET_WIDTH/2-GameAssets.glyphLayout.width/2, startHeight+lineHeight+10f);
+						GameAssets.fetchFont("fonts/memory.fnt").draw(batch, "Paused - message hast too much lines...", Configuration.GAME_PIXEL_WIDTH/2-GameAssets.glyphLayout.width/2, startHeight+lineHeight+10f);
 					}
 					this.pauseResumeBtn.draw(batch);
 				}
@@ -326,6 +337,14 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public void resize(int width, int height) {
 		if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "Resize auf width " + width + " and height "+height);
+		Gdx.gl.glViewport(0, 0, width, height);
+		Configuration.updateGameViewport(width, height);
+		if(this.camera != null) {
+			this.camera.viewportWidth = Configuration.GAME_WORLD_WIDTH;
+			this.camera.viewportHeight = Configuration.VIEWPORT_HEIGHT;
+			this.camera.position.set(this.camera.viewportWidth/2, this.camera.viewportHeight/2, 0);
+			this.camera.update();
+		}
 	}
 
 	@Override
@@ -355,7 +374,8 @@ public class GameScreen extends AbstractScreen {
 			}
 			
 			if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "Show aufgerufen");
-			this.camera = new OrthographicCamera(Configuration.VIEWPORT_WIDTH, Configuration.VIEWPORT_HEIGHT);
+			Configuration.updateGameViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+			this.camera = new OrthographicCamera(Configuration.GAME_WORLD_WIDTH, Configuration.VIEWPORT_HEIGHT);
 		    this.camera.position.set(camera.viewportWidth/2, camera.viewportHeight/2, 0);
 		    this.camera.update();
 		    
@@ -626,28 +646,32 @@ public class GameScreen extends AbstractScreen {
 	   	this.backLayer = new ParallaxLayer(this.actualPack.getBackLayerSpeed(),this.actualPack.getBackLayer());
 		
 	   	
+   		// Keep the centered pause cluster centered, and right-anchored buttons
+   		// stuck to the (now aspect-dependent) right edge of the HUD.
+   		float hudCenterShift = (Configuration.GAME_PIXEL_WIDTH - Configuration.TARGET_WIDTH) / 2f;
+
    		this.pauseLayer = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("blackLayer"));
-   		this.pauseLayer.setSize(Configuration.TARGET_WIDTH+30f, Configuration.TARGET_HEIGHT+30f);
+   		this.pauseLayer.setSize(Configuration.GAME_PIXEL_WIDTH+30f, Configuration.TARGET_HEIGHT+30f);
    		this.pauseLayer.setPosition(-15f, -15f);
-   		
+
    		this.menu = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_menu"));
    		this.menu.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate").getRegionWidth(),+GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate").getRegionHeight()+16);
-   		this.menu.setPosition(354f, 312);
-   		
+   		this.menu.setPosition(354f + hudCenterShift, 312);
+
    		this.rate = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate"));
    		this.rate.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate").getRegionWidth(),GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate").getRegionHeight());
-   		this.rate.setPosition(716f, 320f);
-   		
+   		this.rate.setPosition(716f + hudCenterShift, 320f);
+
    		this.more = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_more"));
    		this.more.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate").getRegionWidth(),GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_rate").getRegionHeight());
-   		this.more.setPosition(535, 320);
+   		this.more.setPosition(535 + hudCenterShift, 320);
 	   	
 	   	this.hud_sign = GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("distance_sign");
 	   	this.hud_track = GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("distance_track");
 	   	
 	   	this.pauseResumeBtn = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_right"));
 	   	this.pauseResumeBtn.setSize(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_right").getRegionWidth(),GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("btn_right").getRegionHeight());
-	   	this.pauseResumeBtn.setPosition(1090f,15f);
+	   	this.pauseResumeBtn.setPosition(Configuration.GAME_PIXEL_WIDTH - 190f,15f);
 	   	
 	   	if(this.resumeEnemies) {
 	   		this.enemies.resume();
@@ -825,10 +849,10 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public boolean screenTouched(int x, int y, int pointer) {
 		try {
-			Vector2 touchPoint = new Vector2((float)x/Gdx.graphics.getWidth()*Configuration.VIEWPORT_WIDTH, Configuration.VIEWPORT_HEIGHT-((float)y/Gdx.graphics.getHeight()*Configuration.VIEWPORT_HEIGHT));
+			Vector2 touchPoint = new Vector2((float)x/Gdx.graphics.getWidth()*Configuration.GAME_WORLD_WIDTH, Configuration.VIEWPORT_HEIGHT-((float)y/Gdx.graphics.getHeight()*Configuration.VIEWPORT_HEIGHT));
 			if(this.disposed == false) {
 				if(GameScreen.paused == true && this.showCounter >= 0.5f) {
-					Vector2 touchPoint2 = new Vector2((float)x*Configuration.TARGET_WIDTH/Gdx.graphics.getWidth(), Configuration.TARGET_HEIGHT - ((float)y*Configuration.TARGET_HEIGHT/Gdx.graphics.getHeight()));
+					Vector2 touchPoint2 = new Vector2((float)x*Configuration.GAME_PIXEL_WIDTH/Gdx.graphics.getWidth(), Configuration.TARGET_HEIGHT - ((float)y*Configuration.TARGET_HEIGHT/Gdx.graphics.getHeight()));
 					if(this.pauseResumeBtn != null && this.pauseResumeBtn.getBoundingRectangle().contains(touchPoint2.x, touchPoint2.y)) {
 						this.draco.upPressed = false;
 						this.draco.downPressed = false;
@@ -885,11 +909,11 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public boolean screenAfterTouched(int x, int y, int pointer) {
 		try {
-			Vector2 touchPoint = new Vector2((float)x/Gdx.graphics.getWidth()*Configuration.VIEWPORT_WIDTH, Configuration.VIEWPORT_HEIGHT-((float)y/Gdx.graphics.getHeight()*Configuration.VIEWPORT_HEIGHT));			
+			Vector2 touchPoint = new Vector2((float)x/Gdx.graphics.getWidth()*Configuration.GAME_WORLD_WIDTH, Configuration.VIEWPORT_HEIGHT-((float)y/Gdx.graphics.getHeight()*Configuration.VIEWPORT_HEIGHT));
 			if(GameScreen.paused == false && this.disposed == false) {
-				
+
 				if(Configuration.inputType == 1 && this.draco != null && this.showCounter >= 0.5f) {
-					if(touchPoint.x < Configuration.VIEWPORT_WIDTH/2) {
+					if(touchPoint.x < Configuration.GAME_WORLD_WIDTH/2) {
 						if(draco.up.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.upPressed = false;
 						if(draco.down.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.downPressed = false;
 					} else {
@@ -910,34 +934,34 @@ public class GameScreen extends AbstractScreen {
 	@Override
 	public boolean screenWhileTouch(int x, int y, int pointer) {
 		try {
-			Vector2 touchPoint = new Vector2((float)x/Gdx.graphics.getWidth()*Configuration.VIEWPORT_WIDTH, Configuration.VIEWPORT_HEIGHT-((float)y/Gdx.graphics.getHeight()*Configuration.VIEWPORT_HEIGHT));
+			Vector2 touchPoint = new Vector2((float)x/Gdx.graphics.getWidth()*Configuration.GAME_WORLD_WIDTH, Configuration.VIEWPORT_HEIGHT-((float)y/Gdx.graphics.getHeight()*Configuration.VIEWPORT_HEIGHT));
 			if(GameScreen.paused == false && Configuration.inputType == 1 && this.draco != null && this.disposed == false && this.showCounter >= 0.5f) {
 				if(draco.up.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.upPressed = true;
 				else {
-					if(touchPoint.x < Configuration.VIEWPORT_WIDTH/2) draco.upPressed = false;
+					if(touchPoint.x < Configuration.GAME_WORLD_WIDTH/2) draco.upPressed = false;
 				}
-				
+
 				if(draco.down.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.downPressed = true;
 				else {
-					if(touchPoint.x < Configuration.VIEWPORT_WIDTH/2) draco.downPressed = false;
+					if(touchPoint.x < Configuration.GAME_WORLD_WIDTH/2) draco.downPressed = false;
 				}
-				
+
 				if(draco.left.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.leftPressed = true;
 				else  {
-					if(touchPoint.x >= Configuration.VIEWPORT_WIDTH/2) draco.leftPressed = false;
+					if(touchPoint.x >= Configuration.GAME_WORLD_WIDTH/2) draco.leftPressed = false;
 				}
-				
+
 				if(draco.right.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.rightPressed = true;
 				else  {
-					if(touchPoint.x >= Configuration.VIEWPORT_WIDTH/2) draco.rightPressed = false;
+					if(touchPoint.x >= Configuration.GAME_WORLD_WIDTH/2) draco.rightPressed = false;
 				}
-				
+
 				if(Configuration.autoFire == false) {
 					if(draco.fire.getRectangle().contains(touchPoint.x,touchPoint.y) == true) {
 						draco.firePressed = true;
 					}
 					else  {
-						if(touchPoint.x >= Configuration.VIEWPORT_WIDTH/2) draco.firePressed = false;
+						if(touchPoint.x >= Configuration.GAME_WORLD_WIDTH/2) draco.firePressed = false;
 					}
 				}
 			}

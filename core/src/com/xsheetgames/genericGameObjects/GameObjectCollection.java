@@ -107,7 +107,7 @@ public class GameObjectCollection implements Iterator<GameObject> {
 			GameObject g = iter.next();
 			if(g.isDisposed() == false && g.body.isActive()) {
 				if(g.getBodyType() != BodyType.KinematicBody) {
-					if(g.getLeftBottom().x > Configuration.VIEWPORT_WIDTH+(g instanceof Fireball ? 1f : 5f) || g.getLeftBottom().y > Configuration.VIEWPORT_HEIGHT || g.getRightTop().x < 0 || g.getRightTop().y < 0 ) {
+					if(g.getLeftBottom().x > Configuration.GAME_WORLD_WIDTH+(g instanceof Fireball ? 1f : 5f) || g.getLeftBottom().y > Configuration.VIEWPORT_HEIGHT || g.getRightTop().x < 0 || g.getRightTop().y < 0 ) {
   						if(!g.free()) g.dispose();
 						iter.remove();
 					}

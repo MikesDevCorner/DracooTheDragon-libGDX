@@ -1,11 +1,13 @@
 package com.xsheetgames.screens;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.GameAssets;
 import com.xsheetgames.genericElements.AbstractLevelpack;
+import com.xsheetgames.genericElements.CoverLayout;
 
 public class PreBossScreen extends AbstractScreen {
 
@@ -36,11 +38,18 @@ public class PreBossScreen extends AbstractScreen {
 	public void render(float delta) {
 		if(this.disposed == false) {
 			if(GameAssets.assetsLoaded(batch)) {
-				this.batch.getProjectionMatrix().setToOrtho2D(0, 0, Configuration.TARGET_WIDTH, Configuration.TARGET_HEIGHT);
+				this.beginScreenPass(batch);
+				CoverLayout.apply(screenBackground, screenBackground.getRegionWidth(), screenBackground.getRegionHeight(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+				this.blackLayer.setSize(Gdx.graphics.getWidth()+10f, Gdx.graphics.getHeight()+10f);
+				this.blackLayer.setPosition(-5f, -5f);
 				batch.begin();
 				screenBackground.draw(batch);
 				blackLayer.draw(batch);
-				
+				batch.end();
+
+				this.beginUiPass(batch);
+				batch.begin();
+
 				if(this.readyForBoss == true) {
 					GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), this.text1);
 					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.text1, Configuration.TARGET_WIDTH/2 - GameAssets.glyphLayout.width/2, 495f);
@@ -54,9 +63,10 @@ public class PreBossScreen extends AbstractScreen {
 					GameAssets.glyphLayout.setText(GameAssets.fetchFont("fonts/memory.fnt"), this.text4);
 					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.text4, Configuration.TARGET_WIDTH/2 - GameAssets.glyphLayout.width/2, 435f);
 				}
-				
+
 				batch.end();
-				
+				this.endScreenRender();
+
 				//Emulate Events
 				if(GameAssets.buttonTimer > 0f) GameAssets.buttonTimer-=delta;
 }
@@ -66,7 +76,7 @@ public class PreBossScreen extends AbstractScreen {
 	
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub		
+		this.updateUiViewport(width, height);
 	}
 
 	@Override
@@ -76,14 +86,12 @@ public class PreBossScreen extends AbstractScreen {
 		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		this.batch = new SpriteBatch();
+		this.setupUiViewport();
 		this.readyForBoss = false;
 		this.readyForBoss = (this.gameScreen.getLevelpack().getReachedEggs() >= 24);
-		
+
 		this.screenBackground = new Sprite(GameAssets.fetchTexture("game/images/background.jpg"));
-		screenBackground.setSize(GameAssets.fetchTexture("game/images/background.jpg").getWidth(), GameAssets.fetchTexture("game/images/background.jpg").getHeight());
 		this.blackLayer = new Sprite(GameAssets.fetchTextureAtlas("game/images/game_objects.pack").findRegion("blackLayer"));
-		this.blackLayer.setSize(1280f+10f,800f+10f);
-		this.blackLayer.setPosition(-5f, -5f);
 	}
 
 	@Override
