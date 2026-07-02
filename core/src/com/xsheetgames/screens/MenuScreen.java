@@ -14,14 +14,13 @@ import com.xsheetgames.genericElements.CoverLayout;
 public class MenuScreen extends AbstractScreen {
 
 	private SpriteBatch batch;
-	private Sprite screenBackground, playButton, rate, share, settings, lite, more;
+	private Sprite screenBackground, playButton, rate, share, settings, more;
 	private float bgWidth, bgHeight;
 	private boolean assetsLoaded;
 	private boolean disposed = false;
 	private boolean endApp = false;
 	private static boolean adShowed;
-	private boolean lastConnectedState;
-	
+
 	
 	public MenuScreen(Game game) {
 		this.game = game;
@@ -53,7 +52,6 @@ public class MenuScreen extends AbstractScreen {
 				this.beginUiPass(batch);
 				this.batch.begin();
 				this.playButton.draw(batch);
-				//if(Configuration.fullVersion == false) this.lite.draw(batch);
 				this.settings.draw(batch);
 				this.rate.draw(batch);
 				this.share.draw(batch);
@@ -111,8 +109,7 @@ public class MenuScreen extends AbstractScreen {
 
 	@Override
 	public void show() {
-		lastConnectedState = GameAssets.input.isControllerConnected();
-		
+
 		if(MenuScreen.adShowed == false) {
 			MenuScreen.adShowed = true;
 		}
@@ -152,7 +149,6 @@ public class MenuScreen extends AbstractScreen {
 		if(this.disposed == false) {
 			if(this.batch != null) this.batch.dispose();
 			this.playButton = null;
-			this.lite = null;
 			this.more = null;
 			this.settings = null;
 			this.share = null;

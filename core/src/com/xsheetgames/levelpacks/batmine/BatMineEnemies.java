@@ -62,7 +62,7 @@ public class BatMineEnemies extends EnemyCollection {
 	    	if(GameScreen.bossEnergyMeter != null) GameScreen.bossEnergyMeter.registerHurtable(enemy);
 		}
 		
-		enemy.setPosition(new Vector2(Configuration.GAME_WORLD_WIDTH + 5f,y));
+		enemy.setPosition(new Vector2(Configuration.GAME_WORLD_WIDTH + Configuration.SPAWN_MARGIN,y));
 		enemy.setVelocity(new Vector2(xSpeed*-1, ySpeed));
 		enemy.setFunnyMotion( motionDuration,motionPeculiarity,eq);
 		

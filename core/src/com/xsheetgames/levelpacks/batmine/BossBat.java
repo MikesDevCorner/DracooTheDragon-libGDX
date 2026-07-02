@@ -16,6 +16,20 @@ import com.xsheetgames.genericGameObjects.GameObjectCollection;
 import com.xsheetgames.genericGameObjects.GameObjectPool;
 import com.xsheetgames.screens.GameScreen;
 
+/**
+ * BatMine's boss. Attack pattern ({@link #doShootSession}): every
+ * {@link #shootCounterInit} seconds it fires a burst of
+ * {@link #amountInitialShoots} spinning bones/skulls (from
+ * {@link SpinningBoneFactory}, alternating), {@link #subShootCounterInit}
+ * seconds apart within the burst, aimed in a 5-step up/down zig-zag
+ * ({@link #shootYdirection} cycling through {@code -2, -1, 0, +1, +2} times
+ * {@link #yAxeDeflection}). Movement ({@link #doMotionLogic}'s "ENEMY MOTION
+ * CODE" section) is a separate back-and-forth: accelerate right up to the
+ * play field's right edge, decelerate, then snap back left every
+ * {@link #forwardTimer} (15s) cycle. Death pauses the level clock at a short
+ * 5s countdown ({@code setRemainingSeconds(5f)}) instead of ending the level
+ * instantly, so the death animation/sound has time to play.
+ */
 public class BossBat extends Enemy {
 	
 	public static GameObjectPool SpinningBonePool = null;
@@ -169,8 +183,6 @@ public class BossBat extends Enemy {
 	@Override
 	public void resetGraphics(TextureAtlas atlas) {
 		super.resetGraphics(atlas);
-		//this.chairSound = GameAssets.fetchMusic("batmine/sounds/bosschair.mp3");
-		//this.chairSound.setLooping(true);
 	}
 	
 	

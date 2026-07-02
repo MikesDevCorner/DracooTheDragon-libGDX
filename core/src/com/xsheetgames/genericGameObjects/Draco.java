@@ -92,8 +92,9 @@ public class Draco extends GameObject{
 	private Vector2 handsOrigin;
 	private Vector2 headOrigin;
 	
+	// Box2D collision filter bits, see the table on Boundary.categoryBits.
 	protected short categoryBits = 8;
-	protected short maskBits = 103;
+	protected short maskBits = 103; // 64+32+4+2+1: EnemyFire, Chili, Enemy, Obstacle, Boundary (not its own Fireball)
 	
 	private Vector2 appliedForce;
 	
@@ -191,7 +192,7 @@ public class Draco extends GameObject{
 		
 		super.init(bd, fd, GameAssets.objectLoader, "Draco", "draco_green", Animation.PlayMode.NORMAL);
 		
-		fd.filter.maskBits = 3; //collide just with obstacles and boundaries --> erklrung zu diesem Konzept in Redmine (Dokumente)
+		fd.filter.maskBits = 3; //2+1: legs/hands/head fixtures collide just with Obstacle and Boundary, not Enemy/EnemyFire/Chili - only the main body triggers damage/pickup contacts
 		
 		//LEGS
 		bd.position.set(x-0.13f,y+0.145f);
@@ -451,6 +452,21 @@ public class Draco extends GameObject{
 	}
 	
 	
+	/**
+	 * Draco's per-frame state machine: invincibility flash textures, input
+	 * polling (keyboard/gamepad/on-screen buttons, with auto-fire), the
+	 * "ramp up thrust" flight model, and the tilt/turn animation. Movement is
+	 * force-based, not velocity-set: each held direction applies
+	 * {@link #forceToApplyStart} for the first {@link #timeStartForce} seconds
+	 * then ramps to the full {@link #forceToApply} (a per-direction "hold to
+	 * accelerate" feel rather than an instant top speed), and pressing two
+	 * perpendicular directions at once splits the force between them
+	 * ({@code forceToApply/3*2} on each axis) rather than adding both in full.
+	 * The body's rotation is driven purely by which keys are held (an earlier,
+	 * velocity-based tilt calculation was tried and abandoned - see git
+	 * history), clamped to +/-{@link #gradientAngle} and eased back to level
+	 * via {@link #turnDegreesPerSecond} when nothing is held.
+	 */
 	@Override
 	public void doMotionLogic(float delta) {
 		if(!this.isDisposed()) {
@@ -489,8 +505,8 @@ public class Draco extends GameObject{
 			}
 			
 			//deal with auto fire and keyboard input
-			
-			if(Configuration.inputType == 1) {
+
+			if(Configuration.inputType == 1 || Configuration.inputType == 2) {
 				
 				if(GameAssets.input.isControllerConnected() || Gdx.app.getType() == ApplicationType.Desktop || Gdx.app.getType() == ApplicationType.WebGL)
 				{
@@ -549,26 +565,6 @@ public class Draco extends GameObject{
 	                }
 				}
 				
-				//NEIGUNG NACH GESCHWINDIGKEIT ERMESSEN:
-				/*if((this.upPressed || this.downPressed) && (this.leftPressed || this.rightPressed)) {
-				    float x = this.body.getLinearVelocity().x;
-				    float y = this.body.getLinearVelocity().y;
-				    
-					if( ((y > 0) && (Math.abs(y) > Math.abs(x))) || ((x < 0) && (Math.abs(x) > Math.abs(y)))) {
-						//nach oben neigen
-						if((this.body.getAngle() * MathUtils.radiansToDegrees) <= this.gradientAngle) {	
-		                    this.body.setTransform(body.getPosition(), body.getAngle()+(this.turnDegreesPerSecond*delta*MathUtils.degreesToRadians));
-		                }
-					}
-					
-					if( ((y < 0) && (Math.abs(y) > Math.abs(x))) || ((x > 0) && (Math.abs(x) > Math.abs(y)))) {
-						//nach unten neigen
-						if((body.getAngle() * MathUtils.radiansToDegrees) >= (this.gradientAngle*-1)) {	
-							body.setTransform(body.getPosition(), body.getAngle()-(this.turnDegreesPerSecond*delta*MathUtils.degreesToRadians));
-		                }
-					}
-				}
-				*/
 				if(this.upPressed && this.rightPressed) {
 					//nach oben neigen
 					if((this.body.getAngle() * MathUtils.radiansToDegrees) <= this.gradientAngle) {	
@@ -679,6 +675,15 @@ public class Draco extends GameObject{
 	}
 	
 	
+	/**
+	 * Spawns fireballs from {@link #fireballPool} while fire mode is active and
+	 * the fire key/button is held, gated by {@link #fireCounter} (cooldown =
+	 * {@link #secondsBetweenShoots}). The spread pattern gets wider as
+	 * {@link #energy} increases: 1-2 energy = single straight shot, 3 energy =
+	 * two-shot vertical spread ({@code +-1} y-velocity), 4+ energy = three-shot
+	 * spread ({@code +-2.5} y-velocity plus one straight). Energy itself is the
+	 * "how many chilis eaten" life/power counter shared with {@link #getEnergy()}.
+	 */
 	public void processFireKey(GameObjectCollection objects, float deltaTime) {
 		if(!this.isDisposed()) {
 			//PROCESS FIRE KEY

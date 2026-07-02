@@ -63,8 +63,7 @@ public class GameScreen extends AbstractScreen {
 	public static BossEnergyMeter bossEnergyMeter;
 	private float musicLevel = 0.6f;
 	private boolean adShowed;
-	private boolean lastConnectedState;
-	
+
 	//Game Objects
 	private Draco draco;
 	private AbstractLevelpack actualPack;
@@ -129,6 +128,18 @@ public class GameScreen extends AbstractScreen {
 					draco.processFireKey(this.fireballs, delta);
 					
 					
+					// Allan Bishop's "Fixing Time Step" pattern: accumulate real elapsed
+					// time and drain it in fixed FIXED_TIMESTEP chunks so box2d always
+					// sees the same dt regardless of render framerate (see the sprite
+					// interpolation note on GameObject.smoothStates/resetSmoothStates
+					// for how the visible position is smoothed between steps).
+					// MAX_STEPS caps how many box2d steps run in a single render frame.
+					// The full owed step count is still subtracted from the accumulator
+					// below, so if a stall (GC pause, backgrounding) leaves more steps
+					// owed than that, the excess simulation time is dropped outright
+					// (the game falls behind wall-clock time for that stretch) rather
+					// than trying to catch up all at once and spiraling into ever-longer
+					// frames ("spiral of death").
 					final int MAX_STEPS = 5;
 					fixedTimestepAccumulator += delta;
 					final int nSteps = (int) Math.floor(fixedTimestepAccumulator / FIXED_TIMESTEP);
@@ -353,9 +364,6 @@ public class GameScreen extends AbstractScreen {
 			this.resumeEnemies = false;
 			this.startLevelMusic = false;
 			
-			lastConnectedState = GameAssets.input.isControllerConnected();
-			
-			
 			if(this.actualPack.getActualLevelNumber() == 15 && this.actualPack.bossAssetsLoaded == false) {
 				this.actualPack.loadBossAssets();
 				this.assetsLoaded = false;
@@ -431,7 +439,7 @@ public class GameScreen extends AbstractScreen {
 			this.pauseMessage = this.pauseMessage[0].split("\n");
 			this.pause();
 		} else {
-			if(Configuration.inputType == 1) { //Buttons
+			if(Configuration.inputType == 1 || Configuration.inputType == 2) { //Onscreen-Steuerung (Buttons/D-Pad)
 				if(this.pauseMessage[1].equals("blank") == false) {
 					this.pauseMessage = this.pauseMessage[1].split("\n");
 					this.pause();
@@ -568,6 +576,12 @@ public class GameScreen extends AbstractScreen {
 	}
 	
 	
+	// Runs once per screen entry after GameAssets.assetsLoaded() reports the
+	// level pack's textures/sounds finished loading: (re)builds every
+	// GameObjectCollection/pool for this pack (Draco, enemies, obstacles,
+	// fireballs, powerups, parallax layers, HUD sprites) and, if this GameScreen
+	// instance is being reused (retry/next level), re-points existing objects at
+	// the freshly (re)loaded TextureAtlas instead of recreating them from scratch.
 	private void doAssetProcessing() {
 		if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "Assetprocessing aufgerufen");
 		this.assetsLoaded = true;
@@ -587,7 +601,7 @@ public class GameScreen extends AbstractScreen {
 	   	
 		this.actualPack.setActualLevel(this.actualPack.getActualLevelNumber());	    
 	   	
-	   	if(buttons == null && Configuration.inputType == 1) {
+	   	if(buttons == null && (Configuration.inputType == 1 || Configuration.inputType == 2)) {
 	   		buttons = new InputButtonCollection(world);
 	   	} else {
 	   		if(buttons != null) buttons.resetGraphics(GameAssets.fetchTextureAtlas("game/images/game_objects.pack"));
@@ -897,9 +911,22 @@ public class GameScreen extends AbstractScreen {
 						draco.leftPressed = false;
 					}
 				}
+
+				if(Configuration.inputType == 2 && this.buttons != null && GameScreen.paused == false && this.showCounter >= 0.5f) {
+					int direction = this.buttons.getDpadDirection(touchPoint.x, touchPoint.y);
+					if(direction != -1) {
+						draco.upPressed = (direction == InputButtonCollection.KEY_UP);
+						draco.downPressed = (direction == InputButtonCollection.KEY_DOWN);
+						draco.leftPressed = (direction == InputButtonCollection.KEY_LEFT);
+						draco.rightPressed = (direction == InputButtonCollection.KEY_RIGHT);
+					}
+					if(draco.fire.getRectangle().contains(touchPoint.x,touchPoint.y) == true) {
+						draco.firePressed = true;
+					}
+				}
 			}
 		} catch(Exception e) {
-			
+
 		}
 		return false;
 	}
@@ -920,6 +947,17 @@ public class GameScreen extends AbstractScreen {
 						if(draco.left.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.leftPressed = false;
 						if(draco.right.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.rightPressed = false;
 						if(draco.fire.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.firePressed = false;
+					}
+				}
+
+				if(Configuration.inputType == 2 && this.draco != null && this.showCounter >= 0.5f) {
+					if(touchPoint.x < Configuration.GAME_WORLD_WIDTH/2) {
+						if(draco.fire.getRectangle().contains(touchPoint.x,touchPoint.y) == true) draco.firePressed = false;
+					} else {
+						draco.upPressed = false;
+						draco.downPressed = false;
+						draco.leftPressed = false;
+						draco.rightPressed = false;
 					}
 				}
 			}
@@ -965,8 +1003,22 @@ public class GameScreen extends AbstractScreen {
 					}
 				}
 			}
+
+			if(GameScreen.paused == false && Configuration.inputType == 2 && this.buttons != null && this.draco != null && this.disposed == false && this.showCounter >= 0.5f) {
+				if(touchPoint.x >= Configuration.GAME_WORLD_WIDTH/2) {
+					int direction = this.buttons.getDpadDirection(touchPoint.x, touchPoint.y);
+					draco.upPressed = (direction == InputButtonCollection.KEY_UP);
+					draco.downPressed = (direction == InputButtonCollection.KEY_DOWN);
+					draco.leftPressed = (direction == InputButtonCollection.KEY_LEFT);
+					draco.rightPressed = (direction == InputButtonCollection.KEY_RIGHT);
+				} else {
+					if(Configuration.autoFire == false) {
+						draco.firePressed = draco.fire.getRectangle().contains(touchPoint.x,touchPoint.y);
+					}
+				}
+			}
 		} catch(Exception e) {
-			
+
 		}
 		return false;
 	}

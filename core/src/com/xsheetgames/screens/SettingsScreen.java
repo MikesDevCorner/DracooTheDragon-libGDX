@@ -28,15 +28,13 @@ public class SettingsScreen extends AbstractScreen {
 	private String vibrateOnString = "Device-Vibration is: ON";
 	private String vibrateOffString = "Device-Vibration is: OFF";
 	
-	private String control1String = "show controls";
-	//private String control2String = "Input: Short-Swipe-Commands";
+	private String control1String = "Input: Steering-Buttons";
+	private String control2String = "Input: D-Pad";
 
 	private String autofireOnString = "Auto fire is: ON";
 	private String autofireOffString = "Auto fire is: OFF";	
 	
 	private String creditsString = "show Credits";
-	
-	private boolean lastConnectedState;	
 	
 	public SettingsScreen(Game game) {
 		this.game = game;
@@ -94,10 +92,10 @@ public class SettingsScreen extends AbstractScreen {
 					this.control1.draw(batch);
 					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.control1String, 328f, 290f+110f);
 				}
-				/*if(Configuration.inputType == 2) {
+				if(Configuration.inputType == 2) {
 					this.control2.draw(batch);
 					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.control2String, 328f, 290f+110f);
-				}*/
+				}
 				
 				if(Configuration.autoFire == true) {
 					this.autoFire.draw(batch);
@@ -131,7 +129,6 @@ public class SettingsScreen extends AbstractScreen {
 	public void show() {
 
 
-		lastConnectedState = GameAssets.input.isControllerConnected();
 
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
@@ -320,10 +317,9 @@ public class SettingsScreen extends AbstractScreen {
 			rect.setWidth(760f);
 			if(rect.contains(touchPoint.x, touchPoint.y)) {
 				GameAssets.playSound(GameAssets.fetchSound("menu/sounds/click.mp3"));
-				this.dispose();
-				this.game.setScreen(new InputScreen(this.game));
-				
+				Configuration.inputType = (Configuration.inputType == 1) ? 2 : 1;
 			}
+			this.saveSettingState();
 		}
 		
 		if(backBtn != null && backBtn.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {

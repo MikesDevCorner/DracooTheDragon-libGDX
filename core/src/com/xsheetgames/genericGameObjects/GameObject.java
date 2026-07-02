@@ -20,8 +20,53 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.xsheetgames.Configuration;
 import com.xsheetgames.screens.GameScreen;
 
-public abstract class GameObject {	
-	
+/**
+ * Base class for every spawnable physical entity (Draco, enemies, obstacles,
+ * fireballs, powerups): a box2d {@link Body} (shape loaded from a
+ * {@code BodyEditorLoader} JSON model) plus an {@link Animation}/{@link Sprite}
+ * for drawing, wired together through the pooling lifecycle described below.
+ *
+ * <h3>Fixed-timestep sprite interpolation ("Allan Bishop's Fixing Time Step")</h3>
+ * {@code GameScreen} advances box2d in fixed {@code 1/60s} steps, but renders
+ * at whatever framerate the device provides - so a render frame usually falls
+ * *between* two physics steps. Drawing the sprite straight at the body's
+ * current position would look stuttery. Instead:
+ * <ul>
+ *   <li>{@link #resetSmoothStates()} is called once right before each fixed
+ *       step and snapshots the pre-step position/angle into
+ *       {@link #previousPosition}/{@link #previousAngle}.</li>
+ *   <li>{@link #smoothStates(float)} is called once per render frame with
+ *       {@code fixedTimestepAccumulatorRatio} - how far (0..1) the render
+ *       frame lands between the previous and next physics step - and
+ *       linearly interpolates the sprite between the previous snapshot and
+ *       the body's new position/angle.</li>
+ * </ul>
+ * The result is a sprite position that's always a smooth blend of the last
+ * two physics steps, decoupling visual smoothness from the physics rate.
+ *
+ * <h3>Pooling lifecycle</h3>
+ * Concrete subclasses are recycled through a {@link GameObjectPool} instead
+ * of being GC'd/reallocated every spawn. The contract a subclass must honor:
+ * <ol>
+ *   <li>{@code createObject()} (in its {@link GameObjectFactory}) constructs
+ *       the object and calls {@link #init} exactly once - this creates the
+ *       box2d body/fixture and the initial sprite.</li>
+ *   <li>{@link #obtainInit()} runs every time the pool hands out a
+ *       <em>reused</em> instance (not a freshly created one) - re-activate
+ *       whatever {@link #reset()} deactivated.</li>
+ *   <li>{@link #reset()} runs when the object is returned to the pool
+ *       ({@link GameObjectPool#free}) - deactivate the body, clear per-life
+ *       state, but do NOT destroy the box2d body (it's reused next spawn).</li>
+ *   <li>{@link #dispose()} permanently destroys the box2d body and nulls
+ *       state; only called when the pool itself is disposed (e.g. level end),
+ *       never as part of the normal recycle cycle.</li>
+ * </ol>
+ * Call {@link #free()} (routes to the pool if one is set) or set
+ * {@link #setDisposing} rather than calling {@link #dispose()} directly from
+ * gameplay code - see the pooling note on {@link GameObjectPool}.
+ */
+public abstract class GameObject {
+
 	//misc
 	private boolean disposed;
 	public boolean setDisposing; //use this instead of dispose() --> dispose will be called in the right order if this field changes to true
@@ -197,10 +242,7 @@ public abstract class GameObject {
 		this.delayTimer = 0f;
 		this.body.setTransform(0f, 0f, 0f);
 		if(this.body.isActive()) this.body.setActive(false);
-		
-		//try { world.destroyBody(this.body); }
-		//catch(Exception e) {}
-		
+
 		this.visible = false;
 		this.animation = this.startAnimation;
 		this.currentRegion = this.animation.getKeyFrame(this.stateTime);
@@ -214,6 +256,7 @@ public abstract class GameObject {
 	
 	
 	
+	// Per-render-frame interpolation between the previous and next physics step - see the class comment.
 	public void smoothStates(float fixedTimestepAccumulatorRatio) { //bring the position of the sprite in sync with the position of the box2d object
 		if(!this.disposed && this.visible && this.firstTimeSmoothened)  {
 			float oneMinusRatio = 1.0f - fixedTimestepAccumulatorRatio;
@@ -227,6 +270,7 @@ public abstract class GameObject {
 	}
 	
 	
+	// Snapshots the pre-physics-step position/angle; called once before each fixed step - see the class comment.
 	public void resetSmoothStates() { //bring the position of the sprite in sync with the position of the box2d object
 		if(!this.disposed && this.visible)  {
 			Vector2 position = body.getPosition().sub(modelOrigin);

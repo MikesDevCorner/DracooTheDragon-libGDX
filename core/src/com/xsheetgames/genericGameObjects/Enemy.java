@@ -27,8 +27,9 @@ public class Enemy extends GameObject implements Hurtable {
 	protected short startEnergy;
 	protected boolean dead = false;
 	protected boolean deadPosition = false;
+	// Box2D collision filter bits, see the table on Boundary.categoryBits.
 	protected short categoryBits = 4;
-	protected short maskBits = 31;
+	protected short maskBits = 31; // 16+8+4+2+1: Fireball, Draco, other Enemies, Obstacle, Boundary (not EnemyFire/Chili)
 	protected TweenManager tweens;
 	
 	protected Sound woundedSound;
@@ -101,8 +102,6 @@ public class Enemy extends GameObject implements Hurtable {
 	@Override
 	public void resetGraphics(TextureAtlas atlas) {
 		super.resetGraphics(atlas);
-		//this.woundedSound = GameAssets.fetchSound(this.woundedSoundString);
-		//this.dieSound = GameAssets.fetchSound(this.dieSoundString);
 	}
 	
 	@Override

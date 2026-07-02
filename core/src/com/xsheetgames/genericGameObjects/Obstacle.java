@@ -23,9 +23,10 @@ public class Obstacle extends GameObject{
 	protected Vector2 startPointDown;
 	
 	protected static Random rand = new Random();
+	// Box2D collision filter bits, see the table on Boundary.categoryBits.
 	protected short categoryBits = 2;
-	protected short maskBits = 92;
-	protected short maskBitsCollideNotWithEnemyfire = 28;
+	protected short maskBits = 92; // 64+16+8+4: EnemyFire, Fireball, Draco, Enemy
+	protected short maskBitsCollideNotWithEnemyfire = 28; // 16+8+4: same minus EnemyFire
 	
 	//TODO: Fill with Constructor:
 	public boolean willDieOnFireball = false;

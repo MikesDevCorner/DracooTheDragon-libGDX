@@ -309,20 +309,21 @@ public class BatMineObstacles extends AbstractObstacleCollection {
 		
 		
 		if(o!=null) {
-			o.setPosition(new Vector2(Configuration.GAME_WORLD_WIDTH + 5f,y));
+			o.setPosition(new Vector2(Configuration.GAME_WORLD_WIDTH + Configuration.SPAWN_MARGIN,y));
 			o.setVelocity(this.velocity);
 			this.add(o);
 			if(Configuration.debugLevel >= Application.LOG_INFO && Configuration.spawnInfos) Gdx.app.log("Obstacle spawn successful","Obstacle-Hash: " + o.hashCode());
 		} else {
 			if(o2 != null) {
-				o2.setPosition(new Vector2(Configuration.GAME_WORLD_WIDTH + 5f,y));
+				o2.setPosition(new Vector2(Configuration.GAME_WORLD_WIDTH + Configuration.SPAWN_MARGIN,y));
 				o2.setVelocity(this.velocity);
 				this.add(o2);
 				if(Configuration.debugLevel >= Application.LOG_INFO && Configuration.spawnInfos) Gdx.app.log("Obstacle spawn successful","Obstacle-Hash: " + o2.hashCode());
 			} else {
-				o2 = null;
+				// name matched no branch above (e.g. a typo/unimplemented obstacle name in the level JSON)
+				Gdx.app.log("Obstacle spawn failed","Unknown obstacle name: " + name);
 			}
-		}	
+		}
 	}
 	
 	

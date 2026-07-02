@@ -14,8 +14,9 @@ import com.xsheetgames.genericElements.Level;
 
 public class Chili extends GameObject {
 
+	// Box2D collision filter bits, see the table on Boundary.categoryBits.
 	protected short categoryBits = 32;
-	protected short maskBits = 8;
+	protected short maskBits = 8; // Draco only - it's a sensor pickup, nothing else should trigger it
 	public boolean ceaseCollision = false;
 	public static GameObjectPool chiliPool;
 	public boolean vanished;

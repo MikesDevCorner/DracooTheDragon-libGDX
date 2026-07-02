@@ -57,7 +57,34 @@ public abstract class AbstractLevelpack {
 	public abstract void readLevelFromFile();
 	
 	
-	//read the Level from the External Source and provide the Pack with the crafted Level-File
+	/**
+	 * Parses {@code <assetFolder>/levels/<packName>_<NN>.json} (NN = the current
+	 * level number, zero-padded manually - not with {@code String.format}, which
+	 * the GWT/HTML backend historically couldn't use) for {@link #actualLevel}
+	 * and builds the runtime {@link Level} from it. Example file:
+	 * {@code android/assets/batmine/levels/BatMine_01.json}.
+	 * <p>
+	 * Expected top-level JSON shape:
+	 * <pre>{@code
+	 * {
+	 *   "speed": 7,              // world scroll speed in m/s (also enemy/obstacle base x-velocity)
+	 *   "seconds": 45,           // level duration; boss levels use a large value (>400) as an "endless" timer
+	 *   "openBack": "true",      // whether the play field's back wall is open (see BoundaryCollection)
+	 *   "chiliRandomTime": 0,    // seconds between random (non-scripted) Chili powerup spawns, 0 = disabled
+	 *   "music": "batmine/music/dracoo.mp3",
+	 *   "enemies":   [ { "ctime", "name", "y", "xSpeed", "ySpeed", "motionDuration", "motionPeculiarity", "motionEquation", "motionInfinite" }, ... ],
+	 *   "obstacles": [ { "ctime", "name", "y" }, ... ],
+	 *   "powerups":  [ { "ctime", "x", "y" }, ... ],
+	 *   "breaks":    [ { "ctime", "message" }, ... ]  // pauses the game with an on-screen message at ctime
+	 * }
+	 * }</pre>
+	 * All four arrays are keyed by {@code ctime} (seconds since level start) and
+	 * get sorted by it; {@link Level#advanceLevel} then drains them in order as
+	 * the level clock advances. Positions ({@code x}/{@code y}) are authored
+	 * against the fixed 20m x 12.5m design frame (see the "Widescreen" section
+	 * in CLAUDE.md) - spawn code re-anchors them to the live, aspect-dependent
+	 * world width at spawn time rather than at parse time.
+	 */
 	public void readLevelFromFile(String assetFolder) {
 		
 		//Fetch the right File and prepare for reading:

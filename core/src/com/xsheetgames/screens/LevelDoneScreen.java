@@ -35,8 +35,7 @@ import com.xsheetgames.genericElements.CoverLayout;
 		private boolean countingPlaying = false;
 		private int howMuchEggsReached;
 		private boolean keepScreen = false;
-		private boolean lastConnectedState;
-		
+
 		
 		public LevelDoneScreen(Game game, GameScreen gameScreen, int level, String pack) {
 			this.game = game;
@@ -159,10 +158,7 @@ import com.xsheetgames.genericElements.CoverLayout;
 
 		@Override
 		public void show() {			
-				
-			lastConnectedState = GameAssets.input.isControllerConnected();
-			
-			howMuchEggsReached = 0;
+				howMuchEggsReached = 0;
 			this.keepScreen = false;
 			
 			this.batch = new SpriteBatch();

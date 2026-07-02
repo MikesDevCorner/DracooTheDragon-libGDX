@@ -26,6 +26,11 @@ public class DracooGdxGame extends Game {
 	
 	@Override
 	public void create() {
+		// Constructed and immediately discarded (never assigned/stepped/disposed).
+		// Left as-is: harmless, but its purpose isn't documented anywhere in the
+		// codebase - possibly meant to force box2d's native library to load
+		// during startup rather than on first real GameScreen. Do not remove
+		// without checking startup behavior on a low-end device first.
 		new World(new Vector2(0f,0f), false);
 		Configuration.load();
 		GameAssets.input = new InputManager(this);

@@ -27,7 +27,6 @@ public class ChooseLevelScreen extends AbstractScreen {
 	private boolean adShowed;
 	private boolean resetToMainScreen;
 	private int countEggs;
-	private boolean lastConnectedState;
 	private float axisCount = 0f;
 	private int levelPackIndex;
 	private int highlighted = 0;
@@ -118,7 +117,6 @@ public class ChooseLevelScreen extends AbstractScreen {
 		
 		this.adShowed = true;
 
-		lastConnectedState = GameAssets.input.isControllerConnected();
 		highlighted = GameAssets.input.isControllerConnected() ? 1 : 0;
 			
 		if(this.adShowed == true) {

@@ -25,8 +25,28 @@ import com.xsheetgames.genericGameObjects.GameObjectPool;
 import com.xsheetgames.genericGameObjects.Hurtable;
 import com.xsheetgames.screens.GameScreen;
 
+/**
+ * Jungle's boss. Modeled as two joined bodies: {@link Enemy#body} (the outer
+ * basket, always solid/hittable by Draco) and {@link #snakeBody} (the inner
+ * snake head, a separate sprite/animation welded on) - {@code snakeBody}'s
+ * user data is a {@link BossSnakeWrapper}, not the boss itself, so
+ * {@link com.xsheetgames.genericElements.ObjectContactListener} routes
+ * fireball hits on it through {@link Hurtable} back to this instance.
+ * <p>
+ * Vulnerability cycles on a timer, independent of shooting: closed
+ * ({@link #closeTimerInit}, box sensor on = passable/not hittable) then
+ * {@link #openBox()} plays an opening animation into the open loop
+ * ({@link #openTimerInit}, sensor off = solid/hittable and able to spit
+ * {@link Venom} via {@link #doShootSession}), then {@link #closeBox()} plays
+ * the closing animation back to closed. {@link #reduceEnergy()} additionally
+ * counts hits ({@link #forwardCounter}) and every {@link #forwardCounterInit}
+ * hits triggers one aggressive forward lunge ({@link #beginForwardMotion}).
+ * Death pauses the level clock at a short 7s countdown rather than ending
+ * the level instantly, so the death animation/sound has time to play.
+ */
 public class BossSnake extends Enemy {
-	
+
+
 	
 	//INNER SNAKE DRAWING STUFF
 	protected float snakeStateTime;
@@ -483,15 +503,7 @@ public class BossSnake extends Enemy {
 			Vector2 vel = this.body.getLinearVelocity();
 			Vector2 pos = this.body.getPosition();	
 			
-			
-			/*if(vel.x >= -3 && vel.x < 8f) {
-				this.body.setLinearVelocity(vel.x+2f, vel.y);
-			}*/
-			
-			/*if(pos.x >= 16.6f && vel.x > 0f) {
-				this.body.setLinearVelocity(vel.x-2f, vel.y);
-			}*/
-			
+
 			if(pos.x <= 0.8f) {
 				this.body.setLinearVelocity(5f, vel.y);
 			}

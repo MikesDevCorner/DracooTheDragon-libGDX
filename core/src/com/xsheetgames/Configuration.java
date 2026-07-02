@@ -19,6 +19,10 @@ public class Configuration {
 	// GAME_PIXEL_* is in pixels (HUD rendering).
 	public static float GAME_WORLD_WIDTH;
 	public static int GAME_PIXEL_WIDTH;
+
+	// How far past the live right world edge enemies/obstacles/random chilis
+	// spawn (meters), so they scroll in from just off-screen on every aspect ratio.
+	public static final float SPAWN_MARGIN = 5f;
 	public static boolean soundEnabled;
 	public static boolean musicEnabled;
 	public static boolean vibrateEnabled;

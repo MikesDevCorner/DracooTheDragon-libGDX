@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 public class EnemyFire extends GameObject {
 
+	// Box2D collision filter bits, see the table on Boundary.categoryBits.
 	protected short categoryBits = 64;
 	protected short maskBits;
 	public boolean ceaseCollision = false;
@@ -20,8 +21,8 @@ public class EnemyFire extends GameObject {
 	public EnemyFire(World world, float x, float y, TextureAtlas atlas, Vector2 velocity, BodyEditorLoader objectLoader, String loaderName, String atlasName, boolean fireballHit) {
 		super( world,atlas,0f,velocity,new Vector2(x,y),true);
 
-		if(fireballHit) this.maskBits = 26;
-		else this.maskBits = 10;
+		if(fireballHit) this.maskBits = 26; // 16+8+2: Fireball, Draco, Obstacle - can be shot down by Draco's fireball
+		else this.maskBits = 10; // 8+2: Draco, Obstacle only
 		
 		BodyDef bd = new BodyDef();
 		bd.type = BodyType.DynamicBody;

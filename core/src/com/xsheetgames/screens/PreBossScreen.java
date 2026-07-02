@@ -25,8 +25,7 @@ public class PreBossScreen extends AbstractScreen {
 	private String text4 = "in this region to face the mighty boss";
 	
 	private GameScreen gameScreen;
-	private boolean lastConnectedState;
-	
+
 	
 	public PreBossScreen(Game game, GameScreen gameScreen) {
 		this.game = game;
@@ -81,9 +80,6 @@ public class PreBossScreen extends AbstractScreen {
 
 	@Override
 	public void show() {
-		
-		
-		lastConnectedState = GameAssets.input.isControllerConnected();
 		
 		this.batch = new SpriteBatch();
 		this.setupUiViewport();

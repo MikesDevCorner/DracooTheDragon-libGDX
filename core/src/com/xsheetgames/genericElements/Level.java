@@ -79,7 +79,7 @@ public class Level {
 		if(this.levelSpeed <= 0f || this.levelInitialSeconds > 400f) return;
 		if(this.levelActualSeconds != this.levelInitialSeconds) return;
 
-		float spawnX = Configuration.GAME_WORLD_WIDTH + 5f;
+		float spawnX = Configuration.GAME_WORLD_WIDTH + Configuration.SPAWN_MARGIN;
 		float frontX = 11f; //nichts direkt vor/auf Draco (x=8) absetzen
 		float preroll = (spawnX - frontX) / this.levelSpeed;
 
@@ -148,7 +148,7 @@ public class Level {
 			this.chiliRandomtime-=delta;
 		}
 		if(this.chiliRandomtimeInit > 0f && this.chiliRandomtime <= 0f) {
-			Chili.spawnChili(Configuration.GAME_WORLD_WIDTH + 5f, rand.nextFloat()*11f+0.5f, gameScreen.getActualPowerups(), gameScreen.getActualWorld(), this);
+			Chili.spawnChili(Configuration.GAME_WORLD_WIDTH + Configuration.SPAWN_MARGIN, rand.nextFloat()*11f+0.5f, gameScreen.getActualPowerups(), gameScreen.getActualWorld(), this);
 			this.chiliRandomtime = this.chiliRandomtimeInit;
 		}
 		

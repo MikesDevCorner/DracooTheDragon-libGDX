@@ -24,7 +24,6 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 	private boolean disposed = false;
 	private boolean assetsLoaded;
 	private String levelPackHeading = "Choose Levelpack";
-	private boolean lastConnectedState;
 	private float xAxisCount = 0f;
 	
 	public ChooseLevelpackScreen(Game game, int levelPackIndex) {
@@ -73,7 +72,6 @@ public class ChooseLevelpackScreen extends AbstractScreen{
 	public void show() {
 
 
-		lastConnectedState = GameAssets.input.isControllerConnected();
 
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();

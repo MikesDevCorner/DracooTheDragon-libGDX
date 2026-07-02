@@ -20,8 +20,7 @@ public class InputScreen extends AbstractScreen {
 	private String creditString1 = "use onscreen keys to steer and fire";
 	private String creditString2 = "or connect any HID controller...";
 	private String inputMethod = "";
-	private boolean lastConnectedState;
-	
+
 	
 	public InputScreen(Game game) {
 		this.game = game;
@@ -68,8 +67,6 @@ public class InputScreen extends AbstractScreen {
 	@Override
 	public void show() {
 
-
-		lastConnectedState = GameAssets.input.isControllerConnected();
 
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();

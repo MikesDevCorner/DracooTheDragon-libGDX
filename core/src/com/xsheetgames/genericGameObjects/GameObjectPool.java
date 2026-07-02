@@ -9,6 +9,16 @@ import com.badlogic.gdx.utils.Array;
 import com.xsheetgames.Configuration;
 
 
+/**
+ * Recycles {@link GameObject} instances instead of letting them get
+ * GC'd/reallocated on every spawn/despawn. See the pooling-lifecycle section
+ * of {@link GameObject}'s class comment for the full obtain/reset/dispose
+ * contract; in short: {@link #obtain()} either builds a new object via
+ * {@link #factory} or reactivates ({@code obtainInit()}) a previously
+ * {@link #free}d one, and {@link #free(GameObject)} deactivates
+ * ({@code reset()}) an object and puts it back - unless the pool is already
+ * at {@link #max}, in which case the object is disposed instead of pooled.
+ */
 public class GameObjectPool {
 	public final int max;
 	public int initialCapacity;

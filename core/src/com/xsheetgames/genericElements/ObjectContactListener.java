@@ -11,11 +11,29 @@ import com.xsheetgames.Configuration;
 import com.xsheetgames.genericGameObjects.Boundary;
 import com.xsheetgames.genericGameObjects.Enemy;
 
+/**
+ * Box2D {@link ContactListener} for the whole game world - the single source of
+ * truth for what happens when two bodies touch (damage, kills, powerups,
+ * fireball hits, keeping enemies inside the play field).
+ *
+ * Every fixture's body carries the owning {@code GameObject} as Box2D user
+ * data (set in {@code GameObject.init()}); this class dispatches purely on
+ * the runtime type of that user data via {@code instanceof}. Box2D does not
+ * guarantee which body is "A" and which is "B" for a given pair, so almost
+ * every rule below is written twice - once for (a,b) and once for the
+ * swapped (b,a) - instead of normalizing the pair first.
+ */
 public class ObjectContactListener implements ContactListener {
-	
-	private boolean setEnemyForces = true;
-	
 
+	private boolean setEnemyForces = true;
+
+
+	/**
+	 * Fired once when two fixtures start touching. Handles anything that should
+	 * happen exactly once per hit: Draco taking damage from an enemy/enemy
+	 * fire/obstacle, killing enemies, Draco picking up a {@code Chili} powerup,
+	 * and enemies bouncing off the play-field {@link Boundary} walls.
+	 */
 	@Override
 	public void beginContact(Contact contact) {
 		if(contact.getFixtureA().getBody().getUserData() != null && contact.getFixtureB().getBody().getUserData() != null) {
@@ -83,7 +101,6 @@ public class ObjectContactListener implements ContactListener {
 				//the other is a powerup
 				if(b instanceof com.xsheetgames.genericGameObjects.Chili) {
 					if(((com.xsheetgames.genericGameObjects.Chili) b).ceaseCollision == false && ((com.xsheetgames.genericGameObjects.Chili) b).vanished == false) ((com.xsheetgames.genericGameObjects.Draco) a).enableFireMode(false);
-					//((com.xsheetgames.genericGameObjects.Chili) b).ceaseCollision = true;
 					((com.xsheetgames.genericGameObjects.Chili) b).vanish();
 				}
 			}
@@ -116,7 +133,6 @@ public class ObjectContactListener implements ContactListener {
 				
 				if(a instanceof com.xsheetgames.genericGameObjects.Chili) {
 					if(((com.xsheetgames.genericGameObjects.Chili) a).ceaseCollision == false && ((com.xsheetgames.genericGameObjects.Chili) a).vanished == false) ((com.xsheetgames.genericGameObjects.Draco) b).enableFireMode(false);
-					//((com.xsheetgames.genericGameObjects.Chili) a).ceaseCollision = true;
 					((com.xsheetgames.genericGameObjects.Chili) a).vanish();
 				}
 			}
@@ -125,12 +141,19 @@ public class ObjectContactListener implements ContactListener {
 
 	@Override
 	public void endContact(Contact contact) {
-		// TODO Auto-generated method stub
-		
+		// unused: nothing needs to react to contacts ending, only starting/persisting
 	}
 
-	
-	//PreSolved Contacts knnen deaktiviert werden, damit der Contakt nicht die Physik beeinflusst!!
+	/**
+	 * Fired every physics step for each persisting contact, before the solver
+	 * runs. Used here for fireball hits (spawn a spark, apply damage once via
+	 * {@code ceaseCollision}, then {@code contact.setEnabled(false)} so the
+	 * fireball doesn't get physically deflected by what it just hit) and to
+	 * keep re-applying the boundary nudge in {@link #manageBoundaries} for as
+	 * long as an enemy stays pressed against a wall. Disabling a contact here
+	 * only suppresses the physics response for this step, it doesn't stop
+	 * {@code beginContact}/collision detection.
+	 */
 	@Override
 	public void preSolve(Contact contact, Manifold oldManifold) {
 		
@@ -207,11 +230,15 @@ public class ObjectContactListener implements ContactListener {
 
 	@Override
 	public void postSolve(Contact contact, ContactImpulse impulse) {
-		// TODO Auto-generated method stub		
+		// unused: no gameplay rule depends on the resolved collision impulse
 	}
-	
-	private void manageBoundaries(Boundary a, Enemy b, Contact contact) {		
-		
+
+	private void manageBoundaries(Boundary a, Enemy b, Contact contact) {
+
+		// Enemies are kept inside the play field by nudging their velocity back
+		// on contact instead of a hard physical bounce: a wall hit while already
+		// moving away from it just disables the contact (lets it separate on its
+		// own), otherwise the enemy's velocity gets a flat 3f kick back inward.
 		if(a.name == "top") {
 			Vector2 vel = b.getBody().getLinearVelocity();
 			if(b.isSensor() == false) {
@@ -221,46 +248,22 @@ public class ObjectContactListener implements ContactListener {
 					b.getBody().setLinearVelocity(vel.x, vel.y-3f);
 				}
 			}
-			/*BoundaryCheckQueryCallback c = new BoundaryCheckQueryCallback();
-			b.getBody().getWorld().QueryAABB(c,0f,12.55f,20f,12.65f);
-			for(Body foundBody : c.foundBodys) {
-				if(b.getBody() == foundBody) {
-					contact.setEnabled(false);
-					break;
-				}
-			}*/
 		}
 		if(a.name == "bottom") {
-			Vector2 vel = b.getBody().getLinearVelocity(); 
+			Vector2 vel = b.getBody().getLinearVelocity();
 			if(vel.y > 0) {
 				contact.setEnabled(false);
 			} else {
 				b.getBody().setLinearVelocity(vel.x, vel.y+3f);
 			}
-			/*BoundaryCheckQueryCallback c = new BoundaryCheckQueryCallback();
-			b.getBody().getWorld().QueryAABB(c,0f,-0.15f,20f,-0.05f);
-			for(Body foundBody : c.foundBodys) {
-				if(b.getBody() == foundBody) {
-					contact.setEnabled(false);
-					break;
-				}
-			}*/
 		}
 		if(a.name == "right") {
-			Vector2 vel = b.getBody().getLinearVelocity(); 
+			Vector2 vel = b.getBody().getLinearVelocity();
 			if(vel.x < 0) {
 				contact.setEnabled(false);
 			} else {
 				b.getBody().setLinearVelocity(vel.x-3f, vel.y);
 			}
-			/*BoundaryCheckQueryCallback c = new BoundaryCheckQueryCallback();
-			b.getBody().getWorld().QueryAABB(c, 20.05f, 0f, 20.15f, 12.5f);
-			for(Body foundBody : c.foundBodys) {
-				if(b.getBody() == foundBody) {
-					contact.setEnabled(false);
-					break;
-				}
-			}*/
 		}
 	}
 	

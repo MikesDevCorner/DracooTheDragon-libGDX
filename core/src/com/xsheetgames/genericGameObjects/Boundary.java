@@ -9,8 +9,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 public class Boundary extends GameObject {
 
+	// Box2D collision filter bits used across genericGameObjects: Boundary=1,
+	// Obstacle=2, Enemy=4, Draco=8, Fireball=16, Chili=32, EnemyFire=64.
+	// maskBits is the OR of the categories this fixture should collide with.
 	protected short categoryBits = 1;
-	protected short maskBits = 12;
+	protected short maskBits = 12; // 4+8: collides with Enemy and Draco only
 	public String name;
 	private float height;
 	private float width;

@@ -20,8 +20,7 @@ public class CreditsScreen extends AbstractScreen {
 	private String creditString1 = "Thank you for playing our game.";	
 	private String creditString2 = "Mike and Sebi";
 	private String creditString3 = "(Piano by Christoph Richter. Thx!!)";
-	private boolean lastConnectedState;
-	
+
 	public CreditsScreen(Game game) {
 		this.game = game;
 	}
@@ -72,8 +71,6 @@ public class CreditsScreen extends AbstractScreen {
 		this.assetsLoaded = false;
 		this.batch = new SpriteBatch();
 		this.setupUiViewport();
-
-		lastConnectedState = GameAssets.input.isControllerConnected();
 
 		this.screenBackground = new Sprite(GameAssets.fetchTexture("menu/images/credits_back.jpg"));
 		this.blackLayer = new Sprite(GameAssets.fetchTextureAtlas("menu/images/menu_items.pack").findRegion("blackLayer"));

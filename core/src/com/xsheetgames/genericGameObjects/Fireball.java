@@ -12,8 +12,9 @@ import com.xsheetgames.genericElements.AtlasAnimationCollection;
 
 public class Fireball extends GameObject {
 
+	// Box2D collision filter bits, see the table on Boundary.categoryBits.
 	protected short categoryBits = 16;
-	protected short maskBits = 70;
+	protected short maskBits = 70; // 64+4+2: EnemyFire, Enemy, Obstacle (not its own shooter, Draco)
 	public boolean ceaseCollision = false;
 	public AtlasAnimationCollection sparkles;
 	public Draco draco;

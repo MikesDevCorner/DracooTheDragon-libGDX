@@ -39,7 +39,17 @@ public abstract class EnemyCollection extends GameObjectCollection {
 	public abstract void spawnEnemy(String name, float y, float ySpeed, float xSpeed, float motionDuration, float motionPeculiarity, String motionEquation, boolean motionInfinite, GameScreen gs);
 	
 	
-	public TweenEquation resolveEquation(String motionEquation) {		
+	/**
+	 * Maps a level JSON {@code motionEquation} string to the matching Tween
+	 * Engine easing curve, used by {@link Enemy#setFunnyMotion} for the
+	 * enemy's wobble motion. Valid values are {@code "<family>.<in|out|inout>"}
+	 * for family in {@code quad, elastic, cubic, sine, circ, back, expo, quart,
+	 * quint}, plus the family-less {@code "linear.inout"}. Returns {@code null}
+	 * for anything else - callers pass the result straight to
+	 * {@code Tween...ease(TweenEquation)}, so an unrecognized string ends up
+	 * calling that with {@code null}.
+	 */
+	public TweenEquation resolveEquation(String motionEquation) {
 		TweenEquation eq = null;
 		if(motionEquation.equals("quad.inout")) {
 			eq = Quad.INOUT;
@@ -48,7 +58,7 @@ public abstract class EnemyCollection extends GameObjectCollection {
 			eq = Quad.IN;
 		}
 		else if(motionEquation.equals("quad.out")) {
-			eq = Quad.IN;
+			eq = Quad.OUT;
 		}
 		else if(motionEquation.equals("elastic.in")) {
 			eq = Elastic.IN;

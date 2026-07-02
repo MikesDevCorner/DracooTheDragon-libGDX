@@ -26,8 +26,7 @@ public class DeadScreen extends AbstractScreen {
 	private GameScreen gameScreen;
 	private boolean adShowed;
 	public static int DeadScreenCounter = 0;
-	private boolean lastConnectedState;
-	
+
 	public DeadScreen(Game game, GameScreen gameScreen) {
 		this.game = game;
 		this.gameScreen = gameScreen;
@@ -92,9 +91,6 @@ public class DeadScreen extends AbstractScreen {
 		this.adShowed = true;
 
 		if(this.adShowed == true) {
-			
-			lastConnectedState = GameAssets.input.isControllerConnected();
-		
 			DeadScreen.DeadScreenCounter++;
 			
 			this.batch = new SpriteBatch();
