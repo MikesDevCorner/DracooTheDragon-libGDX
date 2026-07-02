@@ -51,7 +51,7 @@ public class DracooMainActivity extends AndroidApplication implements iNativeFun
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
 		AndroidApplicationConfiguration cfg = new AndroidApplicationConfiguration();
-		cfg.useAccelerometer = true;
+		cfg.useAccelerometer = false;
 		cfg.useCompass = false;
 		cfg.useWakelock = true;
 

@@ -8,6 +8,8 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.controllers.ControllerAdapter;
 import com.badlogic.gdx.controllers.ControllerMapping;
 import com.badlogic.gdx.controllers.Controllers;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.IntSet;
 import com.xsheetgames.screens.AbstractScreen;
 
 /**
@@ -24,8 +26,17 @@ import com.xsheetgames.screens.AbstractScreen;
 public class InputManager extends ControllerAdapter implements InputProcessor {
 
 	private static final float AXIS_DEADZONE = 0.20f;
+	private static final float SWIPE_DEADZONE_HEIGHT_FRACTION = 0.04f;
+	private static final float SWIPE_TRAILING_RADIUS_HEIGHT_FRACTION = 0.10f;
+	private static final float SWIPE_ANCHOR_DOT_RADIUS_HEIGHT_FRACTION = 0.010f;
+	private static final float SWIPE_CURRENT_DOT_RADIUS_HEIGHT_FRACTION = 0.012f;
+	private static final float SWIPE_FEEDBACK_ALPHA = 0.45f;
 
 	private final Game game;
+	private final Vector2 swipeAnchor = new Vector2();
+	private final Vector2 swipeCurrent = new Vector2();
+	private final IntSet swipeSecondaryPointers = new IntSet();
+	private int swipeSteeringPointer = -1;
 
 	public InputManager(Game game) {
 		this.game = game;
@@ -71,7 +82,7 @@ public class InputManager extends ControllerAdapter implements InputProcessor {
 
 	/** Tastatur ODER aktives Gamepad fuer den abstrakten Tastencode (GameAssets.KEY_*). */
 	public boolean pollButton(int code) {
-		if (pollKeyboard(code)) return true;
+		if (pollKeyboard(code) || pollSwipeButton(code)) return true;
 		Controller c = currentController();
 		if (c == null) return false;
 		ControllerMapping m = c.getMapping();
@@ -90,6 +101,23 @@ public class InputManager extends ControllerAdapter implements InputProcessor {
 			}
 		} catch (Exception e) {
 			return false;
+		}
+	}
+
+	private boolean pollSwipeButton(int code) {
+		if (Configuration.inputType != 3) return false;
+		if (code == GameAssets.KEY_PRIMARY) return swipeSecondaryPointers.size > 0;
+		if (swipeSteeringPointer < 0) return false;
+
+		float deadzone = Gdx.graphics.getHeight() * SWIPE_DEADZONE_HEIGHT_FRACTION;
+		float deltaX = swipeCurrent.x - swipeAnchor.x;
+		float deltaY = swipeCurrent.y - swipeAnchor.y;
+		switch (code) {
+			case GameAssets.KEY_UP:    return deltaY < -deadzone;
+			case GameAssets.KEY_DOWN:  return deltaY > deadzone;
+			case GameAssets.KEY_LEFT:  return deltaX < -deadzone;
+			case GameAssets.KEY_RIGHT: return deltaX > deadzone;
+			default: return false;
 		}
 	}
 
@@ -166,25 +194,103 @@ public class InputManager extends ControllerAdapter implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		if (Configuration.inputType == 3) {
+			if (swipeSteeringPointer < 0 && swipeSecondaryPointers.size == 0) {
+				swipeSteeringPointer = pointer;
+				swipeAnchor.set(screenX, screenY);
+				swipeCurrent.set(screenX, screenY);
+			} else if (pointer != swipeSteeringPointer) {
+				swipeSecondaryPointers.add(pointer);
+			}
+		}
 		AbstractScreen screen = currentScreen();
 		return screen != null && screen.screenTouched(screenX, screenY, pointer);
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		releaseSwipePointer(pointer);
 		AbstractScreen screen = currentScreen();
 		return screen != null && screen.screenAfterTouched(screenX, screenY, pointer);
 	}
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		if (Configuration.inputType == 3 && pointer == swipeSteeringPointer) {
+			swipeCurrent.set(screenX, screenY);
+			float deltaX = swipeCurrent.x - swipeAnchor.x;
+			float deltaY = swipeCurrent.y - swipeAnchor.y;
+			float radius = Gdx.graphics.getHeight() * SWIPE_TRAILING_RADIUS_HEIGHT_FRACTION;
+			float distanceSquared = deltaX * deltaX + deltaY * deltaY;
+			if (distanceSquared > radius * radius) {
+				float distance = (float)Math.sqrt(distanceSquared);
+				swipeAnchor.set(
+						swipeCurrent.x - deltaX / distance * radius,
+						swipeCurrent.y - deltaY / distance * radius);
+			}
+		}
 		AbstractScreen screen = currentScreen();
 		return screen != null && screen.screenWhileTouch(screenX, screenY, pointer);
 	}
 
 	@Override
 	public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
-		return false;
+		resetSwipe();
+		AbstractScreen screen = currentScreen();
+		return screen != null && screen.screenAfterTouched(screenX, screenY, pointer);
+	}
+
+	private void releaseSwipePointer(int pointer) {
+		if (pointer == swipeSteeringPointer) {
+			swipeSteeringPointer = -1;
+		} else {
+			swipeSecondaryPointers.remove(pointer);
+		}
+		if (swipeSteeringPointer < 0 && swipeSecondaryPointers.size == 0) {
+			resetSwipe();
+		}
+	}
+
+	/** Clears all held swipe directions and secondary-pointer fire state. */
+	public void resetSwipe() {
+		swipeSteeringPointer = -1;
+		swipeSecondaryPointers.clear();
+		swipeAnchor.setZero();
+		swipeCurrent.setZero();
+	}
+
+	public boolean isSwipeActive() {
+		return Configuration.inputType == 3 && swipeSteeringPointer >= 0;
+	}
+
+	public boolean getSwipeAnchorScreen(Vector2 out) {
+		if (!isSwipeActive() || out == null) return false;
+		out.set(swipeAnchor);
+		return true;
+	}
+
+	public boolean getSwipeCurrentScreen(Vector2 out) {
+		if (!isSwipeActive() || out == null) return false;
+		out.set(swipeCurrent);
+		return true;
+	}
+
+	public float getSwipeRadiusPixels() {
+		return isSwipeActive()
+				? Gdx.graphics.getHeight() * SWIPE_TRAILING_RADIUS_HEIGHT_FRACTION
+				: 0f;
+	}
+
+	public float getSwipeAnchorDotRadiusPixels() {
+		return Gdx.graphics.getHeight() * SWIPE_ANCHOR_DOT_RADIUS_HEIGHT_FRACTION;
+	}
+
+	public float getSwipeCurrentDotRadiusPixels() {
+		return Gdx.graphics.getHeight() * SWIPE_CURRENT_DOT_RADIUS_HEIGHT_FRACTION;
+	}
+
+	public float getSwipeFeedbackAlpha() {
+		return SWIPE_FEEDBACK_ALPHA;
 	}
 
 	@Override

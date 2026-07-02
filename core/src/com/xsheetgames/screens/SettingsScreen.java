@@ -30,6 +30,7 @@ public class SettingsScreen extends AbstractScreen {
 	
 	private String control1String = "Input: Steering-Buttons";
 	private String control2String = "Input: D-Pad";
+	private String control3String = "Input: Swipe";
 
 	private String autofireOnString = "Auto fire is: ON";
 	private String autofireOffString = "Auto fire is: OFF";	
@@ -95,6 +96,10 @@ public class SettingsScreen extends AbstractScreen {
 				if(Configuration.inputType == 2) {
 					this.control2.draw(batch);
 					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.control2String, 328f, 290f+110f);
+				}
+				if(Configuration.inputType == 3) {
+					this.control3.draw(batch);
+					GameAssets.fetchFont("fonts/memory.fnt").draw(batch,this.control3String, 328f, 290f+110f);
 				}
 				
 				if(Configuration.autoFire == true) {
@@ -317,7 +322,7 @@ public class SettingsScreen extends AbstractScreen {
 			rect.setWidth(760f);
 			if(rect.contains(touchPoint.x, touchPoint.y)) {
 				GameAssets.playSound(GameAssets.fetchSound("menu/sounds/click.mp3"));
-				Configuration.inputType = (Configuration.inputType == 1) ? 2 : 1;
+				Configuration.inputType = (Configuration.inputType == 3) ? 1 : Configuration.inputType + 1;
 			}
 			this.saveSettingState();
 		}

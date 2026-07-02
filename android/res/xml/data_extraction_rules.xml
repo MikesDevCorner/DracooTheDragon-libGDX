@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="file" path="dracoo_the_dragon/settings.txt" />
+        <include domain="file" path="dracoo_the_dragon/progress.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="file" path="dracoo_the_dragon/settings.txt" />
+        <include domain="file" path="dracoo_the_dragon/progress.xml" />
+    </device-transfer>
+</data-extraction-rules>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <include domain="file" path="dracoo_the_dragon/settings.txt" />
+    <include domain="file" path="dracoo_the_dragon/progress.xml" />
+</full-backup-content>

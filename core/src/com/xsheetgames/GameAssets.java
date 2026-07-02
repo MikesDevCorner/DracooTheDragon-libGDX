@@ -87,8 +87,8 @@ public class GameAssets {
 				Configuration.soundEnabled = Boolean.parseBoolean(splitResult[1]);
 				Configuration.vibrateEnabled = Boolean.parseBoolean(splitResult[2]);
 				Configuration.inputType = Integer.parseInt(splitResult[3]);
-				//alte settings.txt kann noch tote Schemata (Swipe etc.) enthalten
-				if(Configuration.inputType != 1 && Configuration.inputType != 2) Configuration.inputType = 1;
+				//Nur Buttons, D-Pad und Swipe sind gueltige Eingabeschemata.
+				if(Configuration.inputType < 1 || Configuration.inputType > 3) Configuration.inputType = 1;
 				Configuration.autoFire = Boolean.parseBoolean(splitResult[4]);
 				Configuration.altAutoFire = Configuration.autoFire;
 				

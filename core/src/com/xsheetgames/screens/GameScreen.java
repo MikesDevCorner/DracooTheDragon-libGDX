@@ -6,10 +6,13 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -41,6 +44,7 @@ public class GameScreen extends AbstractScreen {
 	private World world;
 	private TweenManager tweenManager;
 	private SpriteBatch batch;
+	private ShapeRenderer swipeShapeRenderer;
 	private boolean solved = false;
 	
 	//Misc	
@@ -83,6 +87,9 @@ public class GameScreen extends AbstractScreen {
 	private Array<Vector2> touchInputs;
 	private Array<Vector2> actualInputs;
 	private Array<Vector2> absolutInputStarts;
+	private final Vector2 swipeAnchorScreen = new Vector2();
+	private final Vector2 swipeCurrentScreen = new Vector2();
+	private static final int SWIPE_CIRCLE_SEGMENTS = 48;
 	
 	
 	//Allan Bishop's Fixing Time Step Stuff (syncronize render-framerate with box2d-steprate)
@@ -223,7 +230,13 @@ public class GameScreen extends AbstractScreen {
 				}
 				
 				batch.draw(draco.getLiveTexture(), 75f,Configuration.TARGET_HEIGHT-draco.getLiveTexture().getRegionHeight() - 10);
-				
+
+				if(shouldDrawSwipeFeedback()) {
+					batch.end();
+					this.drawSwipeFeedback();
+					batch.begin();
+				}
+
 				if(GameScreen.paused == true) {
 					this.pauseLayer.draw(batch);
 					if(this.pauseMessage[0].equals("pause")) {
@@ -360,6 +373,7 @@ public class GameScreen extends AbstractScreen {
 
 	@Override
 	public void show() {
+		GameAssets.input.resetSwipe();
 		if(this.adShowed == false) {
 			this.resumeEnemies = false;
 			this.startLevelMusic = false;
@@ -403,6 +417,7 @@ public class GameScreen extends AbstractScreen {
 		    }
 		    
 		    this.batch = new SpriteBatch();
+		    this.swipeShapeRenderer = new ShapeRenderer();
 			
 		    //Gdx.input.setInputProcessor(this.multiplexer);
 		    //Gdx.input.setCatchBackKey(true);
@@ -439,7 +454,7 @@ public class GameScreen extends AbstractScreen {
 			this.pauseMessage = this.pauseMessage[0].split("\n");
 			this.pause();
 		} else {
-			if(Configuration.inputType == 1 || Configuration.inputType == 2) { //Onscreen-Steuerung (Buttons/D-Pad)
+			if(Configuration.inputType >= 1 && Configuration.inputType <= 3) { //Onscreen-Steuerung oder Swipe
 				if(this.pauseMessage[1].equals("blank") == false) {
 					this.pauseMessage = this.pauseMessage[1].split("\n");
 					this.pause();
@@ -450,6 +465,7 @@ public class GameScreen extends AbstractScreen {
 	
 	public void endPause() {
 		if(Configuration.debugLevel >= Application.LOG_INFO) Gdx.app.log("GameScreen", "End Pause aufgerufen");
+		GameAssets.input.resetSwipe();
 		GameScreen.paused = false;
 		
 		this.pauseMessage = this.pauseMessageOriginal.split("\n");
@@ -544,6 +560,10 @@ public class GameScreen extends AbstractScreen {
 			   this.batch.dispose();
 			   this.batch = null;
 		   }
+		   if(this.swipeShapeRenderer != null) {
+			   this.swipeShapeRenderer.dispose();
+			   this.swipeShapeRenderer = null;
+		   }
 		   this.tweenManager = null;
 		   
 		   if(this.backLayer != null) {
@@ -573,6 +593,61 @@ public class GameScreen extends AbstractScreen {
 		   
 		   this.disposed = true;
 		}
+	}
+
+	private boolean shouldDrawSwipeFeedback() {
+		return Configuration.inputType == 3
+				&& GameScreen.paused == false
+				&& this.swipeShapeRenderer != null
+				&& GameAssets.input.isSwipeActive()
+				&& GameAssets.input.getSwipeAnchorScreen(this.swipeAnchorScreen)
+				&& GameAssets.input.getSwipeCurrentScreen(this.swipeCurrentScreen);
+	}
+
+	private void drawSwipeFeedback() {
+		float screenWidth = Gdx.graphics.getWidth();
+		float screenHeight = Gdx.graphics.getHeight();
+		if(screenWidth <= 0f || screenHeight <= 0f) return;
+
+		float pixelScaleX = Configuration.GAME_PIXEL_WIDTH / screenWidth;
+		float pixelScaleY = Configuration.TARGET_HEIGHT / screenHeight;
+		float anchorX = this.swipeAnchorScreen.x * pixelScaleX;
+		float anchorY = Configuration.TARGET_HEIGHT - this.swipeAnchorScreen.y * pixelScaleY;
+		float currentX = this.swipeCurrentScreen.x * pixelScaleX;
+		float currentY = Configuration.TARGET_HEIGHT - this.swipeCurrentScreen.y * pixelScaleY;
+		float radius = GameAssets.input.getSwipeRadiusPixels() * pixelScaleY;
+		float alpha = GameAssets.input.getSwipeFeedbackAlpha();
+
+		Gdx.gl.glEnable(GL20.GL_BLEND);
+		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+		this.swipeShapeRenderer.setProjectionMatrix(this.batch.getProjectionMatrix());
+		this.swipeShapeRenderer.begin(ShapeType.Line);
+		this.swipeShapeRenderer.setColor(1f, 1f, 1f, alpha);
+		for(int segment = 0; segment < SWIPE_CIRCLE_SEGMENTS; segment += 2) {
+			float startAngle = (float)(Math.PI * 2.0 * segment / SWIPE_CIRCLE_SEGMENTS);
+			float endAngle = (float)(Math.PI * 2.0 * (segment + 1) / SWIPE_CIRCLE_SEGMENTS);
+			this.swipeShapeRenderer.line(
+					anchorX + (float)Math.cos(startAngle) * radius,
+					anchorY + (float)Math.sin(startAngle) * radius,
+					anchorX + (float)Math.cos(endAngle) * radius,
+					anchorY + (float)Math.sin(endAngle) * radius);
+		}
+		this.swipeShapeRenderer.end();
+
+		this.swipeShapeRenderer.begin(ShapeType.Filled);
+		this.swipeShapeRenderer.setColor(1f, 1f, 1f, alpha);
+		this.swipeShapeRenderer.circle(
+				anchorX,
+				anchorY,
+				GameAssets.input.getSwipeAnchorDotRadiusPixels() * pixelScaleY,
+				24);
+		this.swipeShapeRenderer.circle(
+				currentX,
+				currentY,
+				GameAssets.input.getSwipeCurrentDotRadiusPixels() * pixelScaleY,
+				24);
+		this.swipeShapeRenderer.end();
+		Gdx.gl.glDisable(GL20.GL_BLEND);
 	}
 	
 	
